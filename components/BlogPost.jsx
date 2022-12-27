@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import Image from "next/image";
-import { meta as propTypeMeta } from "../constants/propTypes";
+import { meta as metaPropType } from "../constants/propTypes";
 
 export default function BlogPost({ meta, children }) {
   return (
@@ -39,5 +39,6 @@ export default function BlogPost({ meta, children }) {
 
 BlogPost.propTypes = {
   children: PropTypes.element.isRequired,
-  meta: propTypeMeta.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  meta: metaPropType,
 };
