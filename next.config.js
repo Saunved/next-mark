@@ -1,6 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+});
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+module.exports = withMDX({
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "source.unsplash.com",
+        port: "",
+        pathname: "/random/**",
+      },
+    ],
+  },
+  pageExtensions: ["js", "jsx", "md", "mdx"],
+});
