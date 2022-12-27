@@ -32,7 +32,7 @@ function TopNavigation() {
                 </Link>
               </div>
 
-              <nav className="lg:flex gap-10 justify-end hidden">
+              <nav className="md:flex gap-10 justify-end hidden">
                 {menu.map((item) => (
                   <Link
                     href={item.link}
@@ -47,7 +47,7 @@ function TopNavigation() {
               <button
                 onClick={onMenuButtonClick}
                 type="button"
-                className="block lg:hidden border px-2 py-1 rounded"
+                className="block md:hidden border px-2 py-1 rounded"
               >
                 Menu
               </button>

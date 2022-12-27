@@ -17,7 +17,7 @@ export default function Layout({ children, pageTitle, description }) {
       <TopNavigation />
       <div className="max-w-5xl mx-auto">
         <div className="mx-4">
-          <main>
+          <main className="min-h-screen">
             <div className="content">{children}</div>
           </main>
         </div>
