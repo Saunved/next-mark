@@ -10,7 +10,7 @@ export default function BlogPost({ meta, children }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta name="Description" content={meta.description} />
+        <meta name="description" content={meta.description} />
         <title>{meta.title}</title>
       </Head>
       <main className="mt-8 max-w-3xl ml-0">
