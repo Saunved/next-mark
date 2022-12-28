@@ -28,6 +28,10 @@
   .animate { animation: none !important; }
 }
 
-.sidebar a, nav a, footer a {
+.sidebar a, footer a {
   @apply hover:dark:text-indigo-500 hover:text-indigo-700 transition-colors duration-150;
+}
+
+nav a {
+  @apply hover:text-indigo-500 transition-colors duration-150;
 }
