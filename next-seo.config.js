@@ -2,7 +2,7 @@ export default {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://saunved.com",
+    url: process.env.NEXT_PUBLIC_URL,
     site_name: "Saunved",
   },
   twitter: {

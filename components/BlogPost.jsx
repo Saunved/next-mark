@@ -47,12 +47,12 @@ export default function BlogPost({ meta, children }) {
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: `https://blog-saunved/${meta.slug}`,
+          url: `${process.env.NEXT_PUBLIC_URL}${meta.slug}`,
           title: meta.title,
           description: meta.description,
           images: [
             {
-              url: meta.image,
+              url: process.env.NEXT_PUBLIC_URL + meta.image,
               width: 800,
               height: 600,
               alt: meta.alt,
