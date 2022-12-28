@@ -4,6 +4,12 @@ import Link from "next/link";
 import { menu } from "../constants/menu";
 
 function HamburgerMenu({ isMenuOpen, onMenuCloseClick }) {
+  const onMenuButtonCloseClick = (e) => {
+    setTimeout(() => {
+      onMenuCloseClick(e);
+    }, 0);
+  };
+
   return (
     <div
       className={`fixed top-0 right-0 z-50 px-4 bg-black bg-opacity-95 text-white h-full w-screen md:hidden ${
@@ -16,7 +22,7 @@ function HamburgerMenu({ isMenuOpen, onMenuCloseClick }) {
             href={item.link}
             className="text-2xl"
             key={item.link}
-            onClick={onMenuCloseClick}
+            onClick={onMenuButtonCloseClick}
           >
             {item.title}
           </Link>
