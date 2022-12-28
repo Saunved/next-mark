@@ -35,3 +35,7 @@
 nav a {
   @apply hover:text-indigo-500 transition-colors duration-150;
 }
+
+article img {
+  @apply mx-auto;
+}
