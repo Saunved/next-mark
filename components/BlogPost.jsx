@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "../constants/propTypes";
 import BreadCrumbs from "./BreadCrumbs";
 
@@ -42,12 +42,26 @@ export default function BlogPost({ meta, children }) {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <meta name="description" content={meta.description} />
-        <title>{meta.title}</title>
-      </Head>
+      <NextSeo
+        title={meta.title}
+        description={meta.description}
+        canonical={meta.canonical}
+        openGraph={{
+          url: `https://blog-saunved/${meta.slug}`,
+          title: meta.title,
+          description: meta.description,
+          images: [
+            {
+              url: meta.image,
+              width: 800,
+              height: 600,
+              alt: meta.alt,
+            },
+          ],
+          siteName: "Saunved",
+        }}
+      />
+
       <div className="max-w-2xl">
         <BreadCrumbs links={breadCrumbLinks} />
         <h1 className="text-4xl font-bold">{meta.title}</h1>
@@ -77,6 +91,5 @@ export default function BlogPost({ meta, children }) {
 
 BlogPost.propTypes = {
   children: PropTypes.element.isRequired,
-  // eslint-disable-next-line react/require-default-props
-  meta: metaPropType,
+  meta: metaPropType.isRequired,
 };

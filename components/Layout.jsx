@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import { NextSeo, DefaultSeo } from "next-seo";
 import TopNavigation from "./TopNavigation";
 import PageFooter from "./PageFooter";
 import HomeSidebar from "./HomeSidebar";
+import seo from "../next-seo.config";
 
 export default function Layout({ children, pageTitle, description }) {
   return (
@@ -11,9 +14,10 @@ export default function Layout({ children, pageTitle, description }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta name="description" content={description} />
-        <title>{pageTitle}</title>
       </Head>
+
+      <DefaultSeo {...seo} />
+      <NextSeo title={pageTitle} description={description} />
 
       <TopNavigation />
       <div className="dark:bg-zinc-900 dark:text-white">
@@ -44,6 +48,6 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  pageTitle: "Saunved | Writings",
-  description: "A collection of my articles, stories, poems, and more",
+  pageTitle: "Saunved",
+  description: "Stories, tech insights, poems, and more - by Saunved",
 };

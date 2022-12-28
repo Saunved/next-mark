@@ -14,14 +14,7 @@ const withMDX = nextMdx({
 module.exports = withMDX({
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "source.unsplash.com",
-        port: "",
-        pathname: "/random/**",
-      },
-    ],
+    remotePatterns: [],
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
 });
