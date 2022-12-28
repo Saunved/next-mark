@@ -37,7 +37,7 @@ function TopNavigation() {
             <div className="flex justify-between items-center mx-4">
               <div className="justify-self-start">
                 <Link href="/">
-                  <h2 className="text-xl">By Saunved</h2>
+                  <h2 className="text-xl">Saunved</h2>
                 </Link>
               </div>
 
