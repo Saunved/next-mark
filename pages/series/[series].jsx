@@ -16,10 +16,7 @@ export async function getStaticProps({ params }) {
 
   const articlesMeta = articles
     .map((article) => (article?.meta ? article.meta : null))
-    .filter(
-      (_meta) =>
-        _meta?.categories.includes("series") && _meta.seriesId === params.series
-    );
+    .filter((_meta) => _meta.seriesId === params.series);
 
   return {
     props: {
