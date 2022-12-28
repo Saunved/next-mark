@@ -4,7 +4,7 @@ import { importAll } from "../helpers/importAll";
 import GenericPostFeed from "../components/GenericPostFeed";
 
 export async function getStaticProps() {
-  const articles = await importAll("");
+  const articles = await importAll();
 
   const isFirstPostOfSeries = (order) => order === 1;
   const isStandalonePost = (order) => !order;

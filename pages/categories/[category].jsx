@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await importAll("");
+  const articles = await importAll();
 
   const articlesMeta = articles
     .map((article) => (article?.meta ? article.meta : null))
