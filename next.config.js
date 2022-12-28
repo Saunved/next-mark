@@ -1,5 +1,13 @@
-const withMDX = require("@next/mdx")({
+const nextMdx = require("@next/mdx");
+const { remarkCodeHike } = require("@code-hike/mdx");
+const theme = require("shiki/themes/min-dark.json");
+
+const withMDX = nextMdx({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [[remarkCodeHike, { theme }]],
+    rehypePlugins: [],
+  },
 });
 
 /** @type {import('next').NextConfig} */

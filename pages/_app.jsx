@@ -5,8 +5,11 @@ import "../styles/globals.css";
 import { Inter } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
+import "@code-hike/mdx/dist/index.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 export default function App(props) {
   const { Component, pageProps } = props;
