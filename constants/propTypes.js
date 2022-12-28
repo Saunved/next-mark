@@ -12,4 +12,5 @@ export const meta = PropTypes.shape({
   alt: PropTypes.string,
   series: PropTypes.string,
   seriesId: PropTypes.string,
+  order: PropTypes.number,
 }).isRequired;
