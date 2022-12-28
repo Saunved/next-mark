@@ -3,7 +3,7 @@ import IconLink from "./IconLink";
 
 function PageFooter() {
   return (
-    <footer className="mt-20 bg-gray-200">
+    <footer className="bg-gray-200 dark:bg-gray-900 dark:text-white">
       <div className="max-w-5xl mx-auto py-4">
         <div className="mx-4 mt-8">
           <div className="grid grid-cols-4 md:grid-cols-12 gap-8">

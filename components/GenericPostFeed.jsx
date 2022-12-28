@@ -6,7 +6,7 @@ import { meta } from "../constants/propTypes";
 
 function GenericPostFeed({ title, postsMeta }) {
   return (
-    <div className="md:grid grid-cols-12 mt-12 gap-12">
+    <div className="md:grid grid-cols-12 py-12 gap-12">
       <div className="col-span-8">
         <h2 className="text-xl uppercase mb-4 tracking-wider font-bold">
           {title}

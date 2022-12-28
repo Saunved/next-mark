@@ -15,11 +15,13 @@ export default function Layout({ children, pageTitle, description }) {
       </Head>
 
       <TopNavigation />
-      <div className="max-w-5xl mx-auto">
-        <div className="mx-4">
-          <main className="min-h-screen">
-            <div className="content">{children}</div>
-          </main>
+      <div className="dark:bg-zinc-900 dark:text-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="mx-4">
+            <main className="min-h-screen">
+              <div className="content">{children}</div>
+            </main>
+          </div>
         </div>
       </div>
 

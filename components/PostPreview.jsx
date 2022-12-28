@@ -7,7 +7,7 @@ function PostPreview({ postMeta }) {
   const { slug, title, description, date, author, image, alt } = postMeta;
 
   return (
-    <article className="rounded-xl border mb-8">
+    <article className="rounded-xl mb-8 dark:border-gray-500 border">
       <Link href={slug}>
         <Image
           src={image}
@@ -20,13 +20,16 @@ function PostPreview({ postMeta }) {
       <div className="p-4">
         <Link href={slug}>
           <h3 className="text-xl font-bold">{title}</h3>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             {date} &bull; {author}
           </p>
           <p className="mt-2">{description}</p>
         </Link>
         <div className="mt-4">
-          <Link className="underline text-indigo-700" href={slug}>
+          <Link
+            className="underline text-indigo-700 dark:text-indigo-500"
+            href={slug}
+          >
             Read more
           </Link>
         </div>
