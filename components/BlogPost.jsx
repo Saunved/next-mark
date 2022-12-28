@@ -16,7 +16,7 @@ export default function BlogPost({ meta, children }) {
       <main className="pt-12 max-w-2xl ml-0">
         <div>
           <h1 className="text-4xl font-bold">{meta.title}</h1>
-          <p className="text-gray-600 dark:text-gray-200 mt-2">
+          <p className="text-gray-600 dark:text-gray-300 mt-2">
             {meta.author} &bull; {meta.date} &bull; {meta.readTime} min read
           </p>
           <Image
