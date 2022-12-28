@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { meta as metaPropType } from "../constants/propTypes";
+import BreadCrumbs from "./BreadCrumbs";
 
 export default function BlogPost({ meta, children }) {
+  const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
+
+  useEffect(() => {
+    const getBreadCrumbLinks = () => {
+      const links = [
+        {
+          href: "/",
+          title: "Home",
+        },
+      ];
+      const postIsFromTech = meta?.categories?.includes("tech");
+      const postIsFromSeries = meta?.order;
+
+      if (postIsFromSeries) {
+        links.push(
+          { href: `/series`, title: "Series" },
+          {
+            href: `/series/${meta.seriesId}`,
+            title: meta.series,
+          }
+        );
+      } else if (postIsFromTech) {
+        links.push({
+          href: `/tech`,
+          title: "Tech",
+        });
+      }
+
+      return links;
+    };
+
+    setBreadCrumbLinks(getBreadCrumbLinks());
+  }, [meta]);
+
   return (
     <>
       <Head>
@@ -14,6 +49,7 @@ export default function BlogPost({ meta, children }) {
         <title>{meta.title}</title>
       </Head>
       <div className="max-w-2xl">
+        <BreadCrumbs links={breadCrumbLinks} />
         <h1 className="text-4xl font-bold">{meta.title}</h1>
         <p className="text-gray-600 dark:text-gray-300 mt-2">
           {meta.author} &bull; {meta.date} &bull; {meta.readTime} min read
