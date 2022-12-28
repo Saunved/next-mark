@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import TopNavigation from "./TopNavigation";
 import PageFooter from "./PageFooter";
+import HomeSidebar from "./HomeSidebar";
 
 export default function Layout({ children, pageTitle, description }) {
   return (
@@ -17,10 +18,16 @@ export default function Layout({ children, pageTitle, description }) {
       <TopNavigation />
       <div className="dark:bg-zinc-900 dark:text-white">
         <div className="max-w-6xl mx-auto">
-          <div className="mx-4">
-            <main className="min-h-screen">
-              <div className="content">{children}</div>
-            </main>
+          <div className="md:grid grid-cols-12 py-12 gap-12 mx-4">
+            <div className="col-span-8">
+              <main className="min-h-screen">
+                <div className="content">{children}</div>
+              </main>
+            </div>
+
+            <div className="col-span-4 mt-8">
+              <HomeSidebar />
+            </div>
           </div>
         </div>
       </div>

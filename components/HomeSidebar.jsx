@@ -4,19 +4,19 @@ import SidebarLinks from "./SidebarLinks";
 
 function HomeSidebar() {
   return (
-    <div
-      className="p-4 dark:bg-zinc-900 bg-white overflow-auto sidebar"
+    <aside
+      className="md:p-4 dark:bg-zinc-900 bg-white overflow-auto sidebar"
       style={{ minHeight: "250px", maxHeight: "70vh" }}
     >
       {sidebar.map((section) => (
-        <section className="mb-12" key={section.title}>
-          <p className="text-base tracking-wider dark:text-gray-300">
+        <section className="mb-8" key={section.title}>
+          <p className="text-base tracking-wider dark:text-gray-300 font-semibold">
             {section.title}
           </p>
           <SidebarLinks links={section.links} />
         </section>
       ))}
-    </div>
+    </aside>
   );
 }
 
