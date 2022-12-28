@@ -8,9 +8,11 @@ export async function getStaticProps() {
 
   const isFirstPostOfSeries = (order) => order === 1;
   const isStandalonePost = (order) => !order;
+  const isTechPost = (categories) => categories?.includes("tech");
 
   const articlesMeta = articles
     .map((article) => (article?.meta ? article.meta : null))
+    .filter((_meta) => !isTechPost(_meta?.categories))
     .filter(
       (_meta) =>
         isStandalonePost(_meta.order) || isFirstPostOfSeries(_meta.order)
