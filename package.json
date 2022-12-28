@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new-page": "./new-page.sh"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
