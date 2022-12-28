@@ -43,7 +43,7 @@ export default function Series({ articles }) {
   return (
     <GenericPostFeed
       postsMeta={articles}
-      title="All series"
+      title="Series"
       cardType="collection"
     />
   );
