@@ -4,7 +4,7 @@ import HomeSidebar from "./HomeSidebar";
 import PostList from "./PostList";
 import { meta } from "../constants/propTypes";
 
-function GenericPostFeed({ title, postsMeta }) {
+function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
   return (
     <div className="md:grid grid-cols-12 py-12 gap-12">
       <div className="col-span-8">
@@ -15,7 +15,7 @@ function GenericPostFeed({ title, postsMeta }) {
           {!postsMeta || !postsMeta.length ? (
             <div>No posts found for this category</div>
           ) : (
-            <PostList posts={postsMeta} />
+            <PostList posts={postsMeta} cardType={cardType} />
           )}
         </section>
       </div>
@@ -29,6 +29,11 @@ function GenericPostFeed({ title, postsMeta }) {
 GenericPostFeed.propTypes = {
   title: PropTypes.string.isRequired,
   postsMeta: PropTypes.arrayOf(meta).isRequired,
+  cardType: PropTypes.string,
+};
+
+GenericPostFeed.defaultProps = {
+  cardType: "standalone",
 };
 
 export default GenericPostFeed;

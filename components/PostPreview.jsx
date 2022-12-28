@@ -2,14 +2,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "phosphor-react";
+import PropTypes from "prop-types";
 import { meta } from "../constants/propTypes";
 
-function PostPreview({ postMeta }) {
-  const { slug, title, description, date, author, image, alt } = postMeta;
+function PostPreview({ postMeta, cardType }) {
+  const { slug, title, description, date, author, image, alt, parts } =
+    postMeta;
+  const typeIsCollection = cardType === "collection";
 
-  const clippedDescription = description.substring(0, 100);
+  const clippedDescription = description.substring(0, 150);
   const ellipsisDescription =
-    clippedDescription.trim() + (description.length > 100 ? "..." : "");
+    clippedDescription.trim() + (description.length > 150 ? "..." : "");
 
   return (
     <article className="rounded-xl mb-8 dark:border-gray-500 border bg-white dark:bg-zinc-900 group">
@@ -27,7 +30,14 @@ function PostPreview({ postMeta }) {
               {title}
             </h3>
             <p className="text-xs text-gray-600 dark:text-gray-300">
-              {author} &bull; {date}
+              {author} &bull;{" "}
+              {!typeIsCollection ? (
+                date
+              ) : (
+                <>
+                  {parts} part{parts > 1 ? "s" : ""}
+                </>
+              )}
             </p>
             <p className="mt-4">{ellipsisDescription}</p>
           </div>
@@ -43,6 +53,9 @@ function PostPreview({ postMeta }) {
   );
 }
 
-PostPreview.propTypes = meta;
+PostPreview.propTypes = {
+  postMeta: meta.isRequired,
+  cardType: PropTypes.string.isRequired,
+};
 
 export default PostPreview;
