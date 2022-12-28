@@ -6,10 +6,15 @@ import GenericPostFeed from "../components/GenericPostFeed";
 export async function getStaticProps() {
   const articles = await importAll("");
 
-  // Make sure only the first post of a series is shown
+  const isFirstPostOfSeries = (order) => order === 1;
+  const isStandalonePost = (order) => !order;
+
   const articlesMeta = articles
     .map((article) => (article?.meta ? article.meta : null))
-    .filter((_meta) => !_meta.order || _meta.order === 1);
+    .filter(
+      (_meta) =>
+        isStandalonePost(_meta.order) || isFirstPostOfSeries(_meta.order)
+    );
 
   return {
     props: {
