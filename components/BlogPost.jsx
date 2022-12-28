@@ -13,24 +13,25 @@ export default function BlogPost({ meta, children }) {
         <meta name="description" content={meta.description} />
         <title>{meta.title}</title>
       </Head>
-      <main className="pt-8 max-w-3xl ml-0">
+      <main className="pt-12 max-w-2xl ml-0">
         <div>
           <h1 className="text-4xl font-bold">{meta.title}</h1>
-          <p className="text-gray-600 dark:text-gray-200">
+          <p className="text-gray-600 dark:text-gray-200 mt-2">
             {meta.author} &bull; {meta.date} &bull; {meta.readTime} min read
           </p>
           <Image
-            className="mt-4 rounded-md"
+            className="mt-8 rounded-md"
             src={meta.image}
             height={400}
             width={1024}
             alt={meta.alt}
           />
         </div>
-        <article className="prose lg:prose-lg mt-8 dark:text-gray-100">
+        <article className="mt-8 prose lg:prose-lg dark:prose-invert">
           {children}
         </article>
-        <section className="mt-16">
+        <hr className="my-10" />
+        <section className="py-16">
           <p className="text-xl font-bold">Comments</p>
           <p className="text-xs">Coming soon</p>
         </section>

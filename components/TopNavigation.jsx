@@ -31,8 +31,8 @@ function TopNavigation() {
         isMenuOpen={isMenuOpen}
         onMenuCloseClick={onMenuCloseClick}
       />
-      <div className="py-4 bg-gradient-to-t bg-purple-800 text-white">
-        <div className="max-w-5xl mx-auto">
+      <div className="py-4 bg-stone-900 text-white border-b dark:border-b-gray-800">
+        <div className="max-w-6xl mx-auto">
           <div>
             <div className="flex justify-between items-center mx-4">
               <div className="justify-self-start">
@@ -44,11 +44,7 @@ function TopNavigation() {
               <div className="flex gap-6 md:gap-10 justify-between">
                 <nav className="md:flex gap-10 justify-end hidden">
                   {menu.map((item) => (
-                    <Link
-                      href={item.link}
-                      className="uppercase text-base"
-                      key={item.link}
-                    >
+                    <Link href={item.link} className="text-lg" key={item.link}>
                       {item.title}
                     </Link>
                   ))}
