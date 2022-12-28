@@ -5,7 +5,7 @@ export const menu = [
     link: "/",
   },
   {
-    title: "Programming",
-    link: "/categories/programming",
+    title: "Tech",
+    link: "/tech",
   },
 ];
