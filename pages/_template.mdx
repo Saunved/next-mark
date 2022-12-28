@@ -1,0 +1,17 @@
+import BlogPost from "../components/BlogPost";
+
+export const meta = {
+    title: '',
+    description: '',
+    readTime: '',
+    author: '',
+    date: '',
+    slug: '',
+    image: '',
+    alt: '',
+    series: '', // Optional, if series
+    seriesId: '', // Optional, if series
+    order: 1, // Optional, if series
+}
+
+export default ({children}) => <BlogPost meta={meta}>{children}</BlogPost>
