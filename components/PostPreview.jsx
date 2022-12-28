@@ -44,7 +44,10 @@ function PostPreview({ postMeta, cardType }) {
           <div className="pt-4">
             <div className="text-sm group-hover:text-indigo-700 dark:group-hover:text-indigo-500 flex justify-start gap-2 items-center font-bold transition-colors duration-300">
               Continue reading{" "}
-              <ArrowRight className="group-hover:visible invisible" size={16} />
+              <ArrowRight
+                className="group-hover:visible lg:invisible visible"
+                size={16}
+              />
             </div>
           </div>
         </div>
