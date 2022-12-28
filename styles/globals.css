@@ -28,7 +28,7 @@
   .animate { animation: none !important; }
 }
 
-.sidebar a, footer a {
+.sidebar a, footer a, .breadcrumbs a {
   @apply hover:dark:text-indigo-500 hover:text-indigo-700 transition-colors duration-150;
 }
 
