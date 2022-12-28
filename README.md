@@ -18,3 +18,4 @@ Feel free to create an issue if something's confusing and I will try to help you
 [] Implement email subscriptions  
 [] Do an accessibility audit  
 [] [low priority] Implement breadcrumbs
+[] Fix issue with dark mode having "Sun" as the default icon for some reason
