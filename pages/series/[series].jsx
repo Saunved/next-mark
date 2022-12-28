@@ -30,12 +30,7 @@ export async function getStaticProps({ params }) {
 }
 
 function PostSeries({ articles, series }) {
-  return (
-    <GenericPostFeed
-      postsMeta={articles}
-      title={`${series} (${articles.length} parts)`}
-    />
-  );
+  return <GenericPostFeed postsMeta={articles} title={series} />;
 }
 
 PostSeries.propTypes = {
