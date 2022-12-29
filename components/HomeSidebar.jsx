@@ -10,7 +10,7 @@ function HomeSidebar() {
     >
       {sidebar.map((section) => (
         <section className="mb-8" key={section.title}>
-          <p className="text-base tracking-wider dark:text-gray-300 font-semibold">
+          <p className="text-base tracking-wider dark:text-emerald-400 font-semibold">
             {section.title}
           </p>
           <SidebarLinks links={section.links} />
