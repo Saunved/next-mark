@@ -13,10 +13,11 @@ Feel free to create an issue if something's confusing and I will try to help you
 ## TODO
 
 [] Create a RelatedPosts section beneath each blog post (using categories)  
+[] Implement pagination (10 per index page with `Load more` or Next/Prev)  
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  
 [] Implement email subscriptions  
 [] Do an accessibility audit  
-[x] [low priority] Implement breadcrumbs
-[x] Fix issue with dark mode having "Sun" as the default icon for some reason
+[x] [low priority] Implement breadcrumbs  
+[x] Fix issue with dark mode having "Sun" as the default icon for some reason  
 [] Implement next/seo (especially canonical URLs)
