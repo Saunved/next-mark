@@ -16,7 +16,8 @@ export async function getStaticProps() {
     .filter(
       (_meta) =>
         isStandalonePost(_meta.order) || isFirstPostOfSeries(_meta.order)
-    );
+    )
+    .map((_meta) => ({ ..._meta, credit: "" }));
 
   return {
     props: {

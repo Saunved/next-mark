@@ -18,7 +18,8 @@ export async function getStaticProps({ params }) {
   const articlesMeta = articles
     .map((article) => (article?.meta ? article.meta : null))
     .filter((_meta) => _meta?.categories?.includes(params.category))
-    .filter((_meta) => !_meta.order || _meta.order === 1);
+    .filter((_meta) => !_meta.order || _meta.order === 1)
+    .map((_meta) => ({ ..._meta, credit: "" }));
 
   return {
     props: {
