@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Moon, Sun } from "phosphor-react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import HamburgerMenu from "./HamburgerMenu";
 import { menu } from "../constants/menu";
 
@@ -36,7 +37,11 @@ function TopNavigation() {
           <div>
             <div className="flex justify-between items-center mx-6">
               <div className="justify-self-start">
-                <Link href="/">
+                <Link
+                  href="/"
+                  className="flex justify-start gap-2 items-center"
+                >
+                  <Image src="/favicon.ico" width={28} height={28} />
                   <h2 className="text-xl">Saunved</h2>
                 </Link>
               </div>
@@ -63,9 +68,9 @@ function TopNavigation() {
                     }
                   >
                     {resolvedTheme === "dark" ? (
-                      <Moon size={24} />
+                      <Moon size={24} className="hover:text-yellow-400" />
                     ) : (
-                      <Sun size={24} />
+                      <Sun size={24} className="hover:text-yellow-400" />
                     )}
                   </button>
                 ) : null}
@@ -73,7 +78,7 @@ function TopNavigation() {
                 <button
                   onClick={onMenuButtonClick}
                   type="button"
-                  className="block md:hidden border px-2 py-1 rounded"
+                  className="block md:hidden border px-2 py-1 rounded-md"
                 >
                   Menu
                 </button>
