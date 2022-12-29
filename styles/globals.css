@@ -29,13 +29,21 @@
 }
 
 .sidebar a, footer a, .breadcrumbs a {
-  @apply hover:dark:text-indigo-500 hover:text-indigo-700 transition-colors duration-150;
+  @apply hover:dark:text-yellow-400 hover:text-blue-800 transition-colors duration-150;
 }
 
 nav a {
-  @apply hover:text-indigo-500 transition-colors duration-150;
+  @apply hover:text-blue-500 transition-colors duration-150;
 }
 
 article img {
   @apply mx-auto;
+}
+
+figcaption {
+  @apply mt-2 text-sm text-center text-gray-600 dark:text-gray-400;
+}
+
+figcaption a {
+  @apply underline;
 }
