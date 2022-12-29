@@ -5,7 +5,7 @@ function PageFooter() {
   return (
     <footer className="bg-gray-200 dark:bg-zinc-800 dark:text-white">
       <div className="max-w-6xl mx-auto py-4">
-        <div className="mx-4 mt-8">
+        <div className="mx-6 mt-8">
           <div className="grid grid-cols-4 md:grid-cols-12 gap-8">
             <div className="col-span-4">
               <p className="uppercase font-bold">Connect via</p>
@@ -56,7 +56,7 @@ function PageFooter() {
           </div>
         </div>
 
-        <p className="text-xs text-center mt-8 italic">
+        <p className="text-xs text-center mt-8">
           It’s the job that’s never started as takes longest to finish
           <br />- Sam Gamgee
         </p>
