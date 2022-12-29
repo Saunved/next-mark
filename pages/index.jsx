@@ -1,23 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { importAll } from "../helpers/importAll";
-import GenericPostFeed from "../components/GenericPostFeed";
+import { importAllPostsMeta } from "helpers/importPostsMeta";
+import GenericPostFeed from "components/GenericPostFeed";
 
 export async function getStaticProps() {
-  const articles = await importAll();
+  const articles = await importAllPostsMeta();
 
-  const isFirstPostOfSeries = (order) => order === 1;
-  const isStandalonePost = (order) => !order;
   const isTechPost = (categories) => categories?.includes("tech");
 
-  const articlesMeta = articles
-    .map((article) => (article?.meta ? article.meta : null))
-    .filter((_meta) => !isTechPost(_meta?.categories))
-    .filter(
-      (_meta) =>
-        isStandalonePost(_meta.order) || isFirstPostOfSeries(_meta.order)
-    )
-    .map((_meta) => ({ ..._meta, credit: "" }));
+  const articlesMeta = articles.filter(
+    (_meta) => !isTechPost(_meta?.categories)
+  );
 
   return {
     props: {

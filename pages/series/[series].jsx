@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GenericPostFeed from "../../components/GenericPostFeed";
-import { importAll } from "../../helpers/importAll";
-import { meta } from "../../constants/propTypes";
+import GenericPostFeed from "components/GenericPostFeed";
+import { meta } from "constants/propTypes";
+import { importSingleSeriesPostsMeta } from "helpers/importPostsMeta";
 
 export async function getStaticPaths() {
   return {
@@ -12,12 +12,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await importAll();
-
-  const articlesMeta = articles
-    .map((article) => (article?.meta ? article.meta : null))
-    .filter((_meta) => _meta.seriesId === params.series)
-    .map((_meta) => ({ ..._meta, credit: "" }));
+  const articlesMeta = await importSingleSeriesPostsMeta(params.series);
 
   return {
     props: {

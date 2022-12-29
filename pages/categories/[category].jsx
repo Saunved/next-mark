@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import GenericPostFeed from "../../components/GenericPostFeed";
-import { importAll } from "../../helpers/importAll";
-import { capitalize } from "../../utils/capitalize";
-import { meta } from "../../constants/propTypes";
+import GenericPostFeed from "components/GenericPostFeed";
+import { importSingleCategoryPostsMeta } from "helpers/importPostsMeta";
+import { capitalize } from "utils/capitalize";
+import { meta } from "constants/propTypes";
 
 export async function getStaticPaths() {
   return {
@@ -13,13 +13,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await importAll();
-
-  const articlesMeta = articles
-    .map((article) => (article?.meta ? article.meta : null))
-    .filter((_meta) => _meta?.categories?.includes(params.category))
-    .filter((_meta) => !_meta.order || _meta.order === 1)
-    .map((_meta) => ({ ..._meta, credit: "" }));
+  const articlesMeta = await importSingleCategoryPostsMeta(params.category);
 
   return {
     props: {
