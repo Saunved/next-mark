@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PostPreview from "./PostPreview";
+import PostPreview from "components/PostPreview";
 
 function PostList({ posts, cardType }) {
   return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import PostList from "./PostList";
-import { meta } from "../constants/propTypes";
-import BreadCrumbs from "./BreadCrumbs";
+import PostList from "components/PostList";
+import { meta } from "constants/propTypes";
+import BreadCrumbs from "components/BreadCrumbs";
 
 function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);

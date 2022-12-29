@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
-import { meta as metaPropType } from "../constants/propTypes";
-import BreadCrumbs from "./BreadCrumbs";
+import { meta as metaPropType } from "constants/propTypes";
+import { humanReadableDate } from "utils/date";
+import BreadCrumbs from "components/BreadCrumbs";
 
 export default function BlogPost({ meta, children }) {
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
@@ -73,7 +74,8 @@ export default function BlogPost({ meta, children }) {
           <BreadCrumbs links={breadCrumbLinks} />
           <h1 className="text-4xl font-bold">{meta.title}</h1>
           <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {meta.author} &bull; {meta.date} &bull; {meta.readTime} min read
+            {meta.author} &bull; {humanReadableDate(meta.date)} &bull;{" "}
+            {meta.readTime} min read
           </p>
           <figure>
             <Image

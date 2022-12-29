@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SidebarLink from "./SidebarLink";
+import SidebarLink from "components/SidebarLink";
 
 function SidebarLinks({ links }) {
   if (!links.length) {

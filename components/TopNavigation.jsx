@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Moon, Sun } from "phosphor-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import HamburgerMenu from "./HamburgerMenu";
-import { menu } from "../constants/menu";
+import HamburgerMenu from "components/HamburgerMenu";
+import { menu } from "constants/menu";
 
 function TopNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,11 +1,11 @@
 import React from "react";
-import sidebar from "../constants/sidebar";
-import SidebarLinks from "./SidebarLinks";
+import sidebar from "constants/sidebar";
+import SidebarLinks from "components/SidebarLinks";
 
 function HomeSidebar() {
   return (
     <aside
-      className="md:p-4 dark:bg-zinc-900 bg-white overflow-auto sidebar"
+      className="md:p-4 dark:bg-zinc-900 bg-white overflow-auto sidebar md:sticky md:top-0"
       style={{ minHeight: "250px", maxHeight: "80vh" }}
     >
       {sidebar.map((section) => (

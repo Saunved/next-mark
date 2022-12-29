@@ -3,10 +3,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { NextSeo, DefaultSeo } from "next-seo";
-import TopNavigation from "./TopNavigation";
-import PageFooter from "./PageFooter";
-import HomeSidebar from "./HomeSidebar";
-import seo from "../next-seo.config";
+import TopNavigation from "components/TopNavigation";
+import PageFooter from "components/PageFooter";
+import HomeSidebar from "components/HomeSidebar";
+import seo from "next-seo.config";
 
 export default function Layout({ children, pageTitle, description }) {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { ArrowRight } from "phosphor-react";
-import IconLink from "./IconLink";
+import IconLink from "components/IconLink";
 
 function SidebarLink({ link }) {
   const linkIsExternal = link.external;

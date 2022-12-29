@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "phosphor-react";
 import PropTypes from "prop-types";
-import { meta } from "../constants/propTypes";
+import { meta } from "constants/propTypes";
+import { humanReadableDate } from "utils/date";
 
 function PostPreview({ postMeta, cardType }) {
   const { slug, title, description, date, author, image, alt, parts } =
@@ -32,7 +33,7 @@ function PostPreview({ postMeta, cardType }) {
             <p className="text-xs text-gray-600 dark:text-gray-300">
               {author} &bull;{" "}
               {!typeIsCollection ? (
-                date
+                humanReadableDate(date)
               ) : (
                 <>
                   {parts} part{parts > 1 ? "s" : ""}
