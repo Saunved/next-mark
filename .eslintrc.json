@@ -11,5 +11,12 @@
     },
     "ecmaVersion": 12,
     "sourceType": "module"
-  }
+  },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": ["node_modules", "./"]
+        }
+      }
+    }
 }
