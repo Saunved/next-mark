@@ -59,7 +59,7 @@ export default function BlogPost({ meta, children }) {
           description: meta.description,
           images: [
             {
-              url: process.env.NEXT_PUBLIC_URL + meta.image,
+              url: meta.image,
               width: 800,
               height: 600,
               alt: meta.alt,
