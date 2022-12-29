@@ -10,11 +10,17 @@ const withMDX = nextMdx({
   },
 });
 
+// eslint-disable-next-line prefer-destructuring
+const CLOUDFRONT_URL = process.env.CLOUDFRONT_URL;
+
 /** @type {import('next').NextConfig} */
 module.exports = withMDX({
   reactStrictMode: true,
+  env: {
+    CLOUDFRONT_URL,
+  },
   images: {
-    remotePatterns: [],
+    domains: [CLOUDFRONT_URL.split("//")[1]],
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
 });
