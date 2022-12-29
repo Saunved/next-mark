@@ -34,6 +34,12 @@ export default function BlogPost({ meta, children }) {
         });
       }
 
+      links.push({
+        href: meta.slug,
+        title: meta.title,
+        disabled: true,
+      });
+
       return links;
     };
 
@@ -62,21 +68,24 @@ export default function BlogPost({ meta, children }) {
         }}
       />
 
-      <div className="max-w-2xl">
+      <div>
         <BreadCrumbs links={breadCrumbLinks} />
         <h1 className="text-4xl font-bold">{meta.title}</h1>
         <p className="text-gray-600 dark:text-gray-300 mt-2">
           {meta.author} &bull; {meta.date} &bull; {meta.readTime} min read
         </p>
-        <Image
-          className="mt-8 rounded-md object-cover"
-          src={meta.image}
-          height={400}
-          width={1200}
-          alt={meta.alt}
-        />
+        <figure>
+          <Image
+            className="mt-8 rounded-md"
+            src={meta.image}
+            height={400}
+            width={1200}
+            alt={meta.alt}
+          />
+          <figcaption>{meta.credit}</figcaption>
+        </figure>
       </div>
-      <article className="mt-8 prose prose-zinc prose-lg dark:prose-invert">
+      <article className="mt-8 prose prose-neutral prose-lg dark:prose-invert">
         {children}
       </article>
       <hr className="my-10 dark:border-gray-600" />
