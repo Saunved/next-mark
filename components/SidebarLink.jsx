@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { ArrowRight } from "phosphor-react";
 import IconLink from "./IconLink";
 
 function SidebarLink({ link }) {
@@ -23,7 +24,9 @@ function SidebarLink({ link }) {
 
   return (
     <div className="mt-2">
-      <Link href={href}>{title}</Link>
+      <Link href={href} className="flex justify-start gap-2 items-center">
+        <ArrowRight size={16} /> {title}
+      </Link>
     </div>
   );
 }
