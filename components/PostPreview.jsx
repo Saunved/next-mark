@@ -26,7 +26,7 @@ function PostPreview({ postMeta, cardType }) {
         />
         <div className="p-4">
           <div>
-            <h3 className="text-xl font-bold group-hover:text-blue-700 dark:group-hover:text-yellow-400 transition-colors duration-100">
+            <h3 className="text-xl font-bold group-hover:text-blue-700 dark:group-hover:text-blue-500 transition-colors duration-100">
               {title}
             </h3>
             <p className="text-xs text-gray-600 dark:text-gray-300">
@@ -42,7 +42,7 @@ function PostPreview({ postMeta, cardType }) {
             <p className="mt-4">{ellipsisDescription}</p>
           </div>
           <div className="pt-4">
-            <div className="text-sm group-hover:text-blue-700 dark:group-hover:text-yellow-400 flex justify-start gap-2 items-center font-bold transition-colors duration-100">
+            <div className="text-sm group-hover:text-blue-700 dark:group-hover:text-blue-500 flex justify-start gap-2 items-center font-bold transition-colors duration-100">
               Continue reading{" "}
               <ArrowRight className="group-hover:visible visible" size={16} />
             </div>

@@ -88,8 +88,9 @@ export default function BlogPost({ meta, children }) {
       <article className="mt-8 prose prose-neutral prose-lg dark:prose-invert">
         {children}
       </article>
-      <hr className="my-10 dark:border-gray-600" />
-      <section className="pt-4 pb-16">
+
+      <hr className="my-10 dark:border-gray-600 hidden" />
+      <section className="pt-4 pb-16 hidden">
         <p className="text-xl font-bold">Comments</p>
         <p className="text-xs">Coming soon</p>
       </section>
