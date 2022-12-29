@@ -34,7 +34,7 @@ function TopNavigation() {
       <div className="py-4 bg-stone-900 text-white border-b dark:border-b-gray-800">
         <div className="max-w-6xl mx-auto">
           <div>
-            <div className="flex justify-between items-center mx-4">
+            <div className="flex justify-between items-center mx-6">
               <div className="justify-self-start">
                 <Link href="/">
                   <h2 className="text-xl">Saunved</h2>
