@@ -18,5 +18,5 @@ Feel free to create an issue if something's confusing and I will try to help you
 [] Implement email subscriptions  
 [] Do an accessibility audit  
 [x] [low priority] Implement breadcrumbs
-[] Fix issue with dark mode having "Sun" as the default icon for some reason
+[x] Fix issue with dark mode having "Sun" as the default icon for some reason
 [] Implement next/seo (especially canonical URLs)

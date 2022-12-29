@@ -8,7 +8,7 @@ import { menu } from "../constants/menu";
 function TopNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [renderClientSideCode, setRenderClientSideCode] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const onMenuButtonClick = (e) => {
     e.preventDefault();
@@ -54,15 +54,19 @@ function TopNavigation() {
                   <button
                     type="button"
                     onClick={() =>
-                      setTheme(theme === "dark" ? "light" : "dark")
+                      setTheme(resolvedTheme === "dark" ? "light" : "dark")
                     }
                     title={
-                      theme === "dark"
+                      resolvedTheme === "dark"
                         ? "Activate light mode"
                         : "Activate dark mode"
                     }
                   >
-                    {theme === "dark" ? <Moon size={24} /> : <Sun size={24} />}
+                    {resolvedTheme === "dark" ? (
+                      <Moon size={24} />
+                    ) : (
+                      <Sun size={24} />
+                    )}
                   </button>
                 ) : null}
 
