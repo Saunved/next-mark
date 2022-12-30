@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import { Inter } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
-import { Analytics } from "@vercel/analytics";
+import { Analytics } from "@vercel/analytics/dist/react";
 import "@code-hike/mdx/dist/index.css";
 
 const inter = Inter({
