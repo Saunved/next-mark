@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import { Inter } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
+import { Analytics } from "@vercel/analytics";
 import "@code-hike/mdx/dist/index.css";
 
 const inter = Inter({
@@ -18,6 +19,7 @@ export default function App(props) {
     <ThemeProvider attribute="class">
       <Layout className={inter.className}>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </ThemeProvider>
   );
