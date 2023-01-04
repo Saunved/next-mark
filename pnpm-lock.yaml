@@ -7,7 +7,6 @@ specifiers:
   '@next/font': 13.1.1
   '@next/mdx': ^13.1.1
   '@tailwindcss/typography': ^0.5.8
-  '@vercel/analytics': ^0.1.6
   autoprefixer: ^10.4.13
   eslint: ^8.30.0
   eslint-config-airbnb: ^19.0.4
@@ -39,7 +38,6 @@ dependencies:
   '@next/font': 13.1.1
   '@next/mdx': 13.1.1_ad4defa0cbb9c8932debfb655dbd39a2
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
-  '@vercel/analytics': 0.1.6_react@18.2.0
   next: 13.1.1_react-dom@18.2.0+react@18.2.0
   next-seo: 5.15.0_87fc2d0795c3886ac83115945aa18d02
   next-themes: 0.2.1_87fc2d0795c3886ac83115945aa18d02
@@ -72,7 +70,7 @@ packages:
     resolution: {integrity: sha512-jr9lCZ4RbRQmCR28Q8U8Fu49zvFqLxTY9AMOUz+iyMohMoAgpEcVxY+wJNay99oXOpOcCTODkk70NDN2aaJEeg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.27.0
+      core-js-pure: 3.27.1
       regenerator-runtime: 0.13.11
     dev: true
 
@@ -503,14 +501,6 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vercel/analytics/0.1.6_react@18.2.0:
-    resolution: {integrity: sha512-zNd5pj3iDvq8IMBQHa1YRcIteiw6ZiPB8AsONHd8ieFXlNpLqhXfIYnf4WvTfZ7S1NSJ++mIM14aJnNac/VMXQ==}
-    peerDependencies:
-      react: ^16.8||^17||^18
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /acorn-jsx/5.3.2_acorn@8.8.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -868,8 +858,8 @@ packages:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
     dev: true
 
-  /core-js-pure/3.27.0:
-    resolution: {integrity: sha512-fJml7FM6v1HI3Gkg5/Ifc/7Y2qXcJxaDwSROeZGAZfNykSTvUk94WT55TYzJ2lFHK0voSr/d4nOVChLuNCWNpA==}
+  /core-js-pure/3.27.1:
+    resolution: {integrity: sha512-BS2NHgwwUppfeoqOXqi08mUqS5FiZpuRuJJpKsaME7kJz0xxuk0xkhDdfMIlP/zLa80krBqss1LtD7f889heAw==}
     requiresBuild: true
     dev: true
 
@@ -3615,6 +3605,7 @@ packages:
   /unified/9.2.2:
     resolution: {integrity: sha512-Sg7j110mtefBD+qunSLO1lqOEKdrwBFBrR6Qd8f4uwkhWNlbkaqwHse6e7QvD3AP/MNoJdEDLaf8OxYyoWgorQ==}
     dependencies:
+      '@types/unist': 2.0.6
       bail: 1.0.5
       extend: 3.0.2
       is-buffer: 2.0.5
