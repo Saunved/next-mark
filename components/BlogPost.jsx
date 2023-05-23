@@ -47,7 +47,7 @@ export default function BlogPost({ meta, children }) {
     };
 
     setBreadCrumbLinks(getBreadCrumbLinks());
-  }, [meta]);
+  }, []);
 
   return (
     <>
@@ -90,7 +90,7 @@ export default function BlogPost({ meta, children }) {
             <figcaption>{meta.credit}</figcaption>
           </figure>
         </div>
-        <article className="mt-8 prose prose-neutral prose-lg dark:prose-invert">
+        <article className="mt-8 mb-16 prose prose-neutral prose-lg dark:prose-invert">
           {children}
         </article>
 

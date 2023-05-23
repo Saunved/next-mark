@@ -20,7 +20,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles }) {
-  return <GenericPostFeed postsMeta={articles} title="Latest posts" />;
+  return <GenericPostFeed postsMeta={articles} title="All stories" />;
 }
 
 Home.propTypes = {

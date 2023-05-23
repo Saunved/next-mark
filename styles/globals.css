@@ -47,3 +47,7 @@ figcaption {
 figcaption a {
   @apply underline;
 }
+
+p {
+  @apply leading-normal;
+}

@@ -3,20 +3,15 @@ export default [
     title: "Browse by",
     links: [
       {
-        title: "Latest posts",
+        title: "Stories",
         href: "/",
-        external: false,
-      },
-      {
-        title: "Series",
-        href: "/series",
         external: false,
       },
       {
         title: "Tech",
         href: "/tech",
         external: false,
-      },
+      }
     ],
   },
   {
@@ -28,6 +23,11 @@ export default [
         href: "/series/adventures-in-seychelles",
         external: false,
       },
+      {
+        title: "Other access",
+        href: "/series/other-access",
+        external: false,
+      },      
     ],
   },
   {

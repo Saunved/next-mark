@@ -3,7 +3,7 @@
 export default [
   {
     seriesId: "other-access",
-    series: "Other access",
+    series: "Other Access",
     description:
       'Pyrel Sesta is three days away from being captured by the government and put to "sleep" forever. A mysterious stranger, and an old family secret could help him escape.',
   },
