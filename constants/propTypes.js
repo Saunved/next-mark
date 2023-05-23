@@ -7,7 +7,6 @@ export const meta = PropTypes.shape({
   date: PropTypes.string,
   readTime: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   author: PropTypes.string,
-  slug: PropTypes.string.isRequired,
   image: PropTypes.string,
   alt: PropTypes.string,
   series: PropTypes.string,
