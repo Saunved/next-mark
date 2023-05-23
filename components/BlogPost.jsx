@@ -5,9 +5,11 @@ import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 import BreadCrumbs from "components/BreadCrumbs";
+import {useRouter} from "next/router";
 
 export default function BlogPost({ meta, children }) {
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const getBreadCrumbLinks = () => {
@@ -36,7 +38,7 @@ export default function BlogPost({ meta, children }) {
       }
 
       links.push({
-        href: meta.slug,
+        href: router.pathname,
         title: meta.title,
         disabled: true,
       });
@@ -54,12 +56,12 @@ export default function BlogPost({ meta, children }) {
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: `${process.env.NEXT_PUBLIC_URL}${meta.slug}`,
+          url: `${process.env.NEXT_PUBLIC_URL}${router.pathname}`,
           title: meta.title,
           description: meta.description,
           images: [
             {
-              url: meta.image,
+              url:process.env.CLOUDFRONT_URL + meta.image,
               width: 800,
               height: 600,
               alt: meta.alt,
@@ -80,7 +82,7 @@ export default function BlogPost({ meta, children }) {
           <figure>
             <Image
               className="mt-8 rounded-md"
-              src={meta.image}
+              src={`${process.env.CLOUDFRONT_URL}${meta.image}`}
               height={400}
               width={1200}
               alt={meta.alt}
