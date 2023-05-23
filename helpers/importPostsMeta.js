@@ -27,38 +27,41 @@ export const importAllPostsMeta = async () => {
   );
 
   return postModules
+    .map((post, index) => ({...post, path: `/${  postFilenames[index].split('.')[0]}`}))
     .filter((post) => post.meta)
     .sort(
       (post1, post2) => new Date(post2.meta.date) - new Date(post1.meta.date)
     )
-    .map((article) => ({ ...article.meta, credit: "" }));
+    .map((post) => ({...post.meta, credit: "", slug: post.path, image: `${process.env.CLOUDFRONT_URL}${post.meta?.image}` }));
 };
 
 export const importTechPostsMeta = async () => {
-  const allTechPosts = await importAllPostsMeta();
-  return allTechPosts.filter((_meta) => _meta?.categories?.includes("tech"));
+  const allTechPosts = (await importAllPostsMeta()).filter(post => post.slug.includes("/tech/"));
+  return allTechPosts;
 };
 
 export const importSeriesPostsMeta = async () => {
-  const allSeriesPosts = await importAllPostsMeta();
+  const allSeriesPosts = (await importAllPostsMeta()).filter(post => post.slug.includes("/series/"));
+
   return allSeriesPosts
-    .filter((_meta) => isFirstPostOfSeries(_meta.order))
-    .map((_meta) => {
+    .filter((post) => isFirstPostOfSeries(post.order))
+    .map((post) => {
+      const seriesId = post.slug.split("/")[2];
       // eslint-disable-next-line no-underscore-dangle
-      const _series = series.find((serie) => serie.seriesId === _meta.seriesId);
-      if (_series) {
-        return {
-          ..._meta,
-          title: _series.series,
-          description: _series.description,
-          slug: `/series/${_series.seriesId}`,
-          parts: allSeriesPosts.filter(
-            (__meta) => __meta.seriesId === _series.seriesId
-          ).length,
-        };
+      const _series = series.find((serie) => serie.seriesId === seriesId);
+      if (!_series) {
+        return null;
       }
 
-      return null;
+      return {
+        ...post,
+        title: _series.series,
+        description: _series.description,
+        slug: `/series/${_series.seriesId}`,
+        parts: allSeriesPosts.filter(
+          (_post) => _post.seriesId === _series.seriesId
+        ).length,
+      };
     });
 };
 

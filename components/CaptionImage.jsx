@@ -14,12 +14,11 @@ function CaptionImage({
   return (
     <figure className="not-prose">
       <Image
-        src={src}
+        src={`${process.env.CLOUDFRONT_URL}${src}`}
         alt={alt}
         width={full ? 1024 : width}
         height={full ? 1024 : height}
-        objectFit="cover"
-        className="rounded-md"
+        className="rounded-md object-cover"
       />
       <figcaption>{caption || children}</figcaption>
     </figure>
