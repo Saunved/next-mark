@@ -8,4 +8,8 @@ export const menu = [
     title: "Tech",
     link: "/tech",
   },
+  {
+    title: "About",
+    link: "/about",
+  },  
 ];

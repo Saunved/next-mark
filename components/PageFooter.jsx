@@ -8,7 +8,7 @@ function PageFooter() {
         <div className="mx-6 mt-8">
           <div className="grid grid-cols-4 md:grid-cols-12 gap-8">
             <div className="col-span-4">
-              <p className="uppercase font-bold">Connect via</p>
+              <p className="uppercase font-bold text-sm">Connect via</p>
               <ul className="grid gap-1 mt-2 text-base">
                 <li>
                   <IconLink
@@ -35,12 +35,12 @@ function PageFooter() {
             </div>
 
             <div className="col-span-4">
-              <p className="uppercase font-bold">Other channels</p>
+              <p className="uppercase font-bold text-sm">Other channels</p>
               <ul className="grid gap-1 mt-2 text-base">
                 <li>
                   <IconLink
                     href="https://dev.to/saunved"
-                    title="dev.to"
+                    title="Dev"
                     external
                   />
                 </li>
@@ -56,12 +56,14 @@ function PageFooter() {
           </div>
         </div>
 
-        <p className="text-xs text-center mt-8">
-          It’s the job that’s never started as takes longest to finish
+        <hr className="border-stone-900 dark:border-stone-500 mt-6" />
+
+        <p className="text-xs text-center mt-12">
+          It’s the job that’s never started as takes longest to finish.
           <br />- Sam Gamgee
         </p>
 
-        <hr className="border-stone-900 dark:border-stone-500 mt-6" />
+        {/* <hr className="border-stone-900 dark:border-stone-500 mt-6" /> */}
 
         <p className="text-center mt-6">
           &copy; Saunved M. All Rights Reserved.

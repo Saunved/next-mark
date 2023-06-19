@@ -29,23 +29,5 @@ export default [
         external: false,
       },      
     ],
-  },
-  {
-    title: "Awesome libraries",
-    subtitle: "Check them out!",
-    links: [
-      {
-        title: "CodeHike",
-        href: "https://github.com/code-hike/codehike",
-        external: true,
-        iconSize: 14,
-      },
-      {
-        title: "Docusaurus",
-        href: "https://docusaurus.io/",
-        external: true,
-        iconSize: 14,
-      },
-    ],
-  },
+  }
 ];
