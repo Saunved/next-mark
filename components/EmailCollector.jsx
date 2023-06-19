@@ -1,6 +1,9 @@
+import React from "react"
+import PropTypes from "prop-types";
+
 export default function EmailCollector({ className }) {
     return (
-        <form action="https://buttondown.email/api/emails/embed-subscribe/saunved" method="post" target="popupwindow" className={className + " embeddable-buttondown-form"}>
+        <form action="https://buttondown.email/api/emails/embed-subscribe/saunved" method="post" target="popupwindow" className={className}>
             <p className="text-base tracking-wide dark:text-emerald-400 font-semibold">
                 Subscribe via email
             </p>
@@ -22,5 +25,12 @@ export default function EmailCollector({ className }) {
             </button>
         </form>
     )
+}
 
+EmailCollector.propTypes = {
+    className: PropTypes.string
+}
+
+EmailCollector.defaultProps = {
+    className: ""
 }
