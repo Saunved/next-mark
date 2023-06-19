@@ -2,7 +2,7 @@ export default {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_URL,
+    url: process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_VERCEL_URL,
     site_name: "Saunved",
   },
   twitter: {

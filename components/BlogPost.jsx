@@ -56,7 +56,7 @@ export default function BlogPost({ meta, children }) {
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: `${process.env.ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_URL}${router.pathname}`,
+          url: `${process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_VERCEL_URL}${router.pathname}`,
           title: meta.title,
           description: meta.description,
           images: [
