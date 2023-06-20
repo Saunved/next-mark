@@ -7,7 +7,7 @@ import BreadCrumbs from "components/BreadCrumbs";
 function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
   const POSTS_TO_LOAD = 4;
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
-  const [showLoadMore, setShowLoadMore] = useState(true);
+  const [showLoadMore, setShowLoadMore] = useState(false);
   const [postsToShow, setPostsToShow] = useState(4);
   const [visiblePosts, setVisiblePosts] = useState([]);
 
@@ -16,7 +16,10 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
 
     if (postsToShow >= postsMeta.length) {
       setShowLoadMore(false)
+    } else {
+      setShowLoadMore(true);
     }
+
   }, [postsMeta, postsToShow])
 
   useEffect(() => {
