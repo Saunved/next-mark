@@ -21,7 +21,7 @@ export default function SubscribedPage() {
                     I have always wanted to have an independent space on the internet, free from the constraints of the common Content Management Systems, or the whims of publishing platforms.
                 </p>
                 <p className="mt-4">
-                    Part of the reason for creating this website is the joy of coding it from the ground up. However, I really do enjoy writing, so this is a perfect mix of both for me.
+                    Part of the reason for creating this website is the joy of coding it from the ground up. Also, I really enjoy writing, so this is a perfect mix of both for me.
                 </p>
             </div>
 
