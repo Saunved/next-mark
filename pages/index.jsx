@@ -1,29 +1,50 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { importAllPostsMeta } from "helpers/importPostsMeta";
+import { importAllPostsMeta, importSeriesPostsMeta, importTechPostsMeta } from "helpers/importPostsMeta";
 import GenericPostFeed from "components/GenericPostFeed";
 
 export async function getStaticProps() {
-  const articles = await importAllPostsMeta();
+  const posts = await importAllPostsMeta();
+  const seriesMeta = await importSeriesPostsMeta();
+  const techMeta = await importTechPostsMeta();
 
   const isTechPost = (categories) => categories?.includes("tech");
+  const isSeriesPost = (slug) => slug?.includes("series");
 
-  const articlesMeta = articles.filter(
-    (_meta) => !isTechPost(_meta?.categories)
-  );
+  const storiesMeta = posts
+    .filter(
+      (_meta) => !isTechPost(_meta?.categories) && !isSeriesPost(_meta?.slug)
+    )
 
   return {
     props: {
-      articles: articlesMeta,
+      stories: storiesMeta,
+      series: seriesMeta,
+      tech: techMeta
     },
   };
 }
 
-export default function Home({ articles }) {
-  return <GenericPostFeed postsMeta={articles} title="All stories" />;
+export default function Home({ stories, series, tech }) {
+  return (<div className="grid gap-12">
+    <section id="stories">
+      <GenericPostFeed postsMeta={stories} title="All stories" />
+    </section>
+    <section id="series">
+      <GenericPostFeed postsMeta={series} title="All series" cardType="collection" />
+    </section>
+    <section id="tech" className="mb-12">
+      <GenericPostFeed postsMeta={tech} title="All tech posts" />
+    </section>
+  </div>
+  )
 }
 
 Home.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  articles: PropTypes.array.isRequired,
+  stories: PropTypes.array.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  series: PropTypes.array.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  tech: PropTypes.array.isRequired
 };
