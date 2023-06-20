@@ -10,7 +10,7 @@ export default function SubscribedPage() {
                 <p className="mt-4">Hey there! I am Saunved.</p>
 
                 <p className="mt-4">
-                    I write stories and articles about a wide variety of topics, ranging from personal experiences, to fictional worlds, or often times, a mix of both. I am a software engineer by profession, so I occasionally write tech guides or articles pertaining to programming.
+                    I write stories and articles about a wide variety of topics ranging from personal experiences, to fictional worlds, or often times, a mix of both. I am a software engineer by profession, so I occasionally write tech guides or articles pertaining to programming.
                 </p>
             </div>
 
@@ -18,7 +18,7 @@ export default function SubscribedPage() {
 
                 <h1 className="text-3xl">Why this website?</h1>
                 <p className="mt-4">
-                    I don't have a particular "goal" for this website. I have always wanted to have an independent space on the internet, free from the constraints of the common Content Management Systems, or the whims of publishing platforms.
+                    I have always wanted to have an independent space on the internet, free from the constraints of the common Content Management Systems, or the whims of publishing platforms.
                 </p>
                 <p className="mt-4">
                     Part of the reason for creating this website is the joy of coding it from the ground up. However, I really do enjoy writing, so this is a perfect mix of both for me.
@@ -35,7 +35,7 @@ export default function SubscribedPage() {
                     The site is hosted on <a className="underline" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a> and is connected to <a className="underline" href="https://vercel.com/" target="_blank" rel="noreferrer">Vercel</a> for deployments. I am also using <a className="underline" href="https://buttondown.email" target="_blank" rel="noreferrer">Buttondown</a> for creating a subscriber list for this website's newsletter.
                 </p>
                 <p className="mt-4">
-                    Besides the few hours I have spent building it (maybe 16-20 hours), this setup is entirely free (so far). I am hoping to make certain parts of this site open source so that other developers can reuse parts of it if they wish to.
+                    Besides the few hours I have spent building it (maybe 16-20 hours), and the cost of my domain, this setup is entirely free (so far). I am hoping to make certain parts of this site open source so that other developers can reuse parts of it if they wish to.
                 </p>
 
             </div>            
