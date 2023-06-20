@@ -10,7 +10,7 @@ export default function SubscribedPage() {
                 <p className="mt-4">Hey there! I am Saunved.</p>
 
                 <p className="mt-4">
-                    I write stories and articles about a wide variety of topics ranging from personal experiences, to fictional worlds, or often times, a mix of both. I am a software engineer by profession, so I occasionally write tech guides or articles pertaining to programming.
+                    I write stories and articles about a wide variety of topics ranging from personal experiences to fictional worlds, or often times, a mix of both. I am a software engineer by profession, so I occasionally write tech guides or articles pertaining to programming.
                 </p>
             </div>
 
