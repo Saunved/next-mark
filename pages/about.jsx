@@ -47,7 +47,7 @@ export default function SubscribedPage() {
                     If you subscribe, you will occasionally be treated to an email with a summary of my posts over the last week or two.
                 </p>
                 <p className="mt-4">
-                    If you like reading witty stories, enjoy being pulled into fictional worlds, or you're interested in software engineering, then you could consider subscribing.
+                    If you like reading witty stories, enjoy being pulled into fictional worlds, or you're interested in software engineering, then you should consider subscribing.
                 </p>
                 <p className="mt-4">
                     Your email won't be shared anywhere else, and I won't spam you. You also get to see a cool cat picture after you subscribe, so there's that!
