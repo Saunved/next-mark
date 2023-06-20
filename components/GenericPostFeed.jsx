@@ -5,7 +5,19 @@ import { meta } from "constants/propTypes";
 import BreadCrumbs from "components/BreadCrumbs";
 
 function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
+  const POSTS_TO_LOAD = 4;
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
+  const [showLoadMore, setShowLoadMore] = useState(true);
+  const [postsToShow, setPostsToShow] = useState(4);
+  const [visiblePosts, setVisiblePosts] = useState([]);
+
+  useEffect(() => {
+    setVisiblePosts(postsMeta.slice(0, postsToShow));
+
+    if (postsToShow >= postsMeta.length) {
+      setShowLoadMore(false)
+    }
+  }, [postsMeta, postsToShow])
 
   useEffect(() => {
     const getBreadCrumbLinks = () => {
@@ -41,19 +53,31 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
     setBreadCrumbLinks(getBreadCrumbLinks());
   }, [title]);
 
+  const onClickLoadMore = () => {
+    setPostsToShow(postsToShow + POSTS_TO_LOAD)
+  }
+
   return (
     <div>
       <BreadCrumbs links={breadCrumbLinks} />
-      <h2 className="text-2xl mb-4 dark:text-gray-200 font-semibold">
+      <h2 className="text-3xl mb-4 dark:text-gray-200 font-semibold">
         {title}
       </h2>
       <section className="sm:grid grid-cols-2 gap-6 mt-4">
         {!postsMeta || !postsMeta.length ? (
           <div>No posts found for this category</div>
         ) : (
-          <PostList posts={postsMeta} cardType={cardType} />
+          <PostList posts={visiblePosts} cardType={cardType} />
         )}
       </section>
+      {
+        !showLoadMore ? null : (<div className="text-center mt-4">
+          <button type="button" onClick={onClickLoadMore} className="dark:bg-gray-700 dark:text-gray-200 rounded-md px-4 py-2 text-md border border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-50">
+            Load more
+          </button>
+        </div>)
+      }
+
     </div>
   );
 }
