@@ -9,7 +9,7 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone" }) {
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [postsToShow, setPostsToShow] = useState(4);
-  const [visiblePosts, setVisiblePosts] = useState([]);
+  const [visiblePosts, setVisiblePosts] = useState(postsMeta.slice(0, postsToShow));
 
   useEffect(() => {
     setVisiblePosts(postsMeta.slice(0, postsToShow));
