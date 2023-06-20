@@ -48,7 +48,7 @@ export default function SubscribedPage() {
 
                 <h1 className="text-3xl">Why subscribe?</h1>
                 <p className="mt-4">
-                    If you subscribe, you'd occasionally be treated to an email with a summary of my posts over the last week or two.
+                    If you subscribe, you will occasionally be treated to an email with a summary of my posts over the last week or two.
                 </p>
                 <p className="mt-4">
                     If you like reading witty stories, enjoy being pulled into fictional worlds, or you're interested in software engineering, then you could consider subscribing.
