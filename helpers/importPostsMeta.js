@@ -67,7 +67,7 @@ export const importSeriesPostsMeta = async () => {
 
 export const importSingleSeriesPostsMeta = async (singleSeries) => {
   const allPostsMeta = await importAllPostsMeta();
-  return allPostsMeta.filter((_meta) => _meta.seriesId === singleSeries);
+  return allPostsMeta.filter((_meta) => _meta.seriesId === singleSeries).sort((a, b) => new Date(a.date) - new Date(b.date));
 };
 
 export const importSingleCategoryPostsMeta = async (singleCategory) => {

@@ -15,20 +15,34 @@
 }
 
 @keyframes animate-fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes animate-fade-out {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-  .animate { animation: none !important; }
+  .animate {
+    animation: none !important;
+  }
 }
 
-.sidebar a, footer a, .breadcrumbs a {
+.sidebar a,
+footer a,
+.breadcrumbs a {
   @apply hover:dark:text-blue-500 hover:text-blue-800 transition-colors duration-150;
 }
 

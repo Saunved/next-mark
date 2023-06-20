@@ -4,6 +4,8 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   darkMode: "class",
+  // eslint-disable-next-line global-require
+  plugins: [require("@tailwindcss/typography")],  
   content: [
     "./node_modules/flowbite-react/**/*.js",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -64,11 +66,15 @@ module.exports = {
             "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
             "--tw-prose-invert-th-borders": colors.zinc[600],
             "--tw-prose-invert-td-borders": colors.zinc[700],
+            h2: {
+              marginBottom: "8px"
+            },            
+            h3: {
+              marginBottom: "8px"
+            }
           },
         },
       },
     },
   },
-  // eslint-disable-next-line global-require
-  plugins: [require("@tailwindcss/typography")],
 };

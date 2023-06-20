@@ -13,7 +13,7 @@ Feel free to create an issue if something's confusing and I will try to help you
 ## TODO
 
 [] Create a RelatedPosts section beneath each blog post (using categories)  
-[] Implement pagination (10 per index page with `Load more` or Next/Prev)  
+[x] Implement pagination of some kind
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  
 [x] Implement email subscriptions  

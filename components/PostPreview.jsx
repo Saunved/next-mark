@@ -16,7 +16,7 @@ function PostPreview({ postMeta, cardType }) {
     clippedDescription.trim() + (description.length > 150 ? "..." : "");
 
   return (
-    <article className="rounded-xl mb-6 md:mb-2 dark:border-gray-500 border bg-white dark:bg-zinc-900 group">
+    <article className="rounded-xl mb-6 md:mb-2 dark:border-gray-500 border border-gray-300 hover:shadow-md bg-white dark:bg-zinc-900 group">
       <Link href={slug}>
         <Image
           src={image}
