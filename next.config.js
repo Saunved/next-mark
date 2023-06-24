@@ -15,7 +15,7 @@ const getBaseUrl = () => {
     return "http://localhost:3000"
   }
 
-  return process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_VERCEL_URL
+  return process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
 }
 
 /** @type {import('next').NextConfig} */
