@@ -48,6 +48,6 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  pageTitle: "Saunved",
+  pageTitle: "Stories by Saunved",
   description: "Stories, tech insights, poems, and more - by Saunved",
 };

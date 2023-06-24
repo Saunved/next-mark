@@ -32,7 +32,7 @@ export const importAllPostsMeta = async () => {
     .sort(
       (post1, post2) => new Date(post2.meta.date) - new Date(post1.meta.date)
     )
-    .map((post) => ({...post.meta, credit: "", slug: post.path, image: `${process.env.CLOUDFRONT_URL}${post.meta?.image}` }));
+    .map((post) => ({...post.meta, credit: "", slug: post.path, image: post.meta?.image}));
 };
 
 export const importTechPostsMeta = async () => {
