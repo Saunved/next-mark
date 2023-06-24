@@ -14,7 +14,7 @@ function CaptionImage({
   return (
     <figure className="not-prose">
       <Image
-        src={`${process.env.CLOUDFRONT_URL}${src}`}
+        src={`${src}`}
         alt={alt}
         width={full ? 1024 : width}
         height={full ? 1024 : height}

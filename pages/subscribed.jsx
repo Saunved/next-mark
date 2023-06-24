@@ -8,7 +8,7 @@ export default function SubscribedPage() {
             <h1 className="text-xl">Subscription confirmed!</h1>
             <p className="">My cat is confused as to why anyone would subscribe to this mewsletter. <br /> But I sincerely hope you enjoy the content to follow!</p>
             <div className="flex justify-center w-full mt-6">
-                <Image src={`${process.env.CLOUDFRONT_URL}/dot_hi.jpg`} width={250} height={300} className="rounded-xl" />
+                <Image src="/dot_hi.jpg" width={250} height={300} className="rounded-xl" />
             </div>
 
             <div className="mt-4 text-center">

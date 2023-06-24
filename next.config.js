@@ -10,17 +10,20 @@ const withMDX = nextMdx({
   },
 });
 
-// eslint-disable-next-line prefer-destructuring
-const CLOUDFRONT_URL = process.env.CLOUDFRONT_URL;
+const getBaseUrl = () => {
+  if(!process.env.NEXT_PUBLIC_VERCEL_ENV) {
+    return "http://localhost:3000"
+  }
+
+  return process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+}
 
 /** @type {import('next').NextConfig} */
 module.exports = withMDX({
   reactStrictMode: true,
   env: {
-    CLOUDFRONT_URL,
-  },
-  images: {
-    domains: [CLOUDFRONT_URL.split("//")[1]],
+    BASE_URL: getBaseUrl()
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
 });
+

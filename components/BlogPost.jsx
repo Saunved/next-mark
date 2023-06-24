@@ -56,18 +56,18 @@ export default function BlogPost({ meta, children }) {
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: `${process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://saunved.com" : process.env.NEXT_PUBLIC_VERCEL_URL}${router.pathname}`,
+          url: process.env.BASE_URL + router.pathname,
           title: meta.title,
           description: meta.description,
           images: [
             {
-              url:process.env.CLOUDFRONT_URL + meta.image,
+              url: process.env.BASE_URL + meta.image,
               width: 800,
               height: 600,
               alt: meta.alt,
             },
           ],
-          siteName: "Saunved",
+          siteName: "Stories by Saunved",
         }}
       />
 
@@ -82,7 +82,7 @@ export default function BlogPost({ meta, children }) {
           <figure>
             <Image
               className="mt-8 rounded-md"
-              src={`${process.env.CLOUDFRONT_URL}${meta.image}`}
+              src={`${meta.image}`}
               height={400}
               width={1200}
               alt={meta.alt}

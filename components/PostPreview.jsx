@@ -22,8 +22,8 @@ function PostPreview({ postMeta, cardType }) {
           src={image}
           alt={alt || title}
           className="rounded-t-xl h-48 w-full object-cover"
-          width={1024}
-          height={768}
+          width={512}
+          height={384}
         />
         <div className="p-4">
           <div>
