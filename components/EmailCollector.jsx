@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types";
 import Link from "next/link";
+import baseConfig from "base.config";
 
 export default function EmailCollector({ className }) {
     const [email, setEmail] = useState("")
 
     return (
         <section className={className}>
-            <form action="https://buttondown.email/api/emails/embed-subscribe/saunved" method="post" target="popupwindow">
+            <form action={baseConfig.buttonDownLink} method="post" target="popupwindow">
                 <p className="text-base tracking-wide dark:text-emerald-400 font-semibold">
                     Subscribe via email
                 </p>
