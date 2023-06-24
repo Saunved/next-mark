@@ -7,6 +7,7 @@ import TopNavigation from "components/TopNavigation";
 import PageFooter from "components/PageFooter";
 import HomeSidebar from "components/HomeSidebar";
 import seo from "next-seo.config";
+import baseConfig from "base.config";
 
 export default function Layout({ children, pageTitle, description }) {
   return (
@@ -48,6 +49,6 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  pageTitle: "Stories by Saunved",
-  description: "Stories, tech insights, poems, and more - by Saunved",
+  pageTitle: baseConfig.seo.site_name,
+  description: baseConfig.seo.description,
 };

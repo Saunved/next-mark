@@ -6,6 +6,7 @@ import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 import BreadCrumbs from "components/BreadCrumbs";
 import {useRouter} from "next/router";
+import baseConfig from "base.config";
 
 export default function BlogPost({ meta, children }) {
   const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
@@ -67,7 +68,7 @@ export default function BlogPost({ meta, children }) {
               alt: meta.alt,
             },
           ],
-          siteName: "Stories by Saunved",
+          siteName: baseConfig.seo.siteName,
         }}
       />
 

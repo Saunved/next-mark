@@ -1,5 +1,6 @@
 import React from "react";
 import IconLink from "components/IconLink";
+import baseConfig from "base.config";
 
 function PageFooter() {
   return (
@@ -10,47 +11,34 @@ function PageFooter() {
             <div className="col-span-4">
               <p className="uppercase font-bold text-sm">Connect via</p>
               <ul className="grid gap-1 mt-2 text-base">
-                <li>
-                  <IconLink
-                    href="https://www.linkedin.com/in/saunved/"
-                    title="LinkedIn"
-                    external
-                  />
-                </li>
-                <li>
-                  <IconLink
-                    href="https://twitter.com/saunved"
-                    title="Twitter"
-                    external
-                  />
-                </li>
-                <li>
-                  <IconLink
-                    href="https://www.github.com/saunved/"
-                    title="Github"
-                    external
-                  />
-                </li>
+                {
+                  baseConfig.footer.social.map(social => (
+                    <li key={social.href}>
+                      <IconLink
+                        href={social.href}
+                        title={social.title}
+                        external={social.external}
+                      />
+                    </li>
+                  ))
+                }
               </ul>
             </div>
 
             <div className="col-span-4">
               <p className="uppercase font-bold text-sm">Other channels</p>
               <ul className="grid gap-1 mt-2 text-base">
-                <li>
-                  <IconLink
-                    href="https://dev.to/saunved"
-                    title="Dev"
-                    external
-                  />
-                </li>
-                <li>
-                  <IconLink
-                    href="https://medium.com/@saunved"
-                    title="Medium"
-                    external
-                  />
-                </li>
+                {
+                  baseConfig.footer.platforms.map(social => (
+                    <li key={social.href}>
+                      <IconLink
+                        href={social.href}
+                        title={social.title}
+                        external={social.external}
+                      />
+                    </li>
+                  ))
+                }
               </ul>
             </div>
           </div>
@@ -58,15 +46,8 @@ function PageFooter() {
 
         <hr className="border-stone-900 dark:border-stone-500 mt-6" />
 
-        <p className="text-xs text-center mt-12">
-          It’s the job that’s never started as takes longest to finish.
-          <br />- Sam Gamgee
-        </p>
-
-        {/* <hr className="border-stone-900 dark:border-stone-500 mt-6" /> */}
-
         <p className="text-center mt-6">
-          &copy; Saunved M. All Rights Reserved.
+          &copy; {baseConfig.copyRight}
         </p>
       </div>
     </footer>
