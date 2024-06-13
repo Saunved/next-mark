@@ -3,7 +3,7 @@ import fs from "fs";
 import series from "constants/series";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
-const isMdxFile = (str) => str.includes(".mdx");
+const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
 const isFirstPostOfSeries = (order) => order === 1;
 
 // https://stackoverflow.com/a/71166133
@@ -19,7 +19,7 @@ export const importAllPostsMeta = async () => {
   const postsDirectory = path.join(process.cwd(), "pages");
   const postFilenames = (await deepReadDir(postsDirectory))
     .flat(Number.POSITIVE_INFINITY)
-    .filter((name) => isMdxFile(name) && !shouldFileBeIgnored(name))
+    .filter((name) => isValidPost(name) && !shouldFileBeIgnored(name))
     .map((name) => name.split("/pages/")[1]);
 
   const postModules = await Promise.all(
@@ -27,12 +27,25 @@ export const importAllPostsMeta = async () => {
   );
 
   return postModules
-    .map((post, index) => ({...post, path: `/${  postFilenames[index].split('.')[0]}`}))
-    .filter((post) => post.meta)
+    .map((post, index) => ({ ...post, _path: `/${postFilenames[index].split('.')[0]}` }))
+    .filter((post) => post.title && !post.page)
     .sort(
-      (post1, post2) => new Date(post2.meta.date) - new Date(post1.meta.date)
+      (post1, post2) => new Date(post2.date) - new Date(post1.date)
     )
-    .map((post) => ({...post.meta, credit: "", slug: post.path, image: post.meta?.image}));
+    .map(({ author, title, _path, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
+      alt,
+      author,
+      categories,
+      date,
+      description,
+      image,
+      readTime,
+      title,
+      credit: "",
+      tags,
+      slug: _path
+    }));
+
 };
 
 export const importTechPostsMeta = async () => {
