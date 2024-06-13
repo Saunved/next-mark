@@ -1,6 +1,6 @@
-const nextMdx = require("@next/mdx");
-const { remarkCodeHike } = require("@code-hike/mdx");
-const theme = require("shiki/themes/dracula-soft.json");
+import nextMdx from "@next/mdx";
+import { remarkCodeHike } from "@code-hike/mdx";
+import theme from "shiki/themes/dracula-soft.json" assert {type: "json"};
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
@@ -11,7 +11,7 @@ const withMDX = nextMdx({
 });
 
 const getBaseUrl = () => {
-  if(!process.env.NEXT_PUBLIC_VERCEL_ENV) {
+  if (!process.env.NEXT_PUBLIC_VERCEL_ENV) {
     return "http://localhost:3000"
   }
 
@@ -19,7 +19,7 @@ const getBaseUrl = () => {
 }
 
 /** @type {import('next').NextConfig} */
-module.exports = withMDX({
+export default withMDX({
   reactStrictMode: true,
   env: {
     BASE_URL: getBaseUrl()
