@@ -31,7 +31,7 @@ export default function EmailCollector({ className }) {
                     Subscribe
                 </button>
             </form>
-            <div className="text-center">
+            <div className="text-center hidden">
                 <Link href="/about#why-subscribe" className="text-sm dark:text-gray-200 underline">Why subscribe?</Link>
             </div>
         </section>
