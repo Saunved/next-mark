@@ -7,6 +7,9 @@
     image: '/supabase-to-nuxt.jpg'
     alt: 'Rocket launch'
     categories: ['tech', 'guide']
+    tags:
+      - tech
+      - guide
 ---
 
 Yesterday, I tried Supabase for the first time. Within about 30 minutes, I had social login and password-based authentication set up. There was almost zero friction during the whole process and I was super impressed, especially after my horrible developer experience with AWS Cognito and Amplify Auth.
