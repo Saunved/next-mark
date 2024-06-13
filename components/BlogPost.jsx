@@ -1,54 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
-import BreadCrumbs from "components/BreadCrumbs";
 import { useRouter } from "next/router";
 import baseConfig from "base.config";
 
 export default function BlogPost({ meta, children }) {
-  const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
   const router = useRouter();
-
-  useEffect(() => {
-    const getBreadCrumbLinks = () => {
-      const links = [
-        {
-          href: "/",
-          title: "Home",
-        },
-      ];
-      const postIsFromTech = meta?.categories?.includes("tech");
-      const postIsFromSeries = meta?.order;
-
-      if (postIsFromSeries) {
-        links.push(
-          { href: `/series`, title: "Series" },
-          {
-            href: `/series/${meta.seriesId}`,
-            title: meta.series,
-          }
-        );
-      } else if (postIsFromTech) {
-        links.push({
-          href: `/tech`,
-          title: "Tech",
-        });
-      }
-
-      links.push({
-        href: router.pathname,
-        title: meta.title,
-        disabled: true,
-      });
-
-      return links;
-    };
-
-    setBreadCrumbLinks(getBreadCrumbLinks());
-  }, []);
 
   return (
     <>
@@ -74,22 +34,23 @@ export default function BlogPost({ meta, children }) {
 
       <div className="max-w-2xl ml-0">
         <div>
-          <BreadCrumbs links={breadCrumbLinks} />
           <h1 className="text-4xl font-bold">{meta.title}</h1>
           <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {meta.author} &bull; {humanReadableDate(meta.date)} &bull;{" "}
-            {meta.readTime} min read
+            {!meta.author ? null : meta.author}
+            {!meta.date ? null : <> &bull; {humanReadableDate(meta.date)}</>}
+            {!meta.readTime ? null : <>&bull;{" "}{meta.readTime} min read</>}
           </p>
-          <figure>
-            <Image
+          {
+            !meta.image ? null : <figure> <Image
               className="mt-8 rounded-md"
               src={`${meta.image}`}
               height={400}
               width={1200}
               alt={meta.alt}
             />
-            <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
-          </figure>
+              <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
+            </figure>
+          }
         </div>
         <article className="mt-8 mb-16 prose prose-neutral prose-lg dark:prose-invert">
           {children}
