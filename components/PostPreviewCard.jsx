@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { meta } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 
-function PostPreview({ postMeta, cardType }) {
+function PostPreviewCard({ postMeta, cardType }) {
   const { slug, title, description, date, author, image, alt, parts } =
     postMeta;
   const typeIsCollection = cardType === "collection";
@@ -54,9 +54,9 @@ function PostPreview({ postMeta, cardType }) {
   );
 }
 
-PostPreview.propTypes = {
+PostPreviewCard.propTypes = {
   postMeta: meta.isRequired,
-  cardType: PropTypes.string.isRequired,
+  cardType: PropTypes.string.isRequired
 };
 
-export default PostPreview;
+export default PostPreviewCard;
