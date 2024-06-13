@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 import BreadCrumbs from "components/BreadCrumbs";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import baseConfig from "base.config";
 
 export default function BlogPost({ meta, children }) {
@@ -88,7 +88,7 @@ export default function BlogPost({ meta, children }) {
               width={1200}
               alt={meta.alt}
             />
-            <figcaption>{meta.credit}</figcaption>
+            <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
           </figure>
         </div>
         <article className="mt-8 mb-16 prose prose-neutral prose-lg dark:prose-invert">
