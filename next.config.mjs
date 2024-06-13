@@ -1,11 +1,13 @@
 import nextMdx from "@next/mdx";
 import { remarkCodeHike } from "@code-hike/mdx";
 import theme from "shiki/themes/dracula-soft.json" assert {type: "json"};
+import remarkFrontmatter from 'remark-frontmatter'
+import { remarkMdxNext } from "remark-mdx-next";
 
 const withMDX = nextMdx({
-  extension: /\.mdx?$/,
+  extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [[remarkCodeHike, { theme, showCopyButton: true }]],
+    remarkPlugins: [remarkFrontmatter, remarkMdxNext, [remarkCodeHike, { theme, showCopyButton: true }]],
     rehypePlugins: [],
   },
 });
