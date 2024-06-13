@@ -10,6 +10,7 @@ import seo from "next-seo.config";
 import baseConfig from "base.config";
 
 export default function Layout({ children, pageTitle, description }) {
+
   return (
     <>
       <Head>

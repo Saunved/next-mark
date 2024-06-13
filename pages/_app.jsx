@@ -6,6 +6,7 @@ import { Inter } from "@next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
 import "@code-hike/mdx/dist/index.css";
+import BlogPost from "components/BlogPost";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +18,13 @@ export default function App(props) {
   return (
     <ThemeProvider attribute="class">
       <Layout className={inter.className}>
-        <Component {...pageProps} />
+        {
+          Component.name === "MDXContent" ?
+            <BlogPost meta={pageProps}>
+              <Component {...pageProps} />
+            </BlogPost> :
+            <Component {...pageProps} />
+        }
       </Layout>
     </ThemeProvider>
   );
