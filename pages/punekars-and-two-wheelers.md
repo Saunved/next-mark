@@ -1,20 +1,15 @@
-import BlogPost from "components/BlogPost";
-import CaptionImage from "components/CaptionImage"
-
-export const meta = {
-    title: 'Punekars and two-wheelers',
-    description: `Every Punekar, irrespective of which bike, scooter, or bicycle they have, drives it like Batman's bike.`,
-    readTime: 3,
-    author: 'Saunved',
-    date: '2016-11-23',
-    image: `/pune-bikes-large.jpg`,
-    blurImg: `/pune-bikes-small.jpg`,
-    credit: <>Photo by <a href="https://unsplash.com/@atharva_tulsi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Atharva Tulsi</a> on <a href="https://unsplash.com/photos/zTdh_ft2oRM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></>,
-    alt: 'Crazy bike rider',
-    categories: ['funny', 'satire']
-}
-
-export default ({children}) => <BlogPost meta={meta}>{children}</BlogPost>
+---
+title: 'Punekars and two-wheelers'
+description: "Every Punekar, irrespective of which bike, scooter, or bicycle they have, drives it like Batman's bike."
+readTime: 3
+author: 'Saunved'
+date: '2016-11-23'
+image: '/pune-bikes-large.jpg'
+blurImg: '/pune-bikes-small.jpg'
+credit: Photo by <a href="https://unsplash.com/@atharva_tulsi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Atharva Tulsi</a> on <a href="https://unsplash.com/photos/zTdh_ft2oRM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+alt: 'Crazy bike rider'
+categories: ['funny', 'satire']
+---
 
 Punekars are fantastic drivers. From dodging potholes quicker than one dodges trains in Subway Surfers to going over speed-breakers so fast that you cannot even feel the bump — we are the embodiment of the saying “Ignorance is bliss”.
 

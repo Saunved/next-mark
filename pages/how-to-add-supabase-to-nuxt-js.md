@@ -1,18 +1,13 @@
-import BlogPost from "components/BlogPost";
-
-export const meta = {
-    title: 'How to add Supabase to Nuxt.js',
-    description: 'This is a quick guide on how you can add Supabase to a Nuxt.js application.',
-    readTime: '3',
-    author: 'Saunved',
-    date: '2021-05-02',
-    image: `/supabase-to-nuxt.jpg`,
-    alt: 'Rocket launch',
+---
+    title: 'How to add Supabase to Nuxt.js'
+    description: 'This is a quick guide on how you can add Supabase to a Nuxt.js application.'
+    readTime: '3'
+    author: 'Saunved'
+    date: '2021-05-02'
+    image: '/supabase-to-nuxt.jpg'
+    alt: 'Rocket launch'
     categories: ['tech', 'guide']
-}
-
-export default ({children}) => <BlogPost meta={meta}>{children}</BlogPost>
-
+---
 
 Yesterday, I tried Supabase for the first time. Within about 30 minutes, I had social login and password-based authentication set up. There was almost zero friction during the whole process and I was super impressed, especially after my horrible developer experience with AWS Cognito and Amplify Auth.
 
