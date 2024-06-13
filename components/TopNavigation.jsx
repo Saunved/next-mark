@@ -34,9 +34,9 @@ function TopNavigation() {
         onMenuCloseClick={onMenuCloseClick}
       />
       <div className="py-4 bg-stone-900 text-white border-b dark:border-b-gray-800">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div>
-            <div className="flex justify-between items-center mx-6">
+            <div className="flex justify-between items-center mx-2">
               <div className="justify-self-start">
                 <Link
                   href="/"

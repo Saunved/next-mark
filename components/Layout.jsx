@@ -23,8 +23,8 @@ export default function Layout({ children, pageTitle, description }) {
 
       <TopNavigation />
       <div className="dark:bg-zinc-900 dark:text-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="md:grid grid-cols-12 py-8 gap-12 mx-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="md:grid grid-cols-12 py-8 gap-16 mx-2">
             <div className="col-span-8">
               <main className="min-h-screen">
                 <div className="content">{children}</div>
