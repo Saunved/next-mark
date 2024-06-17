@@ -1,19 +1,16 @@
 import path from "path";
-import fs from "fs";
-import series from "constants/series";
+import { deepReadDir } from "./deepReadDir";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
-const isFirstPostOfSeries = (order) => order === 1;
 
-// https://stackoverflow.com/a/71166133
-const deepReadDir = async (dirPath) =>
-  Promise.all(
-    fs.readdirSync(dirPath, { withFileTypes: true }).map(async (dirent) => {
-      const innerPath = path.join(dirPath, dirent.name);
-      return dirent.isDirectory() ? deepReadDir(innerPath) : innerPath;
-    })
-  );
+export const getRelatedPosts = (postMeta, allPosts) => {
+  if (!postMeta?.tags) {
+    return [];
+  }
+
+  return allPosts.filter(post => post?.tags && post.tags.some((tag) => postMeta.tags.includes(tag)))
+}
 
 export const importAllPostsMeta = async () => {
   const postsDirectory = path.join(process.cwd(), "pages");
@@ -26,13 +23,13 @@ export const importAllPostsMeta = async () => {
     postFilenames.map(async (p) => import(`../pages/${p}`))
   );
 
-  return postModules
+  const allPostsMeta = postModules
     .map((post, index) => ({ ...post, _path: `/${postFilenames[index].split('.')[0]}` }))
     .filter((post) => post.title && !post.page)
     .sort(
       (post1, post2) => new Date(post2.date) - new Date(post1.date)
     )
-    .map(({ author, title, _path, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
+    .map(({ title, _path, author = null, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
       alt,
       author,
       categories,
@@ -46,47 +43,13 @@ export const importAllPostsMeta = async () => {
       slug: _path
     }));
 
+  return allPostsMeta.map((postMeta) => ({ ...postMeta, related: getRelatedPosts(postMeta, allPostsMeta) }))
+
 };
 
-export const importTechPostsMeta = async () => {
-  const allTechPosts = (await importAllPostsMeta()).filter(post => post.slug.includes("/tech/"));
-  return allTechPosts;
-};
+const allPosts = await importAllPostsMeta();
 
-export const importSeriesPostsMeta = async () => {
-  const allSeriesPosts = (await importAllPostsMeta()).filter(post => post.slug.includes("/series/"));
+export const importPostsWithTag = async (tag) => allPosts.filter(post => post?.tags && post.tags.includes(tag))
 
-  return allSeriesPosts
-    .filter((post) => isFirstPostOfSeries(post.order))
-    .map((post) => {
-      const seriesId = post.slug.split("/")[2];
-      // eslint-disable-next-line no-underscore-dangle
-      const _series = series.find((serie) => serie.seriesId === seriesId);
-      if (!_series) {
-        return null;
-      }
-
-      return {
-        ...post,
-        title: _series.series,
-        description: _series.description,
-        slug: `/series/${_series.seriesId}`,
-        parts: allSeriesPosts.filter(
-          (_post) => _post.seriesId === _series.seriesId
-        ).length,
-      };
-    });
-};
-
-export const importSingleSeriesPostsMeta = async (singleSeries) => {
-  const allPostsMeta = await importAllPostsMeta();
-  return allPostsMeta.filter((_meta) => _meta.seriesId === singleSeries).sort((a, b) => new Date(a.date) - new Date(b.date));
-};
-
-export const importSingleCategoryPostsMeta = async (singleCategory) => {
-  const allPostsMeta = await importAllPostsMeta();
-
-  return allPostsMeta
-    .filter((_meta) => _meta?.categories?.includes(singleCategory))
-    .filter((_meta) => !_meta.order || _meta.order === 1);
-};
+export const importTechPostsMeta = () => importPostsWithTag("tech");
+export const importFeaturedPostsMeta = () => importPostsWithTag("featured");
