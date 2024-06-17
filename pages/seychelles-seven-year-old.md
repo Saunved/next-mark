@@ -10,14 +10,14 @@ alt: 'Picture of a beach with coconut trees and far-off mountains'
 series: 'Adventures in Seychelles'
 seriesId: 'adventures-in-seychelles'
 order: 1
+tags:
+  - featured
 ---
-
-import CaptionImage from "components/CaptionImage";
 
 When I was seven, my parents decided to move to Seychelles. Seychelles is close to Mauritius, which most people know as a tourist destination. Mauritius is a lone island in the sea. Seychelles however, is an archipelago — which means the country comprises of a total of 115 islands of which Mahé was the principal island — the place where most people went.
 Compared to the other islands, Mahé was the largest, spanning 11 kilometers wide and 27km long. And that was where we went.
 
-<CaptionImage alt="115 islands" src={`/115_islands.jpeg`} />
+![115 islands](/115_islands.jpeg)
 
 When we landed in Seychelles, the first thing that struck me was the smell of salt and fish. That was natural since the airport was right next to the ocean. The next thing that struck me was the people. They were different. To call them relaxed would be an understatement. So let’s just say they enjoyed life.
 
@@ -30,7 +30,7 @@ A mammoth golden beach 50 meters away from the school you were going to? Umm…A
 
 Most people find it fascinating that I went to a school that was in front of a beach. Trust me, being the “realist” that I am, I would spend half my free time wondering what would happen to us if a tsunami were to strike. Turns out the tsunami of 2004 had killed a grand total of 2 people in the whole archipelago. But still, one must be cautious.
 
-<CaptionImage alt="Beach house comic" src={`/beach_house.jpg`} />
+![Beach house comic](/beach_house.jpg)
 
 Indians in Seychelles were infamously called “Malabar”. Apparently, the first Indians to land on the island had come off the coast of Malabar in India. The name had stuck. And it pissed me off to no end when someone would ask me if I was a “Malabar” or a “Sinwan” (Sinwan meant Chinese).
 ‘Indians and Chinese are very different,’ I would say.
