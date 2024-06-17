@@ -22,8 +22,8 @@ Some background before we start.
 ## Why do the streak?
 My intention was always to learn Spanish. It was never about maintaining a streak. That is precisely what I did for about 400 days.
 
-
-<CaptionImage src={`/400_day_streak.jpg`} alt="400 day streak" caption="Streaks feel really good (until you have them)" />
+![400 day streak](/400_day_streak.jpg)
+<!-- Streaks feel really good until you have them -->
 
 For me, the streak was just an icing on the cake. A medal of honor to show for my efforts. Maintaining it felt effortless for the most part because my interest in the language kept me coming back for more.
 
@@ -53,9 +53,7 @@ Here are a few ideas and suggestions to achieve just that.
 
 ### Let people unwind with rest days
 
-<CaptionImage src={`/unwind.jpg`} alt="Unwind" full>
-    Photo by <a href="https://unsplash.com/@ale_s_bianchi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alessandro Bianchi</a> on <a href="https://unsplash.com/photos/3kKLU4-UUbU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</CaptionImage>
+<!-- Photo by <a href="https://unsplash.com/@ale_s_bianchi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alessandro Bianchi</a> on <a href="https://unsplash.com/photos/3kKLU4-UUbU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
 
 Instead of providing streak freezes, give people one or two days off every week. We take days off from work, from school, from exercise — pretty much from every activity we do, so why shouldn’t the same apply to an app too?
 
@@ -63,9 +61,8 @@ The user should feel entitled to this break. In fact, you should encourage peopl
 
 ### Introduce a regularity percentage
 
-<CaptionImage src={`/regularity.jpg`} alt="Regularity" full>
-    Photo by <a href="https://unsplash.com/@yuhandu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yuhan Du</a> on <a href="https://unsplash.com/photos/Y2W095FOvQw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</CaptionImage>
+![Regularity](/regularity.jpg)
+<!--     Photo by <a href="https://unsplash.com/@yuhandu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yuhan Du</a> on <a href="https://unsplash.com/photos/Y2W095FOvQw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
 
 A regularity score could be used measure how often you practice Duolingo. For example, someone who practices every single day would have a score of 100. Someone who practices less frequently will have a score of 98.
 
@@ -73,17 +70,15 @@ Of course, leaves should be left out of the regularity calculation, otherwise th
 
 ### Let people take a yearly vacation
 
-<CaptionImage src={`/vacation.jpg`} alt="Person relaxing in hammock" full>
-    Photo by <a href="https://unsplash.com/@somechrisguy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Thompson</a> on <a href="https://unsplash.com/photos/mi7W_V4slxg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</CaptionImage>
+![Person relaxing in hammock](/vacation.jpg)
+<!-- Photo by <a href="https://unsplash.com/@somechrisguy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Thompson</a> on <a href="https://unsplash.com/photos/mi7W_V4slxg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
   
 Besides the weekly leaves, getting a yearly vacation of 15 days will allow people to detach and relax. They can setup their “vacation” in the app and it’ll remind them when the vacation is about to get over. If people utilise their vacation and their weekly leaves, they will get ~280/365 days of practice overall — which is fantastic.  
 
 ### Create lesson plans based on the user’s schedule
 
-<CaptionImage src={`/lesson_plan.jpg`} alt="Person drawing a flowchart" full>
-    Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/lFtttcsx5Vk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</CaptionImage>
+![Person drawing a flowchart](/lesson_plan.jpg)
+<!-- Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/lFtttcsx5Vk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
 
 By observing the regularity and practice patterns for a user, you could create customized routines for the user with achievable goals. Instead of relying on notifications, feeling guilty at 11pm for not having done Duolingo, and not having a plan that works — seeing a personalized plan with rest days + easy days + hard days can be quite comforting and might motivate users that rely on structure and organization.
 
@@ -91,9 +86,8 @@ Of course, the plan shouldn’t be enforced, but simply exist as a guideline for
 
 ### Show the total number of days a user has practiced
 
-<CaptionImage src={`/clocks.jpeg`} alt="A lot of clocks" full>
-    Photo by <a href="https://unsplash.com/@jontyson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jon Tyson</a> on <a href="https://unsplash.com/s/photos/time?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</CaptionImage>  
+![A lot of clocks](/clocks.jpeg)
+<!-- Photo by <a href="https://unsplash.com/@jontyson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jon Tyson</a> on <a href="https://unsplash.com/s/photos/time?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
 
 This is as opposed to the total consecutive days that the user has practiced (viz. streak). Seeing this number climb whenever you practice will be rewarding, but also low stakes since missing a few days won’t reset it.
 
