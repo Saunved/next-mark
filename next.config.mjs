@@ -3,11 +3,12 @@ import { remarkCodeHike } from "@code-hike/mdx";
 import theme from "shiki/themes/dracula-soft.json" assert {type: "json"};
 import remarkFrontmatter from 'remark-frontmatter'
 import { remarkMdxNext } from "remark-mdx-next";
+import remarkWikiLinkPlus from "remark-wiki-link-plus";
 
 const withMDX = nextMdx({
   extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [remarkFrontmatter, remarkMdxNext, [remarkCodeHike, { theme, showCopyButton: true }]],
+    remarkPlugins: [remarkFrontmatter, remarkWikiLinkPlus, remarkMdxNext, [remarkCodeHike, { theme, showCopyButton: true }]],
     rehypePlugins: [],
   },
 });
@@ -27,5 +28,6 @@ export default withMDX({
     BASE_URL: getBaseUrl()
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
+  webpack: (config) => ({ ...config, experiments: { ...config.experiments, topLevelAwait: true } })
 });
 
