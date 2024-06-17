@@ -6,7 +6,6 @@
     date: '2021-05-02'
     image: '/supabase-to-nuxt.jpg'
     alt: 'Rocket launch'
-    categories: ['tech', 'guide']
     tags:
       - tech
       - guide
