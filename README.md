@@ -21,3 +21,5 @@ Feel free to create an issue if something's confusing and I will try to help you
 [x] [low priority] Implement breadcrumbs  
 [x] Fix issue with dark mode having "Sun" as the default icon for some reason  
 [x] Implement next/seo (especially canonical URLs)
+[x] Implement a system to index/not index certain posts (use page: true in frontmatter)
+[x] Implement wikilinks parsing
