@@ -3,11 +3,26 @@ import PropTypes from "prop-types";
 import PostPreviewCard from "components/PostPreviewCard";
 import PostPreviewListItem from "components/PostPreviewListItem";
 import feedTypes from "constants/feedTypes";
+import PostPreviewSimpleListItem from "./PostPreviewSimpleListItem";
 
 function PostList({ posts, cardType, feedType }) {
 
   switch (feedType) {
     case feedTypes.simpleList:
+      return (
+        <section className="sm:grid grid-cols-1 gap-2 mt-4">
+          {posts.map((article) => (
+            <PostPreviewSimpleListItem
+              className="col-span-1"
+              postMeta={article}
+              key={article.slug}
+              cardType={cardType}
+              feedType={feedType}
+            />
+          ))}
+        </section>
+      )
+    case feedTypes.listWithDescription:
       return (
         <section className="sm:grid grid-cols-1 gap-2 mt-4">
           {posts.map((article) => (

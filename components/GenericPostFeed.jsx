@@ -58,7 +58,7 @@ GenericPostFeed.propTypes = {
 
 GenericPostFeed.defaultProps = {
   cardType: "standalone",
-  feedType: feedTypes.simpleList
+  feedType: feedTypes.listWithDescription
 };
 
 export default GenericPostFeed;
