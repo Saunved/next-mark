@@ -12,14 +12,14 @@ Feel free to create an issue if something's confusing and I will try to help you
 
 ## TODO
 
-[] Create a RelatedPosts section beneath each blog post (using categories)  
 [x] Implement pagination of some kind
-[] Implement a "Likes" system  
-[] Implement a "Comments" system  
 [x] Implement email subscriptions  
-[] Do an accessibility audit  
 [x] [low priority] Implement breadcrumbs  
 [x] Fix issue with dark mode having "Sun" as the default icon for some reason  
 [x] Implement next/seo (especially canonical URLs)
 [x] Implement a system to index/not index certain posts (use page: true in frontmatter)
 [x] Implement wikilinks parsing
+[] Create a RelatedPosts section beneath each blog post (using categories)
+[] Do an accessibility audit  
+[] Implement a "Likes" system  
+[] Implement a "Comments" system  
