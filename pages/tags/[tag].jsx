@@ -4,6 +4,7 @@ import { importAllPostsMeta, importPostsWithTag } from "helpers/importPostsMeta"
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import { getAllTags } from "helpers/tags";
+import baseConfig from "base.config.mjs";
 
 export async function getStaticPaths() {
     const allPostsMeta = await importAllPostsMeta();
@@ -19,16 +20,17 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             posts,
-            tag
+            tagMeta: baseConfig.tags[tag] || { title: `${tag} posts`, description: "" }
         },
     };
 }
 
-export default function Home({ posts = [], tag }) {
+export default function Home({ posts = [], tagMeta }) {
+
     return (<div className="grid gap-12">
 
         <section id="tech">
-            <GenericPostFeed postsMeta={posts} title={`${tag} posts`} feedType={feedTypes.simpleList} />
+            <GenericPostFeed postsMeta={posts} title={`${tagMeta.title}`} feedType={feedTypes.simpleList} feedDescription={tagMeta.description} />
         </section>
 
     </div>
@@ -38,5 +40,6 @@ export default function Home({ posts = [], tag }) {
 Home.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     posts: PropTypes.array.isRequired,
-    tag: PropTypes.string.isRequired
+    // eslint-disable-next-line react/forbid-prop-types
+    tagMeta: PropTypes.object.isRequired
 };
