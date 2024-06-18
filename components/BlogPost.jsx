@@ -56,10 +56,6 @@ export default function BlogPost({ meta, children }) {
           {children}
         </article>
 
-        <section>
-          <h2 className="text-xl">Related posts</h2>
-        </section>
-
         <hr className="my-10 dark:border-gray-600 hidden" />
         <section className="pt-4 pb-16 hidden">
           <p className="text-xl font-bold">Comments</p>
