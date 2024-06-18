@@ -1,5 +1,6 @@
 import path from "path";
 import { deepReadDir } from "./deepReadDir";
+import blogConfig from "blog.config.mjs";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
@@ -29,7 +30,7 @@ export const importAllPostsMeta = async () => {
     .sort(
       (post1, post2) => new Date(post2.date) - new Date(post1.date)
     )
-    .map(({ title, _path, author = null, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
+    .map(({ title, _path, author = blogConfig.author, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
       alt,
       author,
       categories,

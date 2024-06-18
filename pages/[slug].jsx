@@ -7,6 +7,7 @@ import path from 'path';
 import { MDXRemote } from 'next-mdx-remote';
 import PropTypes from 'prop-types';
 import { CH } from "@code-hike/mdx/components"
+import blogConfig from 'blog.config.mjs';
 import mdxOptions from '../mdx.config.mjs';
 
 const components = { CH };
@@ -49,8 +50,8 @@ export async function getStaticProps({ params }) {
 }
 
 function PostPage({ mdxSource }) {
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <BlogPost meta={mdxSource.frontmatter}><MDXRemote {...mdxSource} components={components} /></BlogPost>
+    // eslint-disable-next-line react/jsx-props-no-spreading, react/prop-types
+    return <BlogPost meta={{ ...mdxSource.frontmatter, author: mdxSource?.frontMatter?.author || blogConfig.author }}><MDXRemote {...mdxSource} components={components} /></BlogPost>
 }
 
 PostPage.propTypes = {

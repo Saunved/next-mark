@@ -17,6 +17,7 @@ const blogConfig = {
     localUrl: "http://localhost:3000",
     siteHeader: "Saunved",
     copyRight: "Saunved M. All Rights Reserved.",
+    author: "Saunved",
     footer: {
         social: [
             {
