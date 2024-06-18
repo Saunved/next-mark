@@ -1,4 +1,4 @@
-import { fetchAllPostsMeta, fetchPost } from 'helpers/posts';
+import { memoizedFetchAllPostsMeta, fetchPost } from 'helpers/posts';
 import BlogPost from 'components/BlogPost';
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
@@ -9,7 +9,7 @@ import blogConfig from 'blog.config.mjs';
 const components = { CH };
 
 export async function getStaticPaths() {
-    const allPosts = await fetchAllPostsMeta();
+    const allPosts = await memoizedFetchAllPostsMeta();
     const paths = allPosts.map((post) => ({
         // eslint-disable-next-line no-underscore-dangle
         params: { slug: post.slug.replace(/^\/+/, '') },
@@ -33,6 +33,7 @@ export async function getStaticProps({ params }) {
             },
         };
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Error during MDX serialization", error)
         throw error;
     }

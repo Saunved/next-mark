@@ -4,6 +4,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import mdxConfig from "mdx.config.mjs";
 import fs from "fs";
 import { deepReadDir } from "./deepReadDir";
+import memoize from "./memoize";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
@@ -41,13 +42,15 @@ export const fetchAllPostsMeta = async () => {
 
 };
 
-const allPosts = await fetchAllPostsMeta();
+export const memoizedFetchAllPostsMeta = memoize(fetchAllPostsMeta)
+const allPosts = await memoizedFetchAllPostsMeta();
 
 export const fetchPostsWithTag = async (tag) => allPosts.filter(post => post?.tags && post.tags.includes(tag))
 export const fetchTechPostsMeta = () => fetchPostsWithTag("tech");
 export const fetchFeaturedPostsMeta = () => fetchPostsWithTag("featured");
 
 export const fetchRelatedPosts = (postMeta, slug) => {
+
   if (!postMeta?.tags) {
     return [];
   }
