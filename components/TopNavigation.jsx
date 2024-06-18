@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import HamburgerMenu from "components/HamburgerMenu";
 import { menu } from "constants/menu";
-import baseConfig from "base.config.mjs";
+import blogConfig from "blog.config.mjs";
 
 function TopNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ function TopNavigation() {
                   className="flex justify-start gap-2 items-center"
                 >
                   <Image src="/favicon.ico" width={28} height={28} />
-                  <h2 className="text-xl">{baseConfig.siteHeader}</h2>
+                  <h2 className="text-xl">{blogConfig.siteHeader}</h2>
                 </Link>
               </div>
 

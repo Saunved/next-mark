@@ -4,7 +4,7 @@ import { importAllPostsMeta, importPostsWithTag } from "helpers/importPostsMeta"
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import { getAllTags } from "helpers/tags";
-import baseConfig from "base.config.mjs";
+import blogConfig from "blog.config.mjs";
 
 export async function getStaticPaths() {
     const allPostsMeta = await importAllPostsMeta();
@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             posts,
-            tagMeta: baseConfig.tags[tag] || { title: `${tag} posts`, description: "" }
+            tagMeta: blogConfig.tags[tag] || { title: `${tag} posts`, description: "" }
         },
     };
 }

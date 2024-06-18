@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 import { useRouter } from "next/router";
-import baseConfig from "base.config.mjs";
+import blogConfig from "blog.config.mjs";
 
 export default function BlogPost({ meta, children }) {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function BlogPost({ meta, children }) {
               alt: meta.alt,
             },
           ],
-          siteName: baseConfig.seo.siteName,
+          siteName: blogConfig.seo.siteName,
         }}
       />
 

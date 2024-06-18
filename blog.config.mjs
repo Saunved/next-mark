@@ -1,4 +1,4 @@
-const baseConfig = {
+const blogConfig = {
     seo: {
         openGraph: {
             type: "website",
@@ -63,8 +63,8 @@ const baseConfig = {
 
 if (typeof exports === "object") {
     module.exports = {
-        ...baseConfig
+        ...blogConfig
     }
 }
 
-export default baseConfig;
+export default blogConfig;
