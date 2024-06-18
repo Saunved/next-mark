@@ -1,14 +1,10 @@
-import { fetchAllPostsMeta } from 'helpers/posts';
+import { fetchAllPostsMeta, fetchPost } from 'helpers/posts';
 import BlogPost from 'components/BlogPost';
 import React from 'react';
-import { serialize } from 'next-mdx-remote/serialize';
-import fs from 'fs';
-import path from 'path';
 import { MDXRemote } from 'next-mdx-remote';
 import PropTypes from 'prop-types';
 import { CH } from "@code-hike/mdx/components"
 import blogConfig from 'blog.config.mjs';
-import mdxOptions from '../mdx.config.mjs';
 
 const components = { CH };
 
@@ -27,15 +23,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 
-    const postsDirectory = path.join(process.cwd(), 'content');
-    const fullPath = path.join(postsDirectory, `${params.slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
     try {
-        const mdxSource = await serialize(fileContents, {
-            mdxOptions,
-            parseFrontmatter: true
-        });
+        const mdxSource = await fetchPost(params.slug, "md");
 
         return {
             props: {
@@ -43,7 +32,6 @@ export async function getStaticProps({ params }) {
             },
         };
     } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Error during MDX serialization", error)
         throw error;
     }

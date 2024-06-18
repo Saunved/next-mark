@@ -1,5 +1,8 @@
 import path from "path";
 import blogConfig from "blog.config.mjs";
+import { serialize } from "next-mdx-remote/serialize";
+import mdxConfig from "mdx.config.mjs";
+import fs from "fs";
 import { deepReadDir } from "./deepReadDir";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
@@ -11,6 +14,23 @@ export const getRelatedPosts = (postMeta, allPosts) => {
   }
 
   return allPosts.filter(post => post?.tags && post.tags.some((tag) => postMeta.tags.includes(tag)))
+}
+
+export const fetchPost = async (slug, ext) => {
+  const postsDirectory = path.join(process.cwd(), 'content');
+  const fullPath = path.join(postsDirectory, `${slug}.${ext}`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  try {
+    return await serialize(fileContents, {
+      mdxOptions: mdxConfig,
+      parseFrontmatter: true
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error during MDX serialization", error)
+    throw error;
+  }
 }
 
 export const fetchAllPostsMeta = async () => {
