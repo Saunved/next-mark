@@ -52,7 +52,7 @@ export default function BlogPost({ meta, children }) {
             </figure>
           }
         </div>
-        <article className="mt-8 mb-16 prose prose-neutral prose-lg dark:prose-invert">
+        <article className="mt-8 mb-16 prose prose-neutral dark:prose-invert">
           {children}
         </article>
 
