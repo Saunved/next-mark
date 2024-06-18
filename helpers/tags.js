@@ -2,5 +2,7 @@
 
 export const getAllTags = async (postsMeta) => {
     const tags = postsMeta.map(post => post?.tags);
-    return Array.from(new Set(tags))
+    const flattenedTags = [];
+    tags.forEach(tagGroup => flattenedTags.concat(tagGroup));
+    return Array.from(new Set(flattenedTags))
 }
