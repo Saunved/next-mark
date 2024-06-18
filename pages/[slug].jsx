@@ -24,11 +24,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
     try {
-        const mdxSource = await fetchPost(params.slug, "md");
+        const { mdxSource, relatedPosts } = await fetchPost(params.slug, "md");
 
         return {
             props: {
                 mdxSource,
+                relatedPosts
             },
         };
     } catch (error) {
@@ -37,9 +38,9 @@ export async function getStaticProps({ params }) {
     }
 }
 
-function PostPage({ mdxSource }) {
+function PostPage({ mdxSource, relatedPosts }) {
     // eslint-disable-next-line react/jsx-props-no-spreading, react/prop-types
-    return <BlogPost meta={{ ...mdxSource.frontmatter, author: mdxSource?.frontMatter?.author || blogConfig.author }}><MDXRemote {...mdxSource} components={components} /></BlogPost>
+    return <BlogPost relatedPosts={relatedPosts} meta={{ ...mdxSource.frontmatter, author: mdxSource?.frontMatter?.author || blogConfig.author }}><MDXRemote {...mdxSource} components={components} /></BlogPost>
 }
 
 PostPage.propTypes = {
@@ -50,6 +51,8 @@ PostPage.propTypes = {
         // eslint-disable-next-line react/forbid-prop-types
         frontmatter: PropTypes.object,
     }).isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    relatedPosts: PropTypes.array.isRequired
 };
 
 export default PostPage;

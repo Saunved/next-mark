@@ -8,31 +8,6 @@ import { deepReadDir } from "./deepReadDir";
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
 
-export const getRelatedPosts = (postMeta, allPosts) => {
-  if (!postMeta?.tags) {
-    return [];
-  }
-
-  return allPosts.filter(post => post?.tags && post.tags.some((tag) => postMeta.tags.includes(tag)))
-}
-
-export const fetchPost = async (slug, ext) => {
-  const postsDirectory = path.join(process.cwd(), 'content');
-  const fullPath = path.join(postsDirectory, `${slug}.${ext}`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-  try {
-    return await serialize(fileContents, {
-      mdxOptions: mdxConfig,
-      parseFrontmatter: true
-    });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error("Error during MDX serialization", error)
-    throw error;
-  }
-}
-
 export const fetchAllPostsMeta = async () => {
   const postsDirectory = path.join(process.cwd(), "content");
   const postFilenames = (await deepReadDir(postsDirectory))
@@ -71,3 +46,42 @@ const allPosts = await fetchAllPostsMeta();
 export const fetchPostsWithTag = async (tag) => allPosts.filter(post => post?.tags && post.tags.includes(tag))
 export const fetchTechPostsMeta = () => fetchPostsWithTag("tech");
 export const fetchFeaturedPostsMeta = () => fetchPostsWithTag("featured");
+
+export const fetchRelatedPosts = (postMeta, slug) => {
+  if (!postMeta?.tags) {
+    return [];
+  }
+
+  return allPosts.filter(
+    (post) =>
+      post.slug.split("/")[1] !== slug &&
+      post.tags &&
+      post.tags.some((tag) => postMeta.tags.includes(tag) && tag !== "featured")
+  ).sort((a, b) => new Date(a.date) - new Date(b.date));
+
+}
+
+export const fetchPost = async (slug, ext) => {
+  const postsDirectory = path.join(process.cwd(), 'content');
+  const fullPath = path.join(postsDirectory, `${slug}.${ext}`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  try {
+    const mdxSource = await serialize(fileContents, {
+      mdxOptions: mdxConfig,
+      parseFrontmatter: true
+    });
+
+    const relatedPosts = fetchRelatedPosts(mdxSource.frontmatter, slug)
+
+    return {
+      mdxSource,
+      relatedPosts
+    }
+
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error during MDX serialization", error)
+    throw error;
+  }
+}

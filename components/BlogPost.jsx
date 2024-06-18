@@ -6,8 +6,10 @@ import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 import { useRouter } from "next/router";
 import blogConfig from "blog.config.mjs";
+import feedTypes from "constants/feedTypes";
+import GenericPostFeed from "./GenericPostFeed";
 
-export default function BlogPost({ meta, children }) {
+export default function BlogPost({ relatedPosts = [], meta, children }) {
   const router = useRouter();
 
   return (
@@ -56,6 +58,16 @@ export default function BlogPost({ meta, children }) {
           {children}
         </article>
 
+        {
+          // eslint-disable-next-line react/prop-types
+          !relatedPosts?.length ? null :
+            <section>
+              {/* <SectionTitle>Related posts</SectionTitle> */}
+              <GenericPostFeed feedType={feedTypes.simpleList} title="Related posts" postsMeta={relatedPosts} />
+            </section>
+        }
+
+
         <hr className="my-10 dark:border-gray-600 hidden" />
         <section className="pt-4 pb-16 hidden">
           <p className="text-xl font-bold">Comments</p>
@@ -70,4 +82,6 @@ export default function BlogPost({ meta, children }) {
 BlogPost.propTypes = {
   children: PropTypes.element.isRequired,
   meta: metaPropType.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
+  relatedPosts: PropTypes.array
 };

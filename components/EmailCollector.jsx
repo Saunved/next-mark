@@ -9,7 +9,7 @@ export default function EmailCollector({ className = "" }) {
     return (
         <section className={className}>
             <form action={blogConfig.buttonDownLink} method="post" target="popupwindow">
-                <p className="text-base tracking-wide dark:text-emerald-400 font-semibold">
+                <p className="text-base tracking-wide dark:text-emerald-400 font-semibold pt-4">
                     Subscribe via email
                 </p>
                 <p className="text-sm">
