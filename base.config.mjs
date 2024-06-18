@@ -48,7 +48,17 @@ const baseConfig = {
             },
         ]
     },
-    buttonDownLink: "https://buttondown.email/api/emails/embed-subscribe/saunved"
+    buttonDownLink: "https://buttondown.email/api/emails/embed-subscribe/saunved",
+    tags: {
+        "other-access": {
+            title: "Other Access",
+            description: "A young man has three days left to find a purpose or end up on death row."
+        },
+        "seychelles": {
+            title: "Adventures in Seychelles",
+            description: "A slightly fictionalized recounting of my childhood in Seychelles."
+        }
+    }
 }
 
 if (typeof exports === "object") {
