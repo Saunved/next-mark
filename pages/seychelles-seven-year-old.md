@@ -11,6 +11,7 @@ series: 'Adventures in Seychelles'
 seriesId: 'adventures-in-seychelles'
 order: 1
 tags:
+  - seychelles
   - featured
 ---
 

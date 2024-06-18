@@ -10,6 +10,8 @@ categories: ['funny']
 series: 'Adventures in Seychelles'
 seriesId: 'adventures-in-seychelles'
 order: 2
+tags:
+  - seychelles
 ---
 
 I was a bit of a fraidy-cat when it came to swimming. To be honest, that wouldn’t have mattered much if my family had shifted to a landlocked nation. But instead, here I was on an island on a stormy Wednesday evening in my swimsuit. I stood at the edge of the ocean and prepared for the “Physical Education” class to follow.
