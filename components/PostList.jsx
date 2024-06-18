@@ -11,15 +11,19 @@ function PostList({ posts, cardType, feedType }) {
     case feedTypes.simpleList:
       return (
         <section className="sm:grid grid-cols-1 gap-2 mt-4">
-          {posts.map((article) => (
-            <PostPreviewSimpleListItem
-              className="col-span-1"
-              postMeta={article}
-              key={article.slug}
-              cardType={cardType}
-              feedType={feedType}
-            />
-          ))}
+          <ul className="list-disc px-8">
+            {posts.map((article) => (
+              <li className="list-item" key={article.slug}>
+                <PostPreviewSimpleListItem
+                  className="col-span-1"
+                  postMeta={article}
+                  key={article.slug}
+                  cardType={cardType}
+                  feedType={feedType}
+                />
+              </li>
+            ))}
+          </ul>
         </section>
       )
     case feedTypes.listWithDescription:
