@@ -42,6 +42,7 @@ export async function getStaticProps({ params }) {
             },
         };
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Error during MDX serialization", error)
         throw error;
     }
