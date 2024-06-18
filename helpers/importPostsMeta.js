@@ -13,17 +13,17 @@ export const getRelatedPosts = (postMeta, allPosts) => {
 }
 
 export const importAllPostsMeta = async () => {
-  const postsDirectory = path.join(process.cwd(), "pages");
+  const postsDirectory = path.join(process.cwd(), "content");
   const postFilenames = (await deepReadDir(postsDirectory))
     .flat(Number.POSITIVE_INFINITY)
     .filter((name) => isValidPost(name) && !shouldFileBeIgnored(name))
-    .map((name) => name.split("/pages/")[1]);
+    .map((name) => name.split("/content/")[1]);
 
   const postModules = await Promise.all(
-    postFilenames.map(async (p) => import(`../pages/${p}`))
+    postFilenames.map(async (p) => import(`../content/${p}`))
   );
 
-  const allPostsMeta = postModules
+  return postModules
     .map((post, index) => ({ ...post, _path: `/${postFilenames[index].split('.')[0]}` }))
     .filter((post) => post.title && !post.page)
     .sort(
@@ -42,8 +42,6 @@ export const importAllPostsMeta = async () => {
       tags,
       slug: _path
     }));
-
-  return allPostsMeta.map((postMeta) => ({ ...postMeta, related: getRelatedPosts(postMeta, allPostsMeta) }))
 
 };
 
