@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     const allPosts = await fetchAllPostsMeta();
     const paths = allPosts.map((post) => ({
         // eslint-disable-next-line no-underscore-dangle
-        params: { slug: post.slug },
+        params: { slug: post.slug.replace(/^\/+/, '') },
     }));
 
     return {
