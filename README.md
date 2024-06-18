@@ -19,7 +19,7 @@ Feel free to create an issue if something's confusing and I will try to help you
 [x] Implement next/seo (especially canonical URLs)
 [x] Implement a system to index/not index certain posts (use page: true in frontmatter)
 [x] Implement wikilinks parsing
-[] Create a RelatedPosts section beneath each blog post (using categories)
+[] Create a RelatedPosts section beneath each blog post (using tags)
 [] Do an accessibility audit  
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  

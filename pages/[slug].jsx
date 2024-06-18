@@ -1,4 +1,4 @@
-import { importAllPostsMeta } from 'helpers/importPostsMeta';
+import { importAllPostsMeta } from 'helpers/posts';
 import BlogPost from 'components/BlogPost';
 import React from 'react';
 import { serialize } from 'next-mdx-remote/serialize';

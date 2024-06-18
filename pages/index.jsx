@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { importFeaturedPostsMeta } from "helpers/importPostsMeta";
+import { importFeaturedPostsMeta } from "helpers/posts";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import Link from "next/link";

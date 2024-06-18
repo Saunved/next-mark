@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { importAllPostsMeta, importPostsWithTag } from "helpers/importPostsMeta";
+import { importAllPostsMeta, importPostsWithTag } from "helpers/posts";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import { getAllTags } from "helpers/tags";
