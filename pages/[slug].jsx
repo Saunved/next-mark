@@ -7,7 +7,7 @@ import path from 'path';
 import { MDXRemote } from 'next-mdx-remote';
 import PropTypes from 'prop-types';
 import { CH } from "@code-hike/mdx/components"
-import mdxOptions from '../mdx.options.mjs';
+import mdxOptions from '../mdx.config.mjs';
 
 const components = { CH };
 

@@ -1,5 +1,5 @@
 import nextMdx from "@next/mdx";
-import mdxOptions from "./mdx.options.mjs";
+import mdxOptions from "./mdx.config.mjs";
 import blogConfig from "./blog.config.mjs";
 
 const withMDX = nextMdx({
