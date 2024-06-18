@@ -4,7 +4,7 @@ import PostList from "components/PostList";
 import { meta } from "constants/propTypes";
 import feedTypes from "constants/feedTypes";
 
-function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType }) {
+function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType = feedTypes.listWithDescription }) {
   const POSTS_TO_LOAD = 4;
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [postsToShow, setPostsToShow] = useState(10);
@@ -52,13 +52,9 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType }
 GenericPostFeed.propTypes = {
   title: PropTypes.string.isRequired,
   postsMeta: PropTypes.arrayOf(meta).isRequired,
+  // eslint-disable-next-line react/require-default-props
   cardType: PropTypes.string,
-  feedType: PropTypes.string
-};
-
-GenericPostFeed.defaultProps = {
-  cardType: "standalone",
-  feedType: feedTypes.listWithDescription
+  feedType: PropTypes.string.isRequired
 };
 
 export default GenericPostFeed;

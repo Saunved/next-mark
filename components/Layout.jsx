@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
@@ -9,7 +10,7 @@ import HomeSidebar from "components/HomeSidebar";
 import seo from "next-seo.config";
 import baseConfig from "base.config.mjs";
 
-export default function Layout({ children, pageTitle, description }) {
+export default function Layout({ children, pageTitle = baseConfig.seo.site_name, description = baseConfig.seo.description }) {
 
   return (
     <>
@@ -47,9 +48,4 @@ Layout.propTypes = {
   children: PropTypes.element.isRequired,
   pageTitle: PropTypes.string,
   description: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  pageTitle: baseConfig.seo.site_name,
-  description: baseConfig.seo.description,
 };

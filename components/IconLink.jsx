@@ -1,8 +1,9 @@
+/* eslint-disable react/require-default-props */
 import React from "react";
 import PropTypes from "prop-types";
 import { ArrowUpRight } from "phosphor-react";
 
-function IconLink({ href, title, icon, external, iconSize, iconLeft }) {
+function IconLink({ href, title, icon, external = false, iconSize = 0, iconLeft }) {
   const iconEl =
     icon || (external ? <ArrowUpRight size={iconSize || 16} /> : null);
 
@@ -25,13 +26,6 @@ IconLink.propTypes = {
   iconLeft: PropTypes.element,
   external: PropTypes.bool,
   iconSize: PropTypes.number,
-};
-
-IconLink.defaultProps = {
-  iconLeft: null,
-  icon: null,
-  external: false,
-  iconSize: 0,
 };
 
 export default IconLink;

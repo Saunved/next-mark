@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import baseConfig from "base.config.mjs";
 
-export default function EmailCollector({ className }) {
+export default function EmailCollector({ className = "" }) {
     const [email, setEmail] = useState("")
 
     return (
@@ -39,9 +39,6 @@ export default function EmailCollector({ className }) {
 }
 
 EmailCollector.propTypes = {
+    // eslint-disable-next-line react/require-default-props
     className: PropTypes.string
-}
-
-EmailCollector.defaultProps = {
-    className: ""
 }
