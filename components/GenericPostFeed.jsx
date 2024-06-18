@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import PostList from "components/PostList";
 import { meta } from "constants/propTypes";
 import feedTypes from "constants/feedTypes";
+import SectionTitle from "./SectionTitle";
 
-function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType = feedTypes.listWithDescription }) {
+function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType = feedTypes.listWithDescription, feedDescription }) {
   const POSTS_TO_LOAD = 4;
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [postsToShow, setPostsToShow] = useState(10);
@@ -27,9 +28,8 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType =
 
   return (
     <div>
-      <h2 className="text-lg mb-4 uppercase tracking-widest font-semibold dark:text-gray-400 text-gray-600">
-        {title}
-      </h2>
+      <SectionTitle>{title}</SectionTitle>
+      <p className="dark:text-gray-300 text-gray-600 italic">{feedDescription}</p>
       <div>
         {!postsMeta || !postsMeta.length ? (
           <div>No posts found for this category</div>
@@ -54,7 +54,8 @@ GenericPostFeed.propTypes = {
   postsMeta: PropTypes.arrayOf(meta).isRequired,
   // eslint-disable-next-line react/require-default-props
   cardType: PropTypes.string,
-  feedType: PropTypes.string.isRequired
+  feedType: PropTypes.string.isRequired,
+  feedDescription: PropTypes.string.isRequired
 };
 
 export default GenericPostFeed;
