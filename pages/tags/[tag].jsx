@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { importAllPostsMeta, importPostsWithTag } from "helpers/posts";
+import { fetchAllPostsMeta, fetchPostsWithTag } from "helpers/posts";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import { getAllTags } from "helpers/tags";
 import blogConfig from "blog.config.mjs";
 
 export async function getStaticPaths() {
-    const allPostsMeta = await importAllPostsMeta();
+    const allPostsMeta = await fetchAllPostsMeta();
     const availableTags = await getAllTags(allPostsMeta);
     const paths = availableTags.map((tag) => `/tags/${tag}`);
     return { paths, fallback: "blocking" };
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { tag } = params;
-    const posts = ((await importPostsWithTag(tag)).sort((a, b) => new Date(a.date) - new Date(b.date))) || [];
+    const posts = ((await fetchPostsWithTag(tag)).sort((a, b) => new Date(a.date) - new Date(b.date))) || [];
 
     return {
         props: {

@@ -1,6 +1,6 @@
 import path from "path";
-import { deepReadDir } from "./deepReadDir";
 import blogConfig from "blog.config.mjs";
+import { deepReadDir } from "./deepReadDir";
 
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
@@ -13,7 +13,7 @@ export const getRelatedPosts = (postMeta, allPosts) => {
   return allPosts.filter(post => post?.tags && post.tags.some((tag) => postMeta.tags.includes(tag)))
 }
 
-export const importAllPostsMeta = async () => {
+export const fetchAllPostsMeta = async () => {
   const postsDirectory = path.join(process.cwd(), "content");
   const postFilenames = (await deepReadDir(postsDirectory))
     .flat(Number.POSITIVE_INFINITY)
@@ -46,9 +46,8 @@ export const importAllPostsMeta = async () => {
 
 };
 
-const allPosts = await importAllPostsMeta();
+const allPosts = await fetchAllPostsMeta();
 
-export const importPostsWithTag = async (tag) => allPosts.filter(post => post?.tags && post.tags.includes(tag))
-
-export const importTechPostsMeta = () => importPostsWithTag("tech");
-export const importFeaturedPostsMeta = () => importPostsWithTag("featured");
+export const fetchPostsWithTag = async (tag) => allPosts.filter(post => post?.tags && post.tags.includes(tag))
+export const fetchTechPostsMeta = () => fetchPostsWithTag("tech");
+export const fetchFeaturedPostsMeta = () => fetchPostsWithTag("featured");

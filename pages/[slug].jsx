@@ -1,4 +1,4 @@
-import { importAllPostsMeta } from 'helpers/posts';
+import { fetchAllPostsMeta } from 'helpers/posts';
 import BlogPost from 'components/BlogPost';
 import React from 'react';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -13,7 +13,7 @@ import mdxOptions from '../mdx.config.mjs';
 const components = { CH };
 
 export async function getStaticPaths() {
-    const allPosts = await importAllPostsMeta();
+    const allPosts = await fetchAllPostsMeta();
     const paths = allPosts.map((post) => ({
         // eslint-disable-next-line no-underscore-dangle
         params: { slug: post.slug },
