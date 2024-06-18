@@ -4,6 +4,7 @@ import { importFeaturedPostsMeta } from "helpers/importPostsMeta";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import Link from "next/link";
+import SectionTitle from "components/SectionTitle";
 
 export async function getStaticProps() {
   const featuredPosts = await importFeaturedPostsMeta();
@@ -22,10 +23,12 @@ export default function Home({ featuredPosts }) {
     </section>
 
     <section>
-      <h2 className="text-xl">Series</h2>
-      <Link href="/tags/other-access">Other Access</Link>
+      <SectionTitle>All series</SectionTitle>
+      <div className="grid gap-2">
+        <Link href="/tags/other-access">Other Access</Link>
+        <Link href="/tags/seychelles">Adventures in Seychelles</Link>
+      </div>
     </section>
-
   </div>
   )
 }
