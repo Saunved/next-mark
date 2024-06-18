@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import HamburgerMenu from "components/HamburgerMenu";
 import { menu } from "constants/menu";
-import baseConfig from "base.config";
+import baseConfig from "base.config.mjs";
 
 function TopNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import IconLink from "components/IconLink";
-import baseConfig from "base.config";
+import baseConfig from "base.config.mjs";
 
 function PageFooter() {
   return (

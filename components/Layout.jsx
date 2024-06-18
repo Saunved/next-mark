@@ -7,7 +7,7 @@ import TopNavigation from "components/TopNavigation";
 import PageFooter from "components/PageFooter";
 import HomeSidebar from "components/HomeSidebar";
 import seo from "next-seo.config";
-import baseConfig from "base.config";
+import baseConfig from "base.config.mjs";
 
 export default function Layout({ children, pageTitle, description }) {
 

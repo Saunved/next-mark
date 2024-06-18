@@ -1,4 +1,4 @@
-import baseConfig from "base.config";
+import baseConfig from "base.config.mjs";
 
 export default {
   ...baseConfig.seo

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types";
 import Link from "next/link";
-import baseConfig from "base.config";
+import baseConfig from "base.config.mjs";
 
 export default function EmailCollector({ className }) {
     const [email, setEmail] = useState("")
