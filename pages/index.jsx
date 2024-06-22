@@ -19,7 +19,7 @@ export async function getStaticProps() {
 export default function Home({ featuredPosts }) {
   return (<div className="grid gap-12">
     <section id="featured">
-      <GenericPostFeed postsMeta={featuredPosts} title="Featured posts" feedType={feedTypes.imageGrid} />
+      <GenericPostFeed postsMeta={featuredPosts} title="Featured posts" feedType={feedTypes.imageList} />
     </section>
 
     <section>
