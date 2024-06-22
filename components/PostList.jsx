@@ -4,10 +4,24 @@ import PostPreviewCard from "components/PostPreviewCard";
 import PostPreviewListItem from "components/PostPreviewListItem";
 import feedTypes from "constants/feedTypes";
 import PostPreviewSimpleListItem from "./PostPreviewSimpleListItem";
+import SideImagePreview from "./SideImagePreview";
 
 function PostList({ posts, cardType, feedType }) {
 
   switch (feedType) {
+    case feedTypes.imageList:
+      return (
+        <section className="sm:grid grid-cols-1 gap-2 mt-4">
+          {posts.map((article) => (
+            <SideImagePreview key={article.slug}
+              className="col-span-1"
+              postMeta={article}
+              cardType={cardType}
+              feedType={feedType}
+            />
+          ))}
+        </section>
+      )
     case feedTypes.simpleList:
       return (
         <section className="sm:grid grid-cols-1 gap-2 mt-4">
