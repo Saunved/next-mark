@@ -9,11 +9,11 @@ import blogConfig from 'blog.config.mjs';
 const components = { CH };
 
 export async function getStaticPaths() {
-    const allPosts = await memoizedFetchAllPostsMeta();
+    const allPosts = await memoizedFetchAllPostsMeta(false);
     const paths = allPosts.map((post) => ({
         // eslint-disable-next-line no-underscore-dangle
         params: { slug: post.slug.replace(/^\/+/, '') },
-    }));
+    }))
 
     return {
         paths,
