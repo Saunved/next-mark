@@ -9,7 +9,7 @@ import memoize from "./memoize";
 const shouldFileBeIgnored = (str) => str.includes("_") || str.includes("/_");
 const isValidPost = (str) => str.includes(".mdx") || str.includes(".md");
 
-export const fetchAllPostsMeta = async () => {
+export const fetchAllPostsMeta = async (ignorePages = true) => {
   const postsDirectory = path.join(process.cwd(), "content");
   const postFilenames = (await deepReadDir(postsDirectory))
     .flat(Number.POSITIVE_INFINITY)
@@ -22,11 +22,11 @@ export const fetchAllPostsMeta = async () => {
 
   return postModules
     .map((post, index) => ({ ...post, _path: `/${postFilenames[index].split('.')[0]}` }))
-    .filter((post) => post.title && !post.page)
+    .filter((post) => post.title && (ignorePages && !post.page))
     .sort(
       (post1, post2) => new Date(post2.date) - new Date(post1.date)
     )
-    .map(({ title, _path, author = blogConfig.author, tags = null, image = null, readTime = null, categories = null, description = null, date = null, alt = null }) => ({
+    .map(({ title, _path, author = blogConfig.author, tags = null, image = null, readTime = null, categories = null, description = "", date = null, alt = null }) => ({
       alt,
       author,
       categories,
@@ -66,7 +66,7 @@ export const fetchRelatedPosts = (postMeta, slug) => {
 
 export const fetchPost = async (slug, ext) => {
   const postsDirectory = path.join(process.cwd(), 'content');
-  const fullPath = path.join(postsDirectory, `${slug}.${ext}`);
+  const fullPath = path.join(postsDirectory, `${slug.join("/")}.${ext}`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   try {
