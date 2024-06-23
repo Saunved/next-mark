@@ -16,7 +16,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const { tag } = params;
-    // const posts = ((await fetchPostsWithTag(tag)).sort((a, b) => new Date(a.date) - new Date(b.date))) || [];
     const posts = await fetchAllPostsMeta((post) => post?.tags?.includes(tag))
 
     return {
