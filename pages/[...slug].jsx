@@ -4,6 +4,7 @@ import BlogPost from 'components/BlogPost';
 import React from 'react';
 import PropTypes from 'prop-types';
 import blogConfig from 'blog.config.mjs';
+import { fetchRelatedPosts } from "lib/related";
 import { getMdxContent } from '../lib/md';
 
 export async function getStaticPaths() {
@@ -22,12 +23,13 @@ export async function getStaticProps({ params }) {
     const slugArray = params.slug;
     const slug = slugArray.join('/');
     const { post, frontmatter } = await getMdxContent(slug);
+    const relatedPosts = await fetchRelatedPosts(frontmatter);
 
     return {
         props: {
             post,
             frontmatter,
-            relatedPosts: []
+            relatedPosts
         },
     };
 }
