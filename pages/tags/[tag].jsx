@@ -29,7 +29,6 @@ export async function getStaticProps({ params }) {
 export default function Home({ posts = [], tagMeta }) {
 
     return (<div className="grid gap-12">
-
         <section id="tech">
             <GenericPostFeed postsMeta={posts} title={`${tagMeta.title}`} feedType={feedTypes.imageList} feedDescription={tagMeta.description} />
         </section>

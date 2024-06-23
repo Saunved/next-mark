@@ -22,7 +22,8 @@ Feel free to create an issue if something's confusing and I will try to help you
 [x] Create a RelatedPosts section beneath each blog post (using tags)
 [x] Consider using remark (https://github.com/remarkjs/remark) directly instead of the next-mdx-remote package. This package is causing an overhead when integrating any new plugins, and isn't really helpful since I don't actually need any remote files to be fetched
 [x] HTML is not rendering in any of the files, it should be allowed and trusted
-[] Fix the "Tags" page (use the new logic)
+[x] Fix the "Tags" page (use the new logic)
+[] Fix the "Related posts" logic
 [] Do an accessibility audit  
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  
