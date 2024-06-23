@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { fetchFeaturedPostsMeta } from "helpers/posts";
+import { fetchAllPostsMeta, indexFilters } from "lib/indices";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import Link from "next/link";
 import SectionTitle from "components/SectionTitle";
 
 export async function getStaticProps() {
-  const featuredPosts = await fetchFeaturedPostsMeta();
+  const featuredPosts = await fetchAllPostsMeta(indexFilters.featured);
 
   return {
     props: {
