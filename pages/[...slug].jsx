@@ -1,57 +1,49 @@
-import { memoizedFetchAllPostsMeta, fetchPost } from 'helpers/posts';
+import path from "path";
+import fs from "fs";
 import BlogPost from 'components/BlogPost';
 import React from 'react';
-import { MDXRemote } from 'next-mdx-remote';
 import PropTypes from 'prop-types';
-import { CH } from "@code-hike/mdx/components"
 import blogConfig from 'blog.config.mjs';
-
-const components = { CH };
+import { getMdxContent } from '../lib/md';
 
 export async function getStaticPaths() {
-    const allPosts = await memoizedFetchAllPostsMeta(false);
-    const paths = allPosts.map((post) => ({
-        // eslint-disable-next-line no-underscore-dangle
-        params: { slug: post.slug.replace(/^\/+/, '') },
-    }))
+    const contentDirectory = path.join(process.cwd(), 'content');
+    const filenames = fs.readdirSync(contentDirectory);
+    const paths = filenames.map((filename) => {
+        const slug = filename.replace(/\.md$/, '').split('/');
+        return { params: { slug } };
+    });
 
-    return {
-        paths,
-        fallback: 'blocking',
-    };
+    return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
 
-    try {
-        const { mdxSource, relatedPosts } = await fetchPost(params.slug, "md");
+    const slugArray = params.slug;
+    const slug = slugArray.join('/');
+    const { post, frontmatter } = await getMdxContent(slug);
 
-        return {
-            props: {
-                mdxSource,
-                relatedPosts
-            },
-        };
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error("Error during MDX serialization", error)
-        throw error;
-    }
+    return {
+        props: {
+            post,
+            frontmatter,
+            relatedPosts: []
+        },
+    };
 }
 
-function PostPage({ mdxSource, relatedPosts }) {
+function PostPage({ post, frontmatter, relatedPosts }) {
     // eslint-disable-next-line react/jsx-props-no-spreading, react/prop-types
-    return <BlogPost relatedPosts={relatedPosts} meta={{ ...mdxSource.frontmatter, author: mdxSource?.frontMatter?.author || blogConfig.author }}><MDXRemote {...mdxSource} components={components} /></BlogPost>
+    return <BlogPost relatedPosts={relatedPosts} meta={{ ...frontmatter, author: frontmatter?.author || blogConfig.author }}>
+        <div dangerouslySetInnerHTML={{ __html: post }}>
+        </div>
+    </BlogPost>
 }
 
 PostPage.propTypes = {
-    mdxSource: PropTypes.shape({
-        compiledSource: PropTypes.string.isRequired,
-        // eslint-disable-next-line react/forbid-prop-types
-        scope: PropTypes.object,
-        // eslint-disable-next-line react/forbid-prop-types
-        frontmatter: PropTypes.object,
-    }).isRequired,
+    post: PropTypes.string.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    frontmatter: PropTypes.object.isRequired,
     // eslint-disable-next-line react/forbid-prop-types
     relatedPosts: PropTypes.array.isRequired
 };
