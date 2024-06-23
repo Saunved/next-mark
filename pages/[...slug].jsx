@@ -35,8 +35,8 @@ export async function getStaticProps({ params }) {
 function PostPage({ post, frontmatter, relatedPosts }) {
     // eslint-disable-next-line react/jsx-props-no-spreading, react/prop-types
     return <BlogPost relatedPosts={relatedPosts} meta={{ ...frontmatter, author: frontmatter?.author || blogConfig.author }}>
-        <div dangerouslySetInnerHTML={{ __html: post }}>
-        </div>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: post }} />
     </BlogPost>
 }
 
