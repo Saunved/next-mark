@@ -1,11 +1,4 @@
-import nextMdx from "@next/mdx";
-import mdxOptions from "./mdx.config.mjs";
 import blogConfig from "./blog.config.mjs";
-
-const withMDX = nextMdx({
-  extension: /\.(md|mdx)$/,
-  options: mdxOptions
-});
 
 const getBaseUrl = () => {
   if (!process.env.NEXT_PUBLIC_VERCEL_ENV) {
@@ -16,12 +9,12 @@ const getBaseUrl = () => {
 }
 
 /** @type {import('next').NextConfig} */
-export default withMDX({
+export default {
   reactStrictMode: true,
   env: {
     BASE_URL: getBaseUrl()
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
   webpack: (config) => ({ ...config, experiments: { ...config.experiments, topLevelAwait: true } })
-});
+};
 
