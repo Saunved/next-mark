@@ -12,7 +12,7 @@ Pyrel had realized pretty quickly that the flaw they had discovered wasn’t rea
 
 After laboring for almost six hours, they seemed to be getting somewhere.
 
-‘There is only main government data center that gives us other access,’ Pyrel said.  
+‘There is only one main government data center that gives us other access,’ Pyrel said.  
 ‘Yeah, we know that,’Levenia said.  
 ‘Let me finish?’ Pyrel said curtly.  
 ‘Go on Pyrel,’ Nisel said.  

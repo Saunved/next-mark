@@ -8,9 +8,9 @@ image: '/car_streaks.jpg'
 credit: Photo by <a href="https://unsplash.com/@jakegivens?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jake Givens</a> on <a href="https://unsplash.com/photos/iR8m2RRo-z4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 alt: 'Fast car streaks'
 categories: ['articles']
+tags:
+  - featured
 ---
-
-import CaptionImage from "components/CaptionImage";
 
 A few days ago, I consciously ended my Duolingo streak of ~480 days. This post talks about why I did the streak in the first place, the effects maintaining a streak like that can have, and some (potentially useful) suggestions to the Duolingo team.
 
