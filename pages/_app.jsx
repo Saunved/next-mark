@@ -5,7 +5,6 @@ import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
-import "@code-hike/mdx/dist/index.css";
 import BlogPost from "components/BlogPost";
 
 const inter = Inter({

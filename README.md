@@ -24,8 +24,8 @@ Feel free to create an issue if something's confusing and I will try to help you
 [x] HTML is not rendering in any of the files, it should be allowed and trusted
 [x] Fix the "Tags" page (use the new logic)
 [x] Fix the "Related posts" logic
-[] Add a max height for the blog posts
-[] Remove unused libraries from package.json
+[x] Add a max height for the blog post images
+[x] Remove unused libraries
 [] Do an accessibility audit  
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  
