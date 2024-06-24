@@ -1,17 +1,15 @@
-import path from "path";
-import fs from "fs";
 import BlogPost from 'components/BlogPost';
 import React from 'react';
 import PropTypes from 'prop-types';
 import blogConfig from 'blog.config.mjs';
 import { fetchRelatedPosts } from "lib/related";
+import { getAllFileNames } from "lib/indices";
 import { getMdxContent } from '../lib/md';
 
 export async function getStaticPaths() {
-    const contentDirectory = path.join(process.cwd(), 'content');
-    const filenames = fs.readdirSync(contentDirectory);
-    const paths = filenames.map((filename) => {
-        const slug = filename.replace(/\.md$/, '').split('/');
+    const filePaths = await getAllFileNames();
+    const paths = filePaths.map((filename) => {
+        const slug = filename.replace(/\.md$/, '').split("/");
         return { params: { slug } };
     });
 
