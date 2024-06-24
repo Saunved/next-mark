@@ -54,4 +54,9 @@ function PageFooter({ className }) {
   );
 }
 
+PageFooter.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  className: PageFooter.string
+}
+
 export default PageFooter;

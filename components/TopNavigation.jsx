@@ -6,8 +6,9 @@ import Image from "next/image";
 import HamburgerMenu from "components/HamburgerMenu";
 import { menu } from "constants/menu";
 import blogConfig from "blog.config.mjs";
+import PropTypes from "prop-types";
 
-function TopNavigation({ className }) {
+function TopNavigation({ className = "" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [renderClientSideCode, setRenderClientSideCode] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -98,6 +99,11 @@ function TopNavigation({ className }) {
       </div>
     </div>
   );
+}
+
+TopNavigation.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  className: PropTypes.string
 }
 
 export default TopNavigation;
