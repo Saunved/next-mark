@@ -2,11 +2,11 @@ import React from "react";
 import IconLink from "components/IconLink";
 import blogConfig from "blog.config.mjs";
 
-function PageFooter() {
+function PageFooter({ className }) {
   return (
     <footer className="bg-gray-200 dark:bg-zinc-800 dark:text-white">
       <div className="max-w-5xl mx-auto py-4">
-        <div className="mx-2 mt-8">
+        <div className={`mt-8 ${className}`}>
           <div className="grid grid-cols-4 md:grid-cols-12 gap-8">
             <div className="col-span-4">
               <p className="uppercase font-bold text-sm">Connect via</p>

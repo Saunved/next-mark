@@ -12,6 +12,8 @@ import blogConfig from "blog.config.mjs";
 
 export default function Layout({ children, pageTitle = blogConfig.seo.site_name, description = blogConfig.seo.description }) {
 
+  const defaultMargins = "sm:mx-4 mx-2"
+
   return (
     <>
       <Head>
@@ -22,12 +24,12 @@ export default function Layout({ children, pageTitle = blogConfig.seo.site_name,
       <DefaultSeo {...seo} />
       <NextSeo title={pageTitle} description={description} />
 
-      <TopNavigation />
+      <TopNavigation className={defaultMargins} />
       <div className="dark:bg-zinc-900 dark:text-white">
         <div className="max-w-5xl mx-auto">
           <div className="md:grid grid-cols-12 py-8 gap-16 mx-2">
             <div className="col-span-8">
-              <main className="min-h-screen">
+              <main className={`min-h-screen ${defaultMargins}`}>
                 <div className="content">{children}</div>
               </main>
             </div>
@@ -39,7 +41,7 @@ export default function Layout({ children, pageTitle = blogConfig.seo.site_name,
         </div>
       </div>
 
-      <PageFooter />
+      <PageFooter className={defaultMargins} />
     </>
   );
 }

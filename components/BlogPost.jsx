@@ -44,7 +44,7 @@ export default function BlogPost({ relatedPosts = [], meta, children }) {
           </p>
           {
             !meta.image ? null : <figure> <Image
-              className="mt-8 rounded-md"
+              className="mt-8 rounded-md max-h-[400px] object-cover"
               src={`${meta.image}`}
               height={400}
               width={1200}
@@ -54,7 +54,7 @@ export default function BlogPost({ relatedPosts = [], meta, children }) {
             </figure>
           }
         </div>
-        <article className="mt-8 mb-16 prose prose-neutral dark:prose-invert">
+        <article className="mt-8 mb-16 prose prose-lg prose-neutral dark:prose-invert">
           {children}
         </article>
 

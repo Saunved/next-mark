@@ -11,7 +11,7 @@ function PostList({ posts, cardType, feedType }) {
   switch (feedType) {
     case feedTypes.imageList:
       return (
-        <section className="sm:grid grid-cols-1 gap-2 mt-4">
+        <section className="sm:grid grid-cols-1 gap-2 mt-2">
           {posts.map((article) => (
             <SideImagePreview key={article.slug}
               className="col-span-1"
@@ -24,7 +24,7 @@ function PostList({ posts, cardType, feedType }) {
       )
     case feedTypes.simpleList:
       return (
-        <section className="sm:grid grid-cols-1 gap-2 mt-4">
+        <section className="sm:grid grid-cols-1 gap-2 mt-2">
           <ul className="list-disc px-8">
             {posts.map((article) => (
               <li className="list-item" key={article.slug}>
@@ -42,7 +42,7 @@ function PostList({ posts, cardType, feedType }) {
       )
     case feedTypes.listWithDescription:
       return (
-        <section className="sm:grid grid-cols-1 gap-2 mt-4">
+        <section className="sm:grid grid-cols-1 gap-2 mt-2">
           {posts.map((article) => (
             <PostPreviewListItem
               className="col-span-1"
@@ -56,7 +56,7 @@ function PostList({ posts, cardType, feedType }) {
       )
     case feedTypes.imageGrid:
       return (
-        <section className="sm:grid grid-cols-2 gap-6 mt-4">
+        <section className="sm:grid grid-cols-2 gap-6 mt-2">
           {posts.map((article) => (
             <PostPreviewCard
               className="col-span-1"

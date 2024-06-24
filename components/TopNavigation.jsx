@@ -7,7 +7,7 @@ import HamburgerMenu from "components/HamburgerMenu";
 import { menu } from "constants/menu";
 import blogConfig from "blog.config.mjs";
 
-function TopNavigation() {
+function TopNavigation({ className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [renderClientSideCode, setRenderClientSideCode] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -28,14 +28,14 @@ function TopNavigation() {
   }, []);
 
   return (
-    <>
+    <div>
       <HamburgerMenu
         isMenuOpen={isMenuOpen}
         onMenuCloseClick={onMenuCloseClick}
       />
       <div className="py-4 bg-stone-900 text-white border-b dark:border-b-gray-800">
         <div className="max-w-5xl mx-auto">
-          <div>
+          <div className={className}>
             <div className="flex justify-between items-center mx-2">
               <div className="justify-self-start">
                 <Link
@@ -96,7 +96,7 @@ function TopNavigation() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

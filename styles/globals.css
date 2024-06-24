@@ -67,3 +67,7 @@ figcaption a {
 p {
   @apply leading-normal;
 }
+
+article.prose {
+  @apply max-w-full;
+}
