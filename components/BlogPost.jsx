@@ -9,7 +9,7 @@ import blogConfig from "blog.config.mjs";
 import feedTypes from "constants/feedTypes";
 import GenericPostFeed from "./GenericPostFeed";
 
-export default function BlogPost({ relatedPosts = [], meta, children }) {
+export default function BlogPost({ relatedPosts = [], meta, isIndex = false, children }) {
   const router = useRouter();
 
   return (
@@ -36,7 +36,11 @@ export default function BlogPost({ relatedPosts = [], meta, children }) {
 
       <div className="max-w-2xl ml-0">
         <div>
-          <h1 className="text-4xl font-bold">{meta.title}</h1>
+          {
+            isIndex ? null :
+              <h1 className="text-4xl font-bold">{meta.title}</h1>
+
+          }
           <p className="text-gray-600 dark:text-gray-300 mt-2">
             {!meta.author ? null : meta.author}
             {!meta.date ? null : <> &bull; {humanReadableDate(meta.date)}</>}
@@ -83,5 +87,7 @@ BlogPost.propTypes = {
   children: PropTypes.element.isRequired,
   meta: metaPropType.isRequired,
   // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
-  relatedPosts: PropTypes.array
+  relatedPosts: PropTypes.array,
+  // eslint-disable-next-line react/require-default-props
+  isIndex: PropTypes.bool
 };
