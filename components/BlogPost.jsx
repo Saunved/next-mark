@@ -42,9 +42,8 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
 
           }
           <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {!meta.author ? null : meta.author}
-            {!meta.date ? null : <> &bull; {humanReadableDate(meta.date)}</>}
-            {!meta.readTime ? null : <>&bull;{" "}{meta.readTime} min read</>}
+            {!meta.author ? null : <>meta.author &bull; </>}
+            {!meta.date ? null : <> {humanReadableDate(meta.date)}</>}
           </p>
           {
             !meta.image ? null : <figure> <Image
