@@ -29,7 +29,7 @@ function GenericPostFeed({ title, postsMeta, cardType = "standalone", feedType =
   return (
     <div>
       <SectionTitle>{title}</SectionTitle>
-      <p className="dark:text-gray-300 text-gray-600 italic">{feedDescription}</p>
+      <p className="dark:text-gray-300 text-gray-600 italic -mt-4">{feedDescription}</p>
       <div>
         {!postsMeta || !postsMeta.length ? (
           <div>No posts found for this category</div>

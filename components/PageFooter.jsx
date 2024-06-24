@@ -1,6 +1,7 @@
 import React from "react";
 import IconLink from "components/IconLink";
 import blogConfig from "blog.config.mjs";
+import PropTypes from "prop-types";
 
 function PageFooter({ className = "" }) {
   return (
@@ -56,7 +57,7 @@ function PageFooter({ className = "" }) {
 
 PageFooter.propTypes = {
   // eslint-disable-next-line react/require-default-props
-  className: PageFooter.string
+  className: PropTypes.string
 }
 
 export default PageFooter;
