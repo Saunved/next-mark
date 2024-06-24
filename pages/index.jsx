@@ -5,25 +5,38 @@ import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import Link from "next/link";
 import SectionTitle from "components/SectionTitle";
+import { getMdxContent } from "lib/md";
 
 export async function getStaticProps() {
   const featuredPosts = await fetchAllPostsMeta(indexFilters.featured);
+  const { post } = await getMdxContent("index");
 
   return {
     props: {
+      post,
       featuredPosts
     },
   };
 }
 
-export default function Home({ featuredPosts }) {
-  return (<div className="grid gap-12">
-    <section id="featured">
-      <GenericPostFeed postsMeta={featuredPosts} title="Featured posts" feedType={feedTypes.imageList} />
-    </section>
+export default function Home({ featuredPosts, post = "" }) {
+  return (<div className="grid gap-8">
+    {
+      !post ? null :
+        <section className="prose prose-neutral dark:prose-invert">
+          <div dangerouslySetInnerHTML={{ __html: post }} />
+        </section>
+    }
+
+    {
+      !featuredPosts.length ? null :
+        <section id="featured">
+          <GenericPostFeed postsMeta={featuredPosts} title="Featured posts" feedType={feedTypes.imageList} />
+        </section>
+    }
 
     <section>
-      <SectionTitle>All series</SectionTitle>
+      <SectionTitle>Explore more</SectionTitle>
       <div className="grid gap-2">
         <Link href="/tags/other-access">Other Access</Link>
         <Link href="/tags/seychelles">Adventures in Seychelles</Link>
@@ -36,4 +49,6 @@ export default function Home({ featuredPosts }) {
 Home.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   featuredPosts: PropTypes.array.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  post: PropTypes.string
 };
