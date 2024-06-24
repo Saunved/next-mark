@@ -2,7 +2,7 @@ import React from "react";
 import IconLink from "components/IconLink";
 import blogConfig from "blog.config.mjs";
 
-function PageFooter({ className }) {
+function PageFooter({ className = "" }) {
   return (
     <footer className="bg-gray-200 dark:bg-zinc-800 dark:text-white">
       <div className="max-w-5xl mx-auto py-4">
