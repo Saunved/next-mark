@@ -26,6 +26,8 @@ Feel free to create an issue if something's confusing and I will try to help you
 [x] Fix the "Related posts" logic
 [x] Add a max height for the blog post images
 [x] Remove unused libraries
+[x] Implement automatic folder-based navigation (instead of tag-based navigation)
+[] Support alias/aliases frontmatter key for redirects
 [] Do an accessibility audit  
 [] Implement a "Likes" system  
 [] Implement a "Comments" system  
