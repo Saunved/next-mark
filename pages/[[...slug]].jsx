@@ -1,15 +1,14 @@
 import BlogPost from 'components/BlogPost';
 import React from 'react';
 import PropTypes from 'prop-types';
-import blogConfig from 'blog.config.mjs';
 import { fetchRelatedPosts } from "lib/related";
 import { getAllFileNames, getAllDirs, fetchAllPostsMeta } from "lib/indices";
 import GenericPostFeed from 'components/GenericPostFeed';
 import feedTypes from 'constants/feedTypes';
 import Link from 'next/link';
 import SectionTitle from 'components/SectionTitle';
+import { CaretRight } from 'phosphor-react';
 import { getMdxContent } from '../lib/md';
-import { ArrowRight, CaretRight, TagChevron } from 'phosphor-react';
 
 export async function getStaticPaths() {
     const filePaths = await getAllFileNames();
@@ -19,15 +18,17 @@ export async function getStaticPaths() {
     });
 
     const dirs = (await getAllDirs()).map(dir => ({ params: { slug: dir.split("/") } }))
-    paths = paths.concat(dirs)
+    paths = paths.concat(dirs).concat({ params: { slug: [] } }) // The empty array is added to catch the home page.
 
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-    const dirs = (await getAllDirs())
+    const dirs = (await getAllDirs()).concat("")
     const slugArray = params.slug;
-    const slug = slugArray.join('/');
+
+    // For the homepage, "" is necessary
+    const slug = slugArray?.join('/') || "";
 
     if (dirs.includes(slug)) {
 
@@ -35,16 +36,20 @@ export async function getStaticProps({ params }) {
         try {
             mdxContent = await getMdxContent(`${slug}/index`)
             mdxContent.frontmatter.slug = slug;
-            // @TODO: Consider moving all index.jsx logic here
         } catch (error) {
             // Do nothing
         }
 
-        const nestedDirs = (await getAllDirs(slug))
+        const countSlashes = (str) => (str.match(/\//g) || []).length
 
-        // Very convoluted way of obtaining all posts that are just 1-level nested, refactor if time permits
-        const nestedPosts = (await fetchAllPostsMeta((meta) => meta.slug.includes(slug) && !meta.slug.includes('index')))
-            .filter((meta) => !nestedDirs.some(dir => meta.slug.includes(dir)))
+        const nestedDirs = (await getAllDirs(slug)).filter((dir) => !slug ? countSlashes(slug) === countSlashes(dir) : dir)
+
+        // This filter is quite convoluted, but it works for now, so not changing it
+        // If the index page has a tag filter, respect it
+        // Otherwise, apply a default filter
+        // Always ignore "index" pages
+        const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter.filter ? meta?.tags?.includes(mdxContent?.frontmatter.filter) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
+
 
         const mdxDirs = await Promise.all(nestedDirs.map(async (dir) => {
             try {
@@ -65,7 +70,8 @@ export async function getStaticProps({ params }) {
                 frontmatter: mdxContent.frontmatter,
                 relatedPosts: [],
                 nestedPosts,
-                mdxDirs
+                mdxDirs,
+                isIndex: true
             }
         }
     }
@@ -82,12 +88,12 @@ export async function getStaticProps({ params }) {
     };
 }
 
-function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs = [] }) {
+function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs = [], isIndex = false }) {
     return (
         <>
             {
-                !post ? null :
-                    <BlogPost relatedPosts={relatedPosts} meta={{ ...frontmatter, author: frontmatter?.author || blogConfig.author }}>
+                !post || isIndex ? null :
+                    <BlogPost relatedPosts={relatedPosts} meta={{ ...frontmatter, author: frontmatter?.author }} isIndex={isIndex}>
                         {/* eslint-disable-next-line react/no-danger */}
                         <div dangerouslySetInnerHTML={{ __html: post }} />
                     </BlogPost>
@@ -104,7 +110,7 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
             {
                 !mdxDirs.length ? null :
                     <>
-                        <SectionTitle>{`Explore in "${frontmatter.title || frontmatter.slug}"`}</SectionTitle>
+                        <SectionTitle>Explore further</SectionTitle>
                         {
                             nestedPosts.length ? null :
                                 <p className='italic text-gray-500 -mt-2'>{frontmatter.description}</p>
@@ -112,7 +118,7 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
                         <div className="grid mt-4">
                             {
                                 mdxDirs.map((dir) => (
-                                    <Link href={dir.slug} key={dir.slug} className='col-span-4 pb-4 flex items-center justify-between gap-4 border-b dark:border-gray-700 text-xl'>{dir.frontmatter.title || dir.slug} <CaretRight size={24} /> </Link>
+                                    <Link href={dir.slug} key={dir.slug} className='col-span-4 py-3 flex items-center justify-between gap-4 border-b dark:border-gray-700 text-xl'>{dir.frontmatter.title || dir.slug} <CaretRight size={24} /> </Link>
                                 ))
                             }
                         </div >
@@ -130,7 +136,9 @@ PostPage.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
     nestedPosts: PropTypes.array,
     // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
-    mdxDirs: PropTypes.array
+    mdxDirs: PropTypes.array,
+    // eslint-disable-next-line react/require-default-props
+    isIndex: PropTypes.bool
 };
 
 export default PostPage;
