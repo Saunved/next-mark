@@ -43,6 +43,7 @@ export async function getStaticProps({ params }) {
         const countSlashes = (str) => (str.match(/\//g) || []).length
 
         const nestedDirs = (await getAllDirs(slug)).filter((dir) => !slug ? countSlashes(slug) === countSlashes(dir) : dir)
+            .filter(dir => !dir.includes("assets"))
 
         // This filter is quite convoluted, but it works for now, so not changing it
         // If the index page has a tag filter, respect it
@@ -89,6 +90,7 @@ export async function getStaticProps({ params }) {
 }
 
 function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs = [], isIndex = false }) {
+
     return (
         <>
             {
