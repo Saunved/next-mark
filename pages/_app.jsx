@@ -5,7 +5,6 @@ import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
-import BlogPost from "components/BlogPost";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,13 +16,7 @@ export default function App(props) {
   return (
     <ThemeProvider attribute="class">
       <Layout className={inter.className}>
-        {
-          pageProps?.title ?
-            <BlogPost meta={pageProps}>
-              <Component {...pageProps} />
-            </BlogPost> :
-            <Component {...pageProps} />
-        }
+        <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
   );
