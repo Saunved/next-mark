@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# custom assets folder
+/public/*
+!/public/static
+!/public/favicon.ico
+!/public/robots.txt
+
 # dependencies
 /node_modules
 /.pnp
