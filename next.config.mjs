@@ -13,6 +13,9 @@ const getBaseUrl = () => {
 /** @type {import('next').NextConfig} */
 export default {
   reactStrictMode: true,
+  experimental: {
+    scrollRestoration: true
+  },
   env: {
     BASE_URL: getBaseUrl()
   },
