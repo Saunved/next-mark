@@ -21,15 +21,16 @@ function SideImagePreview({ postMeta }) {
         <Image
             src={image}
             alt={alt || title}
-            className="rounded-xl xs:max-w-[250px] max-h-[250px] object-cover"
-            width={512}
-            height={128}
+            className="rounded-xl max-w-[500px] xs:max-w-[250px] max-h-[300px] object-cover w-full mx-auto"
+            width={600}
+            height={300}
+            priority
         />
 
     return (
         <article className="mb-2 bg-white dark:bg-zinc-900 group border-b py-4 dark:border-gray-600 border-gray-200">
             <Link href={slug}>
-                <div className="flex flex-col xs:flex-row gap-4 xs:gap-6 items-start justify-between">
+                <div className="flex flex-col xs:flex-row gap-4 xs:gap-6 items-start justify-between relative">
                     {
                         !imageEl ? null :
                             <div className="mb-4 xs:hidden">
