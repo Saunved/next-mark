@@ -3,8 +3,8 @@
 # custom assets folder
 /public/*
 !/public/static
-!/public/favicon.ico
 !/public/robots.txt
+!/public/.gitkeep
 
 # dependencies
 /node_modules

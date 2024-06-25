@@ -1,3 +1,5 @@
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import path from 'path';
 import blogConfig from "./blog.config.mjs";
 
 const getBaseUrl = () => {
@@ -15,6 +17,22 @@ export default {
     BASE_URL: getBaseUrl()
   },
   pageExtensions: ["js", "jsx", "md", "mdx"],
-  webpack: (config) => ({ ...config, experiments: { ...config.experiments, topLevelAwait: true } })
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Copy content/assets to the public directory
+      config.plugins.push(
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: path.resolve('./content/assets'),
+              to: path.resolve('./public'),
+            },
+          ],
+        })
+      );
+    }
+
+    return { ...config, experiments: { ...config.experiments, topLevelAwait: true } }
+  }
 };
 
