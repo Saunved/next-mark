@@ -4,13 +4,11 @@ import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
-import { useRouter } from "next/router";
 import blogConfig from "blog.config.mjs";
 import feedTypes from "constants/feedTypes";
 import GenericPostFeed from "./GenericPostFeed";
 
 export default function BlogPost({ relatedPosts = [], meta, isIndex = false, children }) {
-  const router = useRouter();
 
   return (
     <>
@@ -19,7 +17,7 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: process.env.BASE_URL + router.pathname,
+          url: process.env.BASE_URL + meta.slug,
           title: meta.title,
           description: meta.description,
           images: [
@@ -42,7 +40,7 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
 
           }
           <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {!meta.author ? null : <>meta.author &bull; </>}
+            {!meta.author ? null : <>{meta.author} &bull; </>}
             {!meta.date ? null : <> {humanReadableDate(meta.date)}</>}
           </p>
           {
