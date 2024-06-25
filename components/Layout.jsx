@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
@@ -7,9 +8,12 @@ import TopNavigation from "components/TopNavigation";
 import PageFooter from "components/PageFooter";
 import HomeSidebar from "components/HomeSidebar";
 import seo from "next-seo.config";
-import baseConfig from "base.config";
+import blogConfig from "blog.config.mjs";
 
-export default function Layout({ children, pageTitle, description }) {
+export default function Layout({ children, pageTitle = blogConfig.seo.site_name, description = blogConfig.seo.description }) {
+
+  const defaultMargins = "sm:mx-4 mx-2"
+
   return (
     <>
       <Head>
@@ -20,12 +24,12 @@ export default function Layout({ children, pageTitle, description }) {
       <DefaultSeo {...seo} />
       <NextSeo title={pageTitle} description={description} />
 
-      <TopNavigation />
+      <TopNavigation className={defaultMargins} />
       <div className="dark:bg-zinc-900 dark:text-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="md:grid grid-cols-12 py-8 gap-12 mx-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="md:grid grid-cols-12 py-8 gap-16 mx-2">
             <div className="col-span-8">
-              <main className="min-h-screen">
+              <main className={`min-h-screen ${defaultMargins}`}>
                 <div className="content">{children}</div>
               </main>
             </div>
@@ -37,7 +41,7 @@ export default function Layout({ children, pageTitle, description }) {
         </div>
       </div>
 
-      <PageFooter />
+      <PageFooter className={defaultMargins} />
     </>
   );
 }
@@ -46,9 +50,4 @@ Layout.propTypes = {
   children: PropTypes.element.isRequired,
   pageTitle: PropTypes.string,
   description: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  pageTitle: baseConfig.seo.site_name,
-  description: baseConfig.seo.description,
 };

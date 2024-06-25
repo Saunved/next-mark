@@ -1,5 +1,5 @@
-import baseConfig from "base.config";
+import blogConfig from "./blog.config.mjs";
 
 export default {
-  ...baseConfig.seo
+  ...blogConfig.seo
 };

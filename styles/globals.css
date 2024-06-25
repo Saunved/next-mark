@@ -42,7 +42,9 @@
 
 .sidebar a,
 footer a,
-.breadcrumbs a {
+.breadcrumbs a,
+section a
+{
   @apply hover:dark:text-blue-500 hover:text-blue-800 transition-colors duration-150;
 }
 
@@ -64,4 +66,12 @@ figcaption a {
 
 p {
   @apply leading-normal;
+}
+
+article.prose {
+  @apply max-w-full;
+}
+
+.prose h2 {
+  @apply mt-0;
 }

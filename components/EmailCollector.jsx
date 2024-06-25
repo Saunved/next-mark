@@ -1,15 +1,15 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types";
 import Link from "next/link";
-import baseConfig from "base.config";
+import blogConfig from "blog.config.mjs";
 
-export default function EmailCollector({ className }) {
+export default function EmailCollector({ className = "" }) {
     const [email, setEmail] = useState("")
 
     return (
         <section className={className}>
-            <form action={baseConfig.buttonDownLink} method="post" target="popupwindow">
-                <p className="text-base tracking-wide dark:text-emerald-400 font-semibold">
+            <form action={blogConfig.buttonDownLink} method="post" target="popupwindow">
+                <p className="text-base tracking-wide dark:text-emerald-400 font-semibold pt-4">
                     Subscribe via email
                 </p>
                 <p className="text-sm">
@@ -31,7 +31,7 @@ export default function EmailCollector({ className }) {
                     Subscribe
                 </button>
             </form>
-            <div className="text-center">
+            <div className="text-center hidden">
                 <Link href="/about#why-subscribe" className="text-sm dark:text-gray-200 underline">Why subscribe?</Link>
             </div>
         </section>
@@ -39,9 +39,6 @@ export default function EmailCollector({ className }) {
 }
 
 EmailCollector.propTypes = {
+    // eslint-disable-next-line react/require-default-props
     className: PropTypes.string
-}
-
-EmailCollector.defaultProps = {
-    className: ""
 }

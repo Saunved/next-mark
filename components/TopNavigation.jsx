@@ -5,9 +5,10 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import HamburgerMenu from "components/HamburgerMenu";
 import { menu } from "constants/menu";
-import baseConfig from "base.config";
+import blogConfig from "blog.config.mjs";
+import PropTypes from "prop-types";
 
-function TopNavigation() {
+function TopNavigation({ className = "" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [renderClientSideCode, setRenderClientSideCode] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -28,22 +29,22 @@ function TopNavigation() {
   }, []);
 
   return (
-    <>
+    <div>
       <HamburgerMenu
         isMenuOpen={isMenuOpen}
         onMenuCloseClick={onMenuCloseClick}
       />
       <div className="py-4 bg-stone-900 text-white border-b dark:border-b-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <div>
-            <div className="flex justify-between items-center mx-6">
+        <div className="max-w-5xl mx-auto">
+          <div className={className}>
+            <div className="flex justify-between items-center mx-2">
               <div className="justify-self-start">
                 <Link
                   href="/"
                   className="flex justify-start gap-2 items-center"
                 >
                   <Image src="/favicon.ico" width={28} height={28} />
-                  <h2 className="text-xl">{baseConfig.siteHeader}</h2>
+                  <h2 className="text-xl">{blogConfig.siteHeader}</h2>
                 </Link>
               </div>
 
@@ -96,8 +97,13 @@ function TopNavigation() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
+}
+
+TopNavigation.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  className: PropTypes.string
 }
 
 export default TopNavigation;

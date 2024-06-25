@@ -1,54 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { meta as metaPropType } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
-import BreadCrumbs from "components/BreadCrumbs";
-import {useRouter} from "next/router";
-import baseConfig from "base.config";
+import blogConfig from "blog.config.mjs";
+import feedTypes from "constants/feedTypes";
+import GenericPostFeed from "./GenericPostFeed";
 
-export default function BlogPost({ meta, children }) {
-  const [breadCrumbLinks, setBreadCrumbLinks] = useState([]);
-  const router = useRouter();
-
-  useEffect(() => {
-    const getBreadCrumbLinks = () => {
-      const links = [
-        {
-          href: "/",
-          title: "Home",
-        },
-      ];
-      const postIsFromTech = meta?.categories?.includes("tech");
-      const postIsFromSeries = meta?.order;
-
-      if (postIsFromSeries) {
-        links.push(
-          { href: `/series`, title: "Series" },
-          {
-            href: `/series/${meta.seriesId}`,
-            title: meta.series,
-          }
-        );
-      } else if (postIsFromTech) {
-        links.push({
-          href: `/tech`,
-          title: "Tech",
-        });
-      }
-
-      links.push({
-        href: router.pathname,
-        title: meta.title,
-        disabled: true,
-      });
-
-      return links;
-    };
-
-    setBreadCrumbLinks(getBreadCrumbLinks());
-  }, []);
+export default function BlogPost({ relatedPosts = [], meta, isIndex = false, children }) {
 
   return (
     <>
@@ -57,7 +17,7 @@ export default function BlogPost({ meta, children }) {
         description={meta.description}
         canonical={meta.canonical}
         openGraph={{
-          url: process.env.BASE_URL + router.pathname,
+          url: process.env.BASE_URL + meta.slug,
           title: meta.title,
           description: meta.description,
           images: [
@@ -68,39 +28,54 @@ export default function BlogPost({ meta, children }) {
               alt: meta.alt,
             },
           ],
-          siteName: baseConfig.seo.siteName,
+          siteName: blogConfig.seo.siteName,
         }}
       />
 
       <div className="max-w-2xl ml-0">
-        <div>
-          <BreadCrumbs links={breadCrumbLinks} />
-          <h1 className="text-4xl font-bold">{meta.title}</h1>
-          <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {meta.author} &bull; {humanReadableDate(meta.date)} &bull;{" "}
-            {meta.readTime} min read
-          </p>
-          <figure>
-            <Image
-              className="mt-8 rounded-md"
-              src={`${meta.image}`}
-              height={400}
-              width={1200}
-              alt={meta.alt}
-            />
-            <figcaption>{meta.credit}</figcaption>
-          </figure>
-        </div>
-        <article className="mt-8 mb-16 prose prose-neutral prose-lg dark:prose-invert">
+
+        {
+          isIndex ? null :
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold">{meta.title}</h1>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
+                {!meta.author ? null : <>{meta.author} &bull; </>}
+                {!meta.date ? null : <> {humanReadableDate(meta.date)}</>}
+              </p>
+              {
+                !meta.image ? null : <figure> <Image
+                  className="mt-8 rounded-md max-h-[400px] object-cover"
+                  src={`${meta.image}`}
+                  height={400}
+                  width={600}
+                  priority
+                  alt={meta.alt}
+                />
+                  <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
+                </figure>
+              }
+            </div>
+        }
+
+        <article className="mb-12 prose prose-lg prose-neutral dark:prose-invert">
           {children}
         </article>
+
+        {
+          // eslint-disable-next-line react/prop-types
+          !relatedPosts?.length ? null :
+            <section>
+              {/* <SectionTitle>Related posts</SectionTitle> */}
+              <GenericPostFeed feedType={feedTypes.simpleList} title="Related posts" postsMeta={relatedPosts} />
+            </section>
+        }
+
 
         <hr className="my-10 dark:border-gray-600 hidden" />
         <section className="pt-4 pb-16 hidden">
           <p className="text-xl font-bold">Comments</p>
           <p className="text-xs">Coming soon</p>
         </section>
-        <hr className="md:hidden my-10 dark:border-gray-600" />
       </div>
     </>
   );
@@ -109,4 +84,8 @@ export default function BlogPost({ meta, children }) {
 BlogPost.propTypes = {
   children: PropTypes.element.isRequired,
   meta: metaPropType.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
+  relatedPosts: PropTypes.array,
+  // eslint-disable-next-line react/require-default-props
+  isIndex: PropTypes.bool
 };

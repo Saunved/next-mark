@@ -2,10 +2,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../styles/globals.css";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
-import "@code-hike/mdx/dist/index.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,10 +24,6 @@ export default function App(props) {
 
 App.propTypes = {
   Component: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
+  // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
   pageProps: PropTypes.any,
-};
-
-App.defaultProps = {
-  pageProps: {},
 };
