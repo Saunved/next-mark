@@ -94,7 +94,7 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
     return (
         <>
             {
-                !post || isIndex ? null :
+                !post ? null :
                     <BlogPost relatedPosts={relatedPosts} meta={{ ...frontmatter, author: frontmatter?.author }} isIndex={isIndex}>
                         {/* eslint-disable-next-line react/no-danger */}
                         <div dangerouslySetInnerHTML={{ __html: post }} />
@@ -105,22 +105,25 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
             {
                 !nestedPosts.length ? null :
                     <section id={frontmatter.slug} className='mb-8'>
-                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter.title || frontmatter.slug} feedDescription={frontmatter.description || ""} feedType={feedTypes.imageList} />
+                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter.filterTitle || frontmatter.title || frontmatter.slug} feedDescription={frontmatter.description || ""} feedType={feedTypes.imageList} />
                     </section>
             }
 
             {
                 !mdxDirs.length ? null :
                     <>
-                        <SectionTitle>Explore further</SectionTitle>
+                        <SectionTitle>Explore more</SectionTitle>
                         {
                             nestedPosts.length ? null :
                                 <p className='italic text-gray-500 -mt-2'>{frontmatter.description}</p>
                         }
-                        <div className="grid mt-4">
+                        <div className="grid grid-cols-2 gap-6 mt-6">
                             {
                                 mdxDirs.map((dir) => (
-                                    <Link href={dir.slug} key={dir.slug} className='col-span-4 py-3 flex items-center justify-between gap-4 border-b dark:border-gray-700 text-xl'>{dir.frontmatter.title || dir.slug} <CaretRight size={24} /> </Link>
+                                    <Link href={dir.slug} key={dir.slug} className='col-span-1 dark:hover:bg-gray-600 hover:bg-gray-200 flex items-center justify-between gap-4 border-b dark:border-gray-700 text-xl border p-4 rounded-md'>
+                                        {dir.frontmatter.title || dir.slug}
+                                        <CaretRight size={24} />
+                                    </Link>
                                 ))
                             }
                         </div >
