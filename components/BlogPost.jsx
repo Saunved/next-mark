@@ -33,29 +33,31 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
       />
 
       <div className="max-w-2xl ml-0">
-        <div>
-          {
-            isIndex ? null :
-              <h1 className="text-4xl font-bold">{meta.title}</h1>
 
-          }
-          <p className="text-gray-600 dark:text-gray-300 mt-2">
-            {!meta.author ? null : <>{meta.author} &bull; </>}
-            {!meta.date ? null : <> {humanReadableDate(meta.date)}</>}
-          </p>
-          {
-            !meta.image ? null : <figure> <Image
-              className="mt-8 rounded-md max-h-[400px] object-cover"
-              src={`${meta.image}`}
-              height={400}
-              width={1200}
-              alt={meta.alt}
-            />
-              <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
-            </figure>
-          }
-        </div>
-        <article className="mt-8 mb-16 prose prose-lg prose-neutral dark:prose-invert">
+        {
+          isIndex ? null :
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold">{meta.title}</h1>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
+                {!meta.author ? null : <>{meta.author} &bull; </>}
+                {!meta.date ? null : <> {humanReadableDate(meta.date)}</>}
+              </p>
+              {
+                !meta.image ? null : <figure> <Image
+                  className="mt-8 rounded-md max-h-[400px] object-cover"
+                  src={`${meta.image}`}
+                  height={400}
+                  width={600}
+                  priority
+                  alt={meta.alt}
+                />
+                  <figcaption dangerouslySetInnerHTML={{ __html: meta.credit }} />
+                </figure>
+              }
+            </div>
+        }
+
+        <article className="mb-12 prose prose-lg prose-neutral dark:prose-invert">
           {children}
         </article>
 
