@@ -76,7 +76,6 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
           <p className="text-xl font-bold">Comments</p>
           <p className="text-xs">Coming soon</p>
         </section>
-        <hr className="md:hidden my-10 dark:border-gray-600" />
       </div>
     </>
   );
