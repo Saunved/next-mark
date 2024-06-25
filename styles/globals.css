@@ -71,3 +71,7 @@ p {
 article.prose {
   @apply max-w-full;
 }
+
+.prose h2 {
+  @apply mt-0;
+}
