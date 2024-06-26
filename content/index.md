@@ -1,10 +1,13 @@
 ---
 title: "Home | Saunved"
 description: "Read captivating short stories, satirical thoughts, tech posts, and more - by Saunved."
-filter:
-    tag: "featured"
+feed:
+    filter: "featured"
     title: "Featured posts"
     description: ""
+explorer:
+    title: "Across the blog"
+    description: "Ready to jump down the rabbit hole?"
 image: ""
 ---
 
