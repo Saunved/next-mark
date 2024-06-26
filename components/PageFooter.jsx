@@ -27,7 +27,7 @@ function PageFooter({ className = "" }) {
             </div>
 
             <div className="col-span-4">
-              <p className="uppercase font-bold text-sm">Other channels</p>
+              <p className="uppercase font-bold text-sm">Platforms</p>
               <ul className="grid gap-1 mt-2 text-base">
                 {
                   blogConfig.footer.platforms.map(social => (
@@ -42,6 +42,24 @@ function PageFooter({ className = "" }) {
                 }
               </ul>
             </div>
+
+            <div className="col-span-4">
+              <p className="uppercase font-bold text-sm">Other links</p>
+              <ul className="grid gap-1 mt-2 text-base">
+                {
+                  blogConfig.footer.other.map(other => (
+                    <li key={other.href}>
+                      <IconLink
+                        href={other.href}
+                        title={other.title}
+                        external={other.external}
+                      />
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
           </div>
         </div>
 
