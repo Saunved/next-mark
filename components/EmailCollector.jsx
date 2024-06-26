@@ -13,7 +13,7 @@ export default function EmailCollector({ className = "" }) {
                     Subscribe via email
                 </p>
                 <p className="text-sm">
-                    Get notified when I publish. No spam :)
+                    Get updates occasionally. No spam :)
                 </p>
                 <input
                     type="email"
