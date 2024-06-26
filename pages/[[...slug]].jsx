@@ -2,13 +2,12 @@ import BlogPost from 'components/BlogPost';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchRelatedPosts } from "lib/related";
-import { getAllFileNames, getAllDirs, fetchAllPostsMeta } from "lib/indices";
+import { getAllFileNames, getAllDirs, fetchAllPostsMeta } from "lib/indices.mjs";
 import GenericPostFeed from 'components/GenericPostFeed';
 import feedTypes from 'constants/feedTypes';
 import Link from 'next/link';
 import SectionTitle from 'components/SectionTitle';
-import { CaretRight } from 'phosphor-react';
-import { getMdxContent } from '../lib/md';
+import { getMdxContent } from '../lib/md.mjs';
 
 export async function getStaticPaths() {
     const filePaths = await getAllFileNames();
@@ -36,6 +35,23 @@ export async function getStaticProps({ params }) {
         try {
             mdxContent = await getMdxContent(`${slug}/index`)
             mdxContent.frontmatter.slug = slug;
+
+            if (!mdxContent.frontmatter.explorer) {
+                mdxContent.frontmatter.explorer = {}
+            }
+
+            if (!mdxContent.frontmatter.feed) {
+                mdxContent.frontmatter.feed = {}
+            }
+
+            if (mdxContent.frontmatter?.explorer?.enabled === undefined) {
+                mdxContent.frontmatter.explorer.enabled = true;
+            }
+
+            if (mdxContent.frontmatter?.feed?.enabled === undefined) {
+                mdxContent.frontmatter.feed.enabled = true;
+            }
+
         } catch (error) {
             // Do nothing
         }
@@ -49,7 +65,7 @@ export async function getStaticProps({ params }) {
         // If the index page has a tag filter, respect it
         // Otherwise, apply a default filter
         // Always ignore "index" pages
-        const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter.filter ? meta?.tags?.includes(mdxContent?.frontmatter.filter) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
+        const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter?.feed?.filter ? meta?.tags?.includes(mdxContent?.frontmatter?.feed?.filter) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
 
 
         const mdxDirs = await Promise.all(nestedDirs.map(async (dir) => {
@@ -101,34 +117,31 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
                     </BlogPost>
             }
 
-
             {
-                !nestedPosts.length ? null :
+                !nestedPosts.length || !frontmatter.feed.enabled ? null :
                     <section id={frontmatter.slug} className='mb-8'>
-                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter.filterTitle || frontmatter.title || frontmatter.slug} feedDescription={frontmatter.description || ""} feedType={feedTypes.imageList} />
+                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter?.feed?.title || frontmatter.title || frontmatter.slug} feedDescription={frontmatter?.feed?.description ?? frontmatter.description} feedType={feedTypes.imageList} />
                     </section>
             }
 
             {
-                !mdxDirs.length ? null :
-                    <>
-                        <SectionTitle>Explore more</SectionTitle>
-                        {
-                            nestedPosts.length ? null :
-                                <p className='italic text-gray-500 -mt-2'>{frontmatter.description}</p>
-                        }
-                        <div className="grid grid-cols-2 gap-6 mt-6">
+                !mdxDirs.length || !frontmatter.explorer.enabled ? null :
+                    <div className='mb-12'>
+                        <SectionTitle>{frontmatter?.explorer?.title ?? frontmatter.title ?? "Explore more"}</SectionTitle>
+                        <p className='italic dark:text-gray-300 text-gray-600 -mt-2'>{frontmatter.explorer.description ?? frontmatter.description ?? ""}</p>
+                        <div className="grid md:grid-cols-2 gap-6 mt-6">
                             {
                                 mdxDirs.map((dir) => (
-                                    <Link href={dir.slug} key={dir.slug} className='col-span-1 dark:hover:bg-gray-600 hover:bg-gray-200 flex items-center justify-between gap-4 border-b dark:border-gray-700 text-xl border p-4 rounded-md'>
-                                        {dir.frontmatter.title || dir.slug}
-                                        <CaretRight size={24} />
+                                    <Link href={dir.slug} key={dir.slug} className='col-span-1 dark:hover:bg-gray-600 hover:bg-gray-200 dark:border-gray-600 border-gray-300 border p-4 rounded-lg shadow'>
+                                        <p className='text-xl'>{dir.frontmatter.title || dir.slug}</p>
+                                        <p className='text-sm'>{dir.frontmatter.description}</p>
                                     </Link>
                                 ))
                             }
-                        </div >
-                    </>
+                        </div>
+                    </div>
             }
+
         </>)
 }
 

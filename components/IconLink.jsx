@@ -10,7 +10,7 @@ function IconLink({ href, title, icon, external = false, iconSize = 0, iconLeft 
   return (
     <a
       href={href}
-      target="_blank"
+      target={external ? "_blank" : "_self"}
       className="flex justify-start gap-1 items-center"
       rel="noreferrer"
     >

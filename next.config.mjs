@@ -1,6 +1,7 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import blogConfig from "./blog.config.mjs";
+import { getAllRedirects } from './lib/redirects.mjs';
 
 const getBaseUrl = () => {
   if (!process.env.NEXT_PUBLIC_VERCEL_ENV) {
@@ -12,6 +13,10 @@ const getBaseUrl = () => {
 
 /** @type {import('next').NextConfig} */
 export default {
+  async redirects() {
+    const redirects = await getAllRedirects()
+    return redirects;
+  },
   reactStrictMode: true,
   experimental: {
     scrollRestoration: true

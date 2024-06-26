@@ -7,7 +7,7 @@ import { meta } from "constants/propTypes";
 import { humanReadableDate } from "utils/date";
 
 function PostPreviewCard({ postMeta, cardType }) {
-  const { slug, title, description, date, author, image, alt, parts } =
+  const { slug, title, description, date, image, alt, parts } =
     postMeta;
   const typeIsCollection = cardType === "collection";
 
@@ -31,7 +31,6 @@ function PostPreviewCard({ postMeta, cardType }) {
               {title}
             </h3>
             <p className="text-xs text-gray-600 dark:text-gray-300">
-              {author} &bull;{" "}
               {!typeIsCollection ? (
                 humanReadableDate(date)
               ) : (

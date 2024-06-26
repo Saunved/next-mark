@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { fetchAllPostsMeta } from "lib/indices";
+import { fetchAllPostsMeta } from "lib/indices.mjs";
 import GenericPostFeed from "components/GenericPostFeed";
 import feedTypes from "constants/feedTypes";
 import { getAllTags } from "helpers/tags";
