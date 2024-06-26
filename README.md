@@ -31,7 +31,9 @@ Feel free to create an issue if something's confusing and I will try to help you
 - [x] Add support for image captions
 - [x] Support alias/aliases frontmatter key for redirects
 - [x] Create better-looking index pages if possible [low priority]
-- [x] Do an accessibility audit  
+- [x] Do an accessibility audit
+- [ ] Add support for RSS feed
+- [ ] Generate sitemap
 - [ ] Make feed type configurable (feed.type) 
 - [ ] Process blog config via yaml
 - [ ] Setup email collector config via yaml

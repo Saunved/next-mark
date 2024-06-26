@@ -127,8 +127,8 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
             {
                 !mdxDirs.length || !frontmatter.explorer.enabled ? null :
                     <div className='mb-12'>
-                        <SectionTitle>{frontmatter?.explorer?.title ?? "Explore more"}</SectionTitle>
-                        <p className='italic text-gray-500 -mt-2'>{frontmatter.explorer.description ?? ""}</p>
+                        <SectionTitle>{frontmatter?.explorer?.title ?? frontmatter.title ?? "Explore more"}</SectionTitle>
+                        <p className='italic dark:text-gray-300 text-gray-600 -mt-2'>{frontmatter.explorer.description ?? frontmatter.description ?? ""}</p>
                         <div className="grid md:grid-cols-2 gap-6 mt-6">
                             {
                                 mdxDirs.map((dir) => (
