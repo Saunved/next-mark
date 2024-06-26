@@ -43,7 +43,7 @@ function TopNavigation({ className = "" }) {
                   href="/"
                   className="flex justify-start gap-2 items-center"
                 >
-                  <Image src="/favicon.ico" width={28} height={28} />
+                  <Image src="/favicon.ico" width={28} height={28} alt="Website logo" />
                   <h2 className="text-xl">{blogConfig.siteHeader}</h2>
                 </Link>
               </div>
