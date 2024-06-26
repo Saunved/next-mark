@@ -56,7 +56,7 @@ function PostList({ posts, cardType, feedType }) {
       )
     case feedTypes.imageGrid:
       return (
-        <section className="sm:grid grid-cols-2 gap-6 mt-2">
+        <section className="xs:grid grid-cols-2 gap-6 mt-6">
           {posts.map((article) => (
             <PostPreviewCard
               className="col-span-1"

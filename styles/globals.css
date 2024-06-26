@@ -79,3 +79,11 @@ article.prose {
 article.prose hr {
   @apply my-4;
 }
+
+article.prose li {
+  @apply my-0.5 leading-normal;
+}
+
+article.prose p + ul, article.prose p + li {
+  @apply -mt-4;
+}
