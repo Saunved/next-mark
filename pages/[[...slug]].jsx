@@ -2,13 +2,13 @@ import BlogPost from 'components/BlogPost';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchRelatedPosts } from "lib/related";
-import { getAllFileNames, getAllDirs, fetchAllPostsMeta } from "lib/indices";
+import { getAllFileNames, getAllDirs, fetchAllPostsMeta } from "lib/indices.mjs";
 import GenericPostFeed from 'components/GenericPostFeed';
 import feedTypes from 'constants/feedTypes';
 import Link from 'next/link';
 import SectionTitle from 'components/SectionTitle';
 import { CaretRight } from 'phosphor-react';
-import { getMdxContent } from '../lib/md';
+import { getMdxContent } from '../lib/md.mjs';
 
 export async function getStaticPaths() {
     const filePaths = await getAllFileNames();
