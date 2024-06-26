@@ -75,3 +75,7 @@ article.prose {
 .prose h2 {
   @apply mt-0;
 }
+
+article.prose hr {
+  @apply my-4;
+}
