@@ -32,10 +32,10 @@ Feel free to create an issue if something's confusing and I will try to help you
 - [x] Support alias/aliases frontmatter key for redirects
 - [x] Create better-looking index pages if possible [low priority]
 - [x] Do an accessibility audit  
-- [] Make feed type configurable (feed.type) 
-- [] Process blog config via yaml
-- [] Setup email collector config via yaml
-- [] Add support for Table of Contents (low priority)
-- [] Implement a global search [low priority]
-- [] Implement a "Likes" system  
-- [] Implement a "Comments" system  
+- [ ] Make feed type configurable (feed.type) 
+- [ ] Process blog config via yaml
+- [ ] Setup email collector config via yaml
+- [ ] Add support for Table of Contents (low priority)
+- [ ] Implement a global search [low priority]
+- [ ] Implement a "Likes" system  
+- [ ] Implement a "Comments" system  
