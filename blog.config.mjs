@@ -47,6 +47,13 @@ const blogConfig = {
                 title: "Medium",
                 external: true
             },
+        ],
+        other: [
+            {
+                href: "/about",
+                title: "About",
+                external: false
+            }
         ]
     },
     buttonDownLink: "https://buttondown.email/api/emails/embed-subscribe/saunved",
