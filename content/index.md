@@ -1,8 +1,10 @@
 ---
 title: "Home | Saunved"
-filter: "featured"
-filterTitle: "Featured posts"
-description: ""
+description: "Read captivating short stories, satirical thoughts, tech posts, and more - by Saunved."
+filter:
+    tag: "featured"
+    title: "Featured posts"
+    description: ""
 image: ""
 ---
 
