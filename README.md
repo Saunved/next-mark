@@ -32,6 +32,7 @@ Feel free to create an issue if something's confusing and I will try to help you
 - [x] Support alias/aliases frontmatter key for redirects
 - [x] Create better-looking index pages if possible [low priority]
 - [x] Do an accessibility audit
+- [ ] Add the ability to sort by "order"
 - [ ] Add support for RSS feed
 - [ ] Generate sitemap
 - [ ] Make feed type configurable (feed.type) 
