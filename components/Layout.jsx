@@ -9,8 +9,6 @@ import PageFooter from "components/PageFooter";
 import HomeSidebar from "components/HomeSidebar";
 import seo from "next-seo.config";
 import blogConfig from "blog.config.mjs";
-// eslint-disable-next-line import/no-extraneous-dependencies, no-unused-vars
-import { Analytics } from "@vercel/analytics/react";
 
 export default function Layout({ children, pageTitle = blogConfig.seo.site_name, description = blogConfig.seo.description }) {
 
