@@ -49,7 +49,7 @@ export async function getStaticProps({ params }) {
         // If the index page has a tag filter, respect it
         // Otherwise, apply a default filter
         // Always ignore "index" pages
-        const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter.filter ? meta?.tags?.includes(mdxContent?.frontmatter.filter) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
+        const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter?.filter?.tag ? meta?.tags?.includes(mdxContent?.frontmatter?.filter?.tag) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
 
 
         const mdxDirs = await Promise.all(nestedDirs.map(async (dir) => {
@@ -105,7 +105,7 @@ function PostPage({ post, frontmatter, relatedPosts, nestedPosts = [], mdxDirs =
             {
                 !nestedPosts.length ? null :
                     <section id={frontmatter.slug} className='mb-8'>
-                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter.filterTitle || frontmatter.title || frontmatter.slug} feedDescription={frontmatter.description || ""} feedType={feedTypes.imageList} />
+                        <GenericPostFeed postsMeta={nestedPosts} title={frontmatter?.filter?.title || frontmatter.title || frontmatter.slug} feedDescription={frontmatter?.filter?.description ?? frontmatter.description} feedType={feedTypes.imageList} />
                     </section>
             }
 
