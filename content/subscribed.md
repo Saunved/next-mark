@@ -1,6 +1,7 @@
 ---
 title: Subscription confirmed
 page: true
+image: ""
 ---
 
 My cat is confused as to why anyone would subscribe to this mewsletter. 

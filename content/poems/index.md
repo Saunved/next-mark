@@ -1,8 +1,11 @@
 ---
 title: "📜 Poems"
 description: "Poems I have written over the years."
+feed:
+    title: "📜 Explore all poems"
+    description: ""
 ---
 
-For some reason, most of the poems I write tend to exhibit some sort of dark or negative emotion. I believe it could be because that's an outlet for my brain - a way to deal with negativity.
+Poetry has always been a way for me to express my most pressing thoughts. I often think of it as a form of dreaming on paper (yes, very poetic - I know!).
 
-I will continue adding my older poems to this list over time, and hopefully also categorize them better.
+My poems are mostly free-style, and deal with varying emotions or ideas that I might be pondering over.  

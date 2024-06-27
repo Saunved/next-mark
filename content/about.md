@@ -11,8 +11,8 @@ Things you should know about me:
 - I read, when time permits.
 - I solve interesting problems and write code at [Helpshift](https://helpshift.com) for work.
 
-One thing I know about you:
-- You most probably will struggle to pronounce my name (hint: it's not son-ved, or san-ved).
+One thing I know about you:  
+You most probably will struggle to pronounce my name (hint: it's not son-ved, or san-ved).
 
 Try saying *sauu-ved* instead.  
 You're about 95% there!
@@ -24,7 +24,7 @@ My love for writing began when I was about 8 years old, while I was travelling t
 
 I am  sure I had written other poems before, but this one dealt with mortality (a concept I was baffled by, and also delusionally convinced that I would never have to face). It was called *"A mortal's end"*, and it dealt with the fact that death was a necessary part of being alive.
 
-I have, since then, written a lot of poems. I think they were mature for my age - but looking back, not many have survived the test of time. It is a wonderful feeling though - to have a poem just "appear", and having the words just flow.
+I have, since then, written a lot of [poems](/poems). I think they help me express my most pressing thoughts properly.
 
 I write short stories these days, as well as articles based on life experiences. Deliberate writing is difficult, but ultimately, very rewarding.
 
@@ -33,7 +33,7 @@ I write short stories these days, as well as articles based on life experiences.
 
 My mother is an avid reader, which meant there were always books in the house. When we moved to Seychelles, the librarians at my school realized that I was a voracious reader, and they lifted the "two book limit" to five for me. I made ample use of that throughout the five years I spent in Seychelles.
 
-These days, I mostly read non-fiction. For some reason, I want what I read to be *useful*. I wish that wasn't the case. I love the feeling of reading purely for the sake of enjoying the story.
+These days, for some reason, I want what I read to be *useful*. I wish that wasn't the case. I love the feeling of reading purely for the sake of enjoying the story.
 
 
 ### On work
