@@ -59,14 +59,13 @@ export async function getStaticProps({ params }) {
         const countSlashes = (str) => (str.match(/\//g) || []).length
 
         const nestedDirs = (await getAllDirs(slug)).filter((dir) => !slug ? countSlashes(slug) === countSlashes(dir) : dir)
-            .filter(dir => !dir.includes("assets"))
+            .filter(dir => !dir.includes("assets") && !dir.includes(".obsidian"))
 
         // This filter is quite convoluted, but it works for now, so not changing it
         // If the index page has a tag filter, respect it
         // Otherwise, apply a default filter
         // Always ignore "index" pages
         const nestedPosts = (await fetchAllPostsMeta((meta) => !meta.slug.includes('index') && (mdxContent?.frontmatter?.feed?.filter ? meta?.tags?.includes(mdxContent?.frontmatter?.feed?.filter) : (meta.slug.includes(slug) && !nestedDirs.some(dir => meta.slug.includes(dir))))))
-
 
         const mdxDirs = await Promise.all(nestedDirs.map(async (dir) => {
             try {
