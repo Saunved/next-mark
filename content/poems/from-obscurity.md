@@ -1,6 +1,6 @@
 ---
 title: "From obscurity"
-description: "Human history is rich and vast, but technology will vastly affect how it is remembered."
+description: "Human history is rich and vast, but technology will greatly influence how it is remembered."
 date: "2022-10-14"
 image: "/from-obscurity.jpg"
 credit: Photo by <a href="https://unsplash.com/@yusufdundar?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Yusuf Dündar</a> on <a href="https://unsplash.com/photos/multicolored-mat-lAkrJlAfy-g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
