@@ -5,6 +5,7 @@
 !/public/static
 !/public/robots.txt
 !/public/.gitkeep
+!/public/favicon.ico
 
 #obsidian
 .obsidian
