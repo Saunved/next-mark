@@ -6,6 +6,9 @@
 !/public/robots.txt
 !/public/.gitkeep
 
+#obsidian
+.obsidian
+
 # dependencies
 /node_modules
 /.pnp
