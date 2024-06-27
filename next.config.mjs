@@ -34,6 +34,7 @@ export default {
             {
               from: path.resolve('./content/assets'),
               to: path.resolve('./public'),
+              noErrorOnMissing: true
             },
           ],
         })
