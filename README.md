@@ -35,6 +35,7 @@ Feel free to create an issue if something's confusing and I will try to help you
 - [ ] Add the ability to sort by "order"
 - [ ] Add support for RSS feed
 - [ ] Generate sitemap
+- [ ] Support YouTube embeds
 - [ ] Make feed type configurable (feed.type) 
 - [ ] Process blog config via yaml
 - [ ] Setup email collector config via yaml

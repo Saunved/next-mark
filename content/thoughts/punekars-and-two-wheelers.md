@@ -1,14 +1,15 @@
 ---
-title: 'Punekars and two-wheelers'
-description: "Every Punekar, irrespective of which bike, scooter, or bicycle they have, drives it like Batman's bike."
+title: Punekars and two-wheelers
+description: Every Punekar, irrespective of which bike, scooter, or bicycle they have, drives it like Batman's bike.
 readTime: 3
-author: 'Saunved'
-date: '2016-11-23'
-image: '/pune-bikes-large.jpg'
-blurImg: '/pune-bikes-small.jpg'
+author: Saunved
+date: "2016-11-23"
+image: /pune-bikes-small.jpg
 credit: Photo by <a href="https://unsplash.com/@atharva_tulsi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Atharva Tulsi</a> on <a href="https://unsplash.com/photos/zTdh_ft2oRM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-alt: 'Crazy bike rider'
-categories: ['funny', 'satire']
+alt: Crazy bike rider
+categories:
+  - funny
+  - satire
 tags:
   - featured
 ---

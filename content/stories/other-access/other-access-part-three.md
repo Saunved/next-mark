@@ -15,10 +15,9 @@ This script was based on a loophole that Pyrel and Sirek had discovered a few ye
 _0 results_ the screen flashed.
 
 ‘Outside world,’ he typed in.  
-_A place of death and despair…  
-
-Beyond Olgamarf &#8211; nuclear warfare and dead countries  
-Gerog Brylich was the greatest ruler of all time for…
+- A place of death and despair…
+- Beyond Olgamarf; nuclear warfare and dead countries  
+- Gerog Brylich was the greatest ruler of all time for…
 
 ‘Pyrel,’ his mother shouted, ‘get some vegetables for dinner!’  
 ‘Yes mother,’ he said.  
