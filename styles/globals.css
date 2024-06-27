@@ -87,3 +87,7 @@ article.prose li {
 article.prose p + ul, article.prose p + li {
   @apply -mt-4;
 }
+
+.prose ul.contains-task-list {
+  @apply list-none pl-0 my-1;
+}
