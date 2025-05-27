@@ -85,7 +85,7 @@ export async function getStaticProps({ params }) {
             props: {
                 post: mdxContent.post,
                 frontmatter: mdxContent.frontmatter,
-                relatedPosts: [], 
+                relatedPosts: [],
                 nestedPosts,
                 mdxDirs,
                 isIndex: true

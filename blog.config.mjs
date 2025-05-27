@@ -13,6 +13,23 @@ const blogConfig = {
             cardType: "summary_large_image",
         }
     },
+    opineKit: {
+        siteId: "",
+        containerId: "opinekit-container",
+        visible: true,
+        theme: "ocean-dark",
+
+        // These are only being used internally to switch themes dynamically
+        darkTheme: "ocean-dark", 
+        lightTheme: "ocean-light",
+        
+        fontFamily: "",
+        fontUrl: "",
+        widgetStyles: {},
+
+        // This should be false on production
+        local: true
+    },
     siteUrl: "",
     localUrl: "",
     siteHeader: "",

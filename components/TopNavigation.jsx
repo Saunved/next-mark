@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import blogConfig from "blog.config.mjs";
 import PropTypes from "prop-types";
+import opineKit from "helpers/opineKit";
 
 function TopNavigation({ className = "" }) {
   const [renderClientSideCode, setRenderClientSideCode] = useState(false);
@@ -35,8 +36,10 @@ function TopNavigation({ className = "" }) {
                 {renderClientSideCode ? (
                   <button
                     type="button"
-                    onClick={() =>
-                      setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                    onClick={() => {
+                      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                      opineKit.onThemeChange(resolvedTheme === "dark" ? "light" : "dark")
+                    }
                     }
                     title={
                       resolvedTheme === "dark"

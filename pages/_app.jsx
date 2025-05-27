@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "../styles/globals.css";
 import Prism from "prismjs"
@@ -9,8 +9,9 @@ import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/components/prism-clojure';
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import Layout from "components/Layout";
+import opineKit from "helpers/opineKit";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,6 +19,10 @@ const inter = Inter({
 
 export default function App(props) {
   const { Component, pageProps } = props;
+
+  useEffect(() => {
+    opineKit.start();
+  }, [])
 
   useEffect(() => {
     // Configure Prism options

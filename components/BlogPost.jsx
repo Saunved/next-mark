@@ -57,9 +57,15 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
             </div>
         }
 
-        <article className="mb-12 prose prose-lg prose-neutral dark:prose-invert">
+        <article id="post" className="mb-12 prose prose-lg prose-neutral dark:prose-invert">
           {children}
         </article>
+
+        {
+          isIndex ? null :
+            <div id="opinekit-container" />
+        }
+
 
         {
           // eslint-disable-next-line react/prop-types
