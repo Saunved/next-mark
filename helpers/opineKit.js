@@ -1,4 +1,4 @@
-const blogConfig = require("blog.config.mjs");
+import blogConfig from "blog.config.mjs";
 
 let opineKitConfig = blogConfig.opineKit;
 
@@ -18,7 +18,12 @@ const onThemeChange = (theme) => {
 }
 
 const start = () => {
-    window.opineKit.config(opineKitConfig).start()
+  if(blogConfig?.opineKit?.siteId) {
+      window.opineKit.config(blogConfig?.opineKit).start()
+  } else {
+    // eslint-disable-next-line no-console
+    console.debug("OpineKit siteId is not set. Skipping initialization.");
+  }
 }
 
 export default {
