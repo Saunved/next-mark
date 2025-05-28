@@ -57,13 +57,17 @@ export default function BlogPost({ relatedPosts = [], meta, isIndex = false, chi
             </div>
         }
 
+        {
+          !isIndex && <div id="tldr" className="h-[64px]" />
+        }
+
         <article id="post" className="mb-12 prose prose-lg prose-neutral dark:prose-invert">
           {children}
         </article>
 
         {
           isIndex ? null :
-            <div id="opinekit-container" />
+            <div id="opinions" />
         }
 
 
