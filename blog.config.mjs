@@ -14,14 +14,22 @@ const blogConfig = {
         }
     },
     opineKit: {
-        siteId: "",
+        siteId: "test-id",
         containerId: "opinekit-container",
         visible: true,
         theme: "ocean-dark",
+        containers: {
+            tldr: {
+                selector: "#tldr"
+            },
+            opinions: {
+                selector: "#opinions"
+            }
+        },
 
         // These are only being used internally to switch themes dynamically
         darkTheme: "ocean-dark", 
-        lightTheme: "ocean-light",
+        lightTheme: "ocean",
         
         fontFamily: "",
         fontUrl: "",

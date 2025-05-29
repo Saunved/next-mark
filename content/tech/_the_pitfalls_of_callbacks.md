@@ -1,0 +1,1 @@
+Why callbacks, especially nested ones are a pain to deal with since their references are very difficult to find with a linter.

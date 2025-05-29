@@ -14,7 +14,8 @@ function TopNavigation({ className = "" }) {
   // https://blog.hao.dev/render-client-side-only-component-in-next-js
   useEffect(() => {
     setRenderClientSideCode(true);
-  }, []);
+    opineKit.onThemeChange(resolvedTheme)
+  }, [resolvedTheme]);
 
   return (
     <div>

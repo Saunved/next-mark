@@ -19,7 +19,7 @@ const onThemeChange = (theme) => {
 
 const start = () => {
   if(blogConfig?.opineKit?.siteId) {
-      window.opineKit.config(blogConfig?.opineKit).start()
+    window.opineKit.config(opineKitConfig).start()
   } else {
     // eslint-disable-next-line no-console
     console.debug("OpineKit siteId is not set. Skipping initialization.");
